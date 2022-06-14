@@ -1,0 +1,63 @@
+#homepage-container {
+  color: #6C6C6C;
+}
+
+#hmpg-intro {
+  position: absolute;
+  /* background-image: url('../../public/images/hero-img.png'); */
+  background: transparent url('../../public/images/hero-img.png') 0% 0% no-repeat padding-box;
+  background-size: cover;
+  width: 100vw;
+  height: 300px;
+  left: 0;
+}
+
+#hmpg-intro-content {
+  margin-left: 4rem;
+  width: 30%;
+}
+
+#hmpg-intro h1 {
+  font-family: Nunito;
+}
+
+#hmpg-intro h1 span {
+  color: #42C0F6;
+  font-weight: 900;
+}
+
+#hmpg-btn-container {
+  display: flex;
+  justify-content: right;
+}
+
+.hmpg-standard-btn {
+  padding: 0.25rem 1rem;
+  background-color: white;
+  border: 2px solid #42C0F6;
+  height: fit-content;
+  border-radius: 0.25rem;
+}
+
+#hmpg-signup-btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 50%;
+}
+
+.signup-btn {
+  padding: 0.25rem 2.5rem;
+  width: fit-content;
+  background-color: #F91D85;
+  border: 2px solid #F91D85;
+  color: white;
+  border-radius: 0.25rem;
+  margin-left: auto;
+}
+
+#hmpg-signup-btn-container p {
+  margin-left: 1.5rem;
+  text-align: right;
+  font-size: 0.6em;
+}
