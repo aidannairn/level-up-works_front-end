@@ -65,16 +65,11 @@ nav {
     flex-direction: column;
   }
 
-  #header-logo-wrapper {
+  #header-logo-wrapper, #auth-container, #lang-container {
     justify-content: center;
   }
 
   #auth-lang-container {
     flex-direction: column-reverse;
   }
-
-  #auth-container, #lang-container {
-    justify-content: center;
-  }
-
 }
