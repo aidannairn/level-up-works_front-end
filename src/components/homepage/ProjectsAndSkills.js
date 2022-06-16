@@ -56,10 +56,10 @@ const ProjectsAndSkills = () => {
         <div id="hmpg-offers-gallery-container">
           <img src={galleryImg} alt="" />
           <form action="">
-            <input type="radio" name="laptop-img" value="laptop-1" onChange={handleGalleryInputChange} defaultChecked/>
-            <input type="radio" name="laptop-img" value="laptop-2" onChange={handleGalleryInputChange} />
-            <input type="radio" name="laptop-img" value="laptop-3" onChange={handleGalleryInputChange} />
-            <input type="radio" name="laptop-img" value="laptop-4" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-1" onChange={handleGalleryInputChange} defaultChecked/>
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-2" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-3" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-4" onChange={handleGalleryInputChange} />
           </form>
         </div>
       </div>
