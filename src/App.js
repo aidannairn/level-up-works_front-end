@@ -6,9 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main> {/* Add components within main */}
-        {/* <Homepage /> */}
-      </main>
+      <Homepage />
       <Footer />
     </div>
   );

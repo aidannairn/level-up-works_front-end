@@ -1,5 +1,8 @@
 #homepage-container {
   color: #6C6C6C;
+  position: relative;
+  min-height: calc(100vh - 29.5rem);
+  padding: 0 4rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -38,9 +41,13 @@ h1, h2, h3, h4, h5 {
 .hmpg-standard-btn {
   padding: 0.25rem 1rem;
   background-color: white;
-  border: 2px solid #42C0F6;
+  color: #6C6C6C;
   height: fit-content;
+  border: 2px solid #42C0F6;
   border-radius: 0.25rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 #hmpg-signup-btn-container {
@@ -57,7 +64,10 @@ h1, h2, h3, h4, h5 {
   border: 2px solid #F91D85;
   color: white;
   border-radius: 0.25rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
   margin-left: auto;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 #hmpg-signup-btn-container p {
@@ -108,6 +118,7 @@ form {
   justify-content: center;
   border-radius: 20px;
   border: 2px solid #42C0F6;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
   background-image: radial-gradient(circle at center, #88DBFF, #42C0F6);
 }
 
@@ -140,3 +151,50 @@ form {
   height: fit-content;
 }
 /* END Offers Section */
+/* START ProgrammeBenefits section */
+#programme-benefits-container h2 {
+  text-align: center;
+}
+
+#pb-btn-cont {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+#pb-btn-cont button {
+  width: 13rem;
+}
+
+.pb-btn-active {
+  background-color: #EFEFF1;
+  border-color: #EFEFF1;
+}
+
+#pb-topic-cont {
+  margin: 0 -4rem;
+  padding: 1rem 4rem;
+  background-color: #EFEFF1;
+}
+
+.pb-benefit-cont {
+  display: flex;
+}
+
+.pb-benefit-cont img {
+  width: 3rem;
+  /* height: auto; */
+}
+
+.pb-benefit-text {
+  margin-left: 0.5rem;
+}
+
+.pb-benefit-text h4 {
+  margin: 0;
+}
+
+.pb-benefit-text p {
+  margin-top: 0.5rem;
+}
+/* END ProgrammeBenefits section */
