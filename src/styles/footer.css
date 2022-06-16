@@ -1,0 +1,54 @@
+footer {
+  display: flex;
+  background-color: #B2E4FA;
+  padding: 3rem 4rem;
+  height: 20rem;
+  color: #707070;
+}
+
+.ftr-topic-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rem;
+  width: 20%;
+}
+
+.ftr-topic-container:first-of-type {
+  margin-left: 0;
+}
+
+.ftr-topic-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#ftr-company-desc {
+  width: 30%;
+}
+
+.ftr-topic-heading {
+  font-size: 1rem;
+  font-family: Nunito;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    height: fit-content;
+    padding: 1rem;
+  }
+
+  .ftr-topic-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .ftr-topic-container:first-of-type {
+    margin-top: 0;
+  }
+
+  #ftr-company-desc {
+    width: 100%;
+  }
+}

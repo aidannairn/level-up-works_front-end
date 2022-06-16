@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+
+#ProjectsNav {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    font-family: nunito;
+    color: #6C6C6C;
+  }
+  #levelButton{
+    margin-top: 50px;
+  }
+  #viewButton{
+
+  }

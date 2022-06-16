@@ -1,8 +1,16 @@
+import Header from "./Components/Header";
+import ProjectHeading from './Components/ProjectsPage/ProjectsHeading'
+import ProjectNav from './Components/ProjectsPage/ProjectsNav'
+//import Homepage from "./components/homepage/Homepage";
+import Footer from "./Components/Footer";
+
 function App() {
   return (
     <div className="App">
-      <h1>Mission X</h1>
-      <h2>Wilems branch</h2>
+      <Header />
+      <ProjectHeading/>
+      <ProjectNav/>
+      <Footer />
     </div>
   );
 }
