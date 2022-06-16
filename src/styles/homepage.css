@@ -198,3 +198,26 @@ form {
   margin-top: 0.5rem;
 }
 /* END ProgrammeBenefits section */
+/* START Signup section */
+#hmpg-signup-container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#hmpg-signup-container img {
+  width: 40%;
+}
+
+#hmpg-signup-content {
+  width: 50%;
+}
+
+#hmpg-enquire-signup-btn-cont {
+  display: flex;
+}
+
+.hmpg-btn-container {
+  width: 50%;
+}
+/* END Signup section */
