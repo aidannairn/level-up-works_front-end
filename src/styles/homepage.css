@@ -8,8 +8,7 @@
 h1, h2, h3, h4, h5 {
   font-family: Nunito;
 }
-
-/* BEGIN Intro Section */
+/* BEGIN Intro section */
 #hmpg-intro-container {
   display: flex;
   margin-left: -4rem;
@@ -76,9 +75,9 @@ h1, h2, h3, h4, h5 {
   text-align: right;
   font-size: 0.6em;
 }
-/* END Intro Section */
-/* BEGIN Offer Section */
-#hmpg-offers-container {
+/* END Intro section */
+/* BEGIN Projects & Skills section */
+#hmpg-pas-container {
   display: flex;
   flex-direction: column;
 }
@@ -93,7 +92,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
 }
 
-#hmpg-offers-gallery-container {
+#hmpg-pas-gallery-container {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -141,11 +140,11 @@ form {
   text-transform: uppercase;
 }
 
-#hmpg-offers-and-skills h3 {
+#hmpg-skills-container h3 {
   text-align: center;
 }
 
-#hmpg-skills-container {
+#hmpg-skills {
   display: flex;
   padding: 0 1rem;
   justify-content: space-between;
@@ -155,7 +154,7 @@ form {
   width: 10rem;
   height: fit-content;
 }
-/* END Offers Section */
+/* END Projects & Skills section */
 /* START ProgrammeBenefits section */
 #programme-benefits-container h2 {
   text-align: center;
@@ -188,7 +187,6 @@ form {
 
 .pb-benefit-cont img {
   width: 3rem;
-  /* height: auto; */
 }
 
 .pb-benefit-text {
@@ -264,11 +262,11 @@ form {
     margin-bottom: 0.5rem;
   }
 
-  #hmpg-offers-gallery-container {
+  #hmpg-pas-gallery-container {
     width: 100%;
   }
   
-  #hmpg-skills-container {
+  #hmpg-skills {
     flex-direction: column;
     padding: 0;
   }
@@ -279,7 +277,6 @@ form {
     margin-left: auto;
     margin-bottom: 0.5rem;
   }
-
   /* END ProjectsAndSkills section */
   /* START ProgrammeBenefits section */
   #pb-btn-cont {
@@ -295,7 +292,6 @@ form {
     margin: 0 -1rem;
     padding: 1rem;
   }
-
   /* END ProgrammeBenefits section */
   /* START Signup section */
   #hmpg-signup-container {
