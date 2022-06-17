@@ -1,4 +1,4 @@
-import '../../Styles/ProjectsNav.css';
+import '../../Styles/StudentProjectsPage/ProjectsNav.css';
 
 
 const ProjectsNav = () => {

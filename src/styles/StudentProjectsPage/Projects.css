@@ -1,0 +1,24 @@
+#Projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 55%;
+    margin: 0 auto;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+figure {
+    display: inline-block;
+}
+figcaption {
+    text-align: center;
+    font-family: nunito;
+    color: #6C6C6C;
+
+}
+
+

@@ -13,5 +13,14 @@
     margin-top: 50px;
   }
   #viewButton{
-
+    
+  }
+  button {
+    font-weight: bold;
+    color: rgb(26, 26, 26);
+    background-color: rgb(240, 239, 239);
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: #6C6C6C;
   }

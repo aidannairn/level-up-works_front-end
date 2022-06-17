@@ -1,5 +1,5 @@
 
-import '../../Styles/ProjectsHeading.css';
+import '../../Styles/StudentProjectsPage/ProjectsHeading.css';
 
 const ProjectsHeading = () => {
   return (
