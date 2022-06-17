@@ -40,6 +40,7 @@ footer {
   }
 
   .ftr-topic-container {
+    text-align: center;
     width: 100%;
     margin: 1rem 0;
   }
@@ -50,5 +51,10 @@ footer {
 
   #ftr-company-desc {
     width: 100%;
+    text-align: justify;
+  }
+
+  .ftr-topic-heading:last-of-type {
+    text-align: center;
   }
 }

@@ -37,10 +37,10 @@ const ProjectsAndSkills = () => {
   ]
 
   return (
-    <div id="hmpg-offers-container">
+    <div id="hmpg-pas-container">
       <div id="hmpg-projects-and-gallery">
         <div id="hmpg-intro-and-projects">
-          <div id="hmpg-offers-intro">
+          <div>
             <h2>What we offer</h2>
             <p>The Creative Problem Solving programme is series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand’s leading IT industry experts and schools.</p>
           </div>
@@ -53,19 +53,19 @@ const ProjectsAndSkills = () => {
             </div>
           </div>
         </div>
-        <div id="hmpg-offers-gallery-container">
+        <div id="hmpg-pas-gallery-container">
           <img src={galleryImg} alt="" />
           <form action="">
-            <input type="radio" name="laptop-img" value="laptop-1" onChange={handleGalleryInputChange} defaultChecked/>
-            <input type="radio" name="laptop-img" value="laptop-2" onChange={handleGalleryInputChange} />
-            <input type="radio" name="laptop-img" value="laptop-3" onChange={handleGalleryInputChange} />
-            <input type="radio" name="laptop-img" value="laptop-4" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-1" onChange={handleGalleryInputChange} defaultChecked/>
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-2" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-3" onChange={handleGalleryInputChange} />
+            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-4" onChange={handleGalleryInputChange} />
           </form>
         </div>
       </div>
-      <div id="hmpg-offers-and-skills">
-      <h3>Teaching kids programming and digital skills is MORE than just writing code.</h3>
       <div id="hmpg-skills-container">
+      <h3>Teaching kids programming and digital skills is MORE than just writing code.</h3>
+      <div id="hmpg-skills">
         {skills.map((skill, index) => {
           return <Skill key={index} bgImage={skill.image} />
         })}
