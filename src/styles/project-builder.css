@@ -1,0 +1,98 @@
+#project-builder-container {
+  display: flex;
+  height: calc(100vh - 3.5rem);
+  background-color: #B2E4FA;
+}
+
+#pb-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+  background-color: #43C0F6;
+  color: white;
+}
+
+#sb-profile-img-wrapper {
+  text-align: center;
+}
+
+#sb-profile-img-wrapper img {
+  width: 4rem;
+  margin: 1.5rem 0;
+}
+
+#sb-views {
+  padding: 0 1rem 1rem;
+}
+
+.sb-view {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+.sb-view img {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.sb-view-title {
+  margin: 0;
+  width: max-content;
+}
+
+#sb-arrow-container {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: right;
+}
+
+#sb-arrow-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 4rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: #B2E4FA;
+}
+
+#sb-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent; 
+  border-right: 15px solid #F91D84; 
+}
+
+#sb-user-options {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sb-user-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  text-align: center;
+}
+
+.sb-user-option h5 {
+  margin: 0.5rem 0;
+}
+
+#pb-main-container {
+  background-color: #D9F2FD;
+  width: 100%;
+  height: calc(100% - 4rem);
+  margin: 2rem 1rem;
+  border-radius: 2rem;
+}

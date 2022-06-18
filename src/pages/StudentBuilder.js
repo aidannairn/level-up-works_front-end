@@ -1,7 +1,8 @@
 import React from 'react'
 
 import MainHeader from '../components/header/MainHeader'
-import '../styles/student-builder.css'
+import ProjectBuilder from '../components/project-builder/ProjectBuilder'
+import '../styles/project-builder.css'
 
 const StudentBuilder = () => {
   const testScreenshotBtn = () => {
@@ -26,7 +27,7 @@ const StudentBuilder = () => {
       <MainHeader layout='2' 
       projectBar={projectBar} 
       navBtns={navBtns} />
-      <div id='student-builder-container'></div>
+      <ProjectBuilder />
     </>
   )
 }
