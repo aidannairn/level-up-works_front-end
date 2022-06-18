@@ -10,9 +10,7 @@ const StudentBuilder = () => {
 
   const navBtns = [
     { name: 'Take Screenshot', 
-      action: function() {
-       testScreenshotBtn()
-      }
+      action: testScreenshotBtn
     },
     { name: 'Ask Teacher for help', action: '' },
     { name: 'More Projects', action: '' },

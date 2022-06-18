@@ -14,9 +14,11 @@ const ProjectBar = ({ projectBar }) => {
           <h3>PROJECT</h3>
           <p>Introduction</p>
         </div>
-        <div id="pb-number">1</div>
-        <div id='pb-step-circles'>
-          {stepCircles}
+        <div id="pb-num-steps-container">
+          <div id="pb-number">1</div>
+          <div id='pb-step-circles'>
+            {stepCircles}
+          </div>
         </div>
       </div>
     </div>

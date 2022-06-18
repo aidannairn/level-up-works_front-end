@@ -14,14 +14,9 @@ const Homepage = () => {
     { name: 'Teachers', route: '#' },
   ]
 
-  const currentUser = {
-    name: 'Rawiri Fletcher',
-    image: 'rawiri-fletcher'
-  }
-
   return (
     <>
-      <MainHeader layout='1' navLinks={navLinks} currentUser={currentUser} />
+      <MainHeader layout='1' navLinks={navLinks} />
       <div id='homepage-container'>
         <Intro />
         <Offers />
