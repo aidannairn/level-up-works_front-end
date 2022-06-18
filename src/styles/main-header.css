@@ -2,18 +2,94 @@
   display: flex;
   justify-content: space-between;
   padding: 0 4rem;
-  background-color: #41c0f6;
+  height: 3.5rem;
   color: white;
-  text-transform: uppercase;
+}
+
+.header-layout-1 {
+  background-color: #41c0f6;
+}
+
+.header-layout-2 {
+  display: flex;
+  background-color: #FFFFFF;
 }
 
 #header-logo-wrapper {
   display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
 }
 
 #header-logo {
-  width: 174px;
-  height: 55px;
+  width: auto;
+  height: 100%;
+}
+
+#layout-2-container {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 2rem;
+  justify-content: flex-end;
+  color: #6C6C6C;
+}
+
+#header-pb-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: left;
+}
+
+#header-project-bar {
+  display: flex;
+  align-items: center;
+  border-color: #43C0F6;
+  font-weight: bold;
+}
+
+#pb-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+#pb-desc h3 {
+  margin: 0;
+  font-weight: 900;
+}
+
+#pb-desc p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+#pb-num-steps-container {
+  display: flex;
+  align-items: center;
+}
+
+#pb-number {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 0.5rem;
+  text-align: center;
+  background-color: #fdf7c0;
+  border: 3px solid #43C0F6;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+}
+
+#pb-step-circles {
+  display: flex;
+  width: fit-content;
+}
+
+.pb-step-circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.25rem;
+  border: 3px solid #43C0F6;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
 }
 
 nav {
@@ -21,30 +97,72 @@ nav {
   flex-grow: 1;
   justify-content: space-evenly;
   align-items: flex-end;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .nav-option {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+#header-project-bar {
+  display: flex;
+}
+
+#header-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-btn {
+  width: 11rem;
+  padding: 0.25rem 0;
+  margin-right: 0.5rem;
+  height: fit-content;
+  border-radius: 0.25rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  cursor: pointer;
+}
+
+.nav-btn-0 {
+  background-color: #E6AB2C;
+}
+
+.nav-btn-1 {
+  background-color: #F91D85;
+}
+
+.nav-btn-2 {
+  background-color: #43C0F6;
 }
 
 #auth-lang-container {
   display: flex;
   flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
 }
 
 #lang-container {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  font-weight: bold;
 }
 
 .header-flag {
   width: 22px;
   height: 12px;
   margin-left: 8px;
+  margin-top: 0.30rem;
 }
 
 #auth-container {
@@ -54,22 +172,91 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+#auth-container img {
+  width: 1rem;
+}
+
 #auth-container h2 {
-  font-size: 1rem;
   margin: 0;
   margin-left: 0.5rem;
+  font-size: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
   #header {
     flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+
+  .header-layout-1 {
+    display: flex;
+  }
+
+  .header-layout-2 {
+    padding: 0;
+    display: flex;
+  }
+
+  #layout-2-container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1.5rem;
+  }
+
+  #header-project-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #pb-desc {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #pb-desc p {
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid #6C6C6C;
+  }
+
+  #pb-num-steps-container {
+    margin-bottom: 0.25rem;
+  }
+
+  #pb-number {
+    margin-left: 0rem;
+  }
+
+  .pb-step-circle {
+    margin-bottom: 0.25rem;
+  }
+
+  #header-btn-container {
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
   }
 
   #header-logo-wrapper, #auth-container, #lang-container {
     justify-content: center;
+    height: 3rem;
   }
 
   #auth-lang-container {
     flex-direction: column-reverse;
+  }
+
+  #auth-container {
+    height: fit-content;
+  }
+
+  #lang-container {
+    height: fit-content;
+    margin-bottom: 0.5rem;
   }
 }
