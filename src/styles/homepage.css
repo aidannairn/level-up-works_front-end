@@ -1,15 +1,18 @@
 #homepage-container {
   color: #6C6C6C;
+  position: relative;
+  min-height: calc(100vh - 29.5rem);
+  padding: 0 4rem;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: Nunito;
 }
-
-/* BEGIN Intro Section */
+/* BEGIN Intro section */
 #hmpg-intro-container {
+  display: flex;
   margin-left: -4rem;
-  width: 100vw;
+  width: calc(100vw - 1rem);
   height: 300px;
   background: transparent url('../../public/images/homepage/hero-img.png') 0% 0% no-repeat padding-box;
   background-size: cover;
@@ -38,9 +41,13 @@ h1, h2, h3, h4, h5 {
 .hmpg-standard-btn {
   padding: 0.25rem 1rem;
   background-color: white;
-  border: 2px solid #42C0F6;
+  color: #6C6C6C;
   height: fit-content;
+  border: 2px solid #42C0F6;
   border-radius: 0.25rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 #hmpg-signup-btn-container {
@@ -57,7 +64,10 @@ h1, h2, h3, h4, h5 {
   border: 2px solid #F91D85;
   color: white;
   border-radius: 0.25rem;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
   margin-left: auto;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 #hmpg-signup-btn-container p {
@@ -65,9 +75,9 @@ h1, h2, h3, h4, h5 {
   text-align: right;
   font-size: 0.6em;
 }
-/* END Intro Section */
-/* BEGIN Offer Section */
-#hmpg-offers-container {
+/* END Intro section */
+/* BEGIN Projects & Skills section */
+#hmpg-pas-container {
   display: flex;
   flex-direction: column;
 }
@@ -82,7 +92,7 @@ h1, h2, h3, h4, h5 {
   flex-direction: column;
 }
 
-#hmpg-offers-gallery-container {
+#hmpg-pas-gallery-container {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -91,6 +101,10 @@ h1, h2, h3, h4, h5 {
 form {
   display: flex;
   justify-content: center;
+}
+
+.hmpg-gallery-select-input {
+  filter: grayscale(1)
 }
 
 #hmpg-projects {
@@ -108,6 +122,7 @@ form {
   justify-content: center;
   border-radius: 20px;
   border: 2px solid #42C0F6;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
   background-image: radial-gradient(circle at center, #88DBFF, #42C0F6);
 }
 
@@ -125,11 +140,11 @@ form {
   text-transform: uppercase;
 }
 
-#hmpg-offers-and-skills h3 {
+#hmpg-skills-container h3 {
   text-align: center;
 }
 
-#hmpg-skills-container {
+#hmpg-skills {
   display: flex;
   padding: 0 1rem;
   justify-content: space-between;
@@ -139,4 +154,160 @@ form {
   width: 10rem;
   height: fit-content;
 }
-/* END Offers Section */
+/* END Projects & Skills section */
+/* START ProgrammeBenefits section */
+#programme-benefits-container h2 {
+  text-align: center;
+}
+
+#pb-btn-cont {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+#pb-btn-cont button {
+  width: 13rem;
+}
+
+.pb-btn-active {
+  background-color: #EFEFF1;
+  border-color: #EFEFF1;
+}
+
+#pb-topic-cont {
+  margin: 0 -4rem;
+  padding: 1rem 4rem;
+  background-color: #EFEFF1;
+}
+
+.pb-benefit-cont {
+  display: flex;
+}
+
+.pb-benefit-cont img {
+  width: 3rem;
+}
+
+.pb-benefit-text {
+  margin-left: 0.5rem;
+}
+
+.pb-benefit-text h4 {
+  margin: 0;
+}
+
+.pb-benefit-text p {
+  margin-top: 0.5rem;
+}
+/* END ProgrammeBenefits section */
+/* START Signup section */
+#hmpg-signup-container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#hmpg-signup-container img {
+  width: 40%;
+}
+
+#hmpg-signup-content {
+  width: 50%;
+}
+
+#hmpg-enquire-signup-btn-cont {
+  display: flex;
+}
+
+.hmpg-btn-container {
+  width: 50%;
+}
+/* END Signup section */
+
+@media only screen and (max-width: 768px) {
+  #homepage-container {
+    padding: 0 1rem;
+  }
+  /* START Intro section */
+  #hmpg-intro-container {
+    margin-left: -1;
+    padding-right: 1rem;
+    width: calc(100vw + 2rem);
+    background-image: none;
+    background-color: #F0EFF2;
+  }
+
+  #hmpg-intro-content {
+    width: 100%;
+  }
+  /* END Intro section */
+  /* START ProjectsAndSkills section */
+  #hmpg-projects-and-gallery {
+    flex-direction: column;
+  }
+
+  #hmpg-intro-and-projects {
+    width: 100%;
+  }
+
+  #hmpg-projects {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hmpg-project-container {
+    width: 40%;
+    margin-bottom: 0.5rem;
+  }
+
+  #hmpg-pas-gallery-container {
+    width: 100%;
+  }
+  
+  #hmpg-skills {
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .hmpg-skill-img {
+    width: 100%;
+    height: max-content;
+    margin-left: auto;
+    margin-bottom: 0.5rem;
+  }
+  /* END ProjectsAndSkills section */
+  /* START ProgrammeBenefits section */
+  #pb-btn-cont {
+    flex-direction: column;
+  }
+
+  #pb-btn-cont > button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  #pb-topic-cont {
+    margin: 0 -1rem;
+    padding: 1rem;
+  }
+  /* END ProgrammeBenefits section */
+  /* START Signup section */
+  #hmpg-signup-container {
+    flex-direction: column;
+  }
+
+  #hmpg-signup-container img {
+    width: 100%;
+  }
+
+  .hmpg-btn-container {
+    text-align: right;
+  }
+
+  #hmpg-signup-content {
+    width: 100%;
+  }
+  /* END Signup section */
+}
