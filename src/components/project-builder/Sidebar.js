@@ -1,14 +1,37 @@
-const Sidebar = () => {
+const SidebarView = props => {
+  const {
+    projectItem,
+    currentMenuItem,
+    setCurrentMenuItem
+  } = props
+  const { menuItem, icon, id } = projectItem
+  return (
+    <div 
+      className={`sb-view ${id === currentMenuItem && 'sb-active-view'}`}
+      onClick={() => setCurrentMenuItem(id)}
+    >
+      <img src={`/images/student-builder/${icon}`} className="sb-view-img" />
+      <h4 className="sb-view-title">{menuItem}</h4>
+    </div>
+  )
+}
+
+const Sidebar = props => {
+  const { userImg, projectItems, currentMenuItem, setCurrentMenuItem } = props
+
   return (
     <div id="pb-sidebar">
       <div id="sb-profile-img-wrapper">
-        <img src="/images/students/rawiri-fletcher.png" alt="" />
+        <img src={`/images/students/${userImg}`} alt="Profile image." />
       </div>
       <div id="sb-views">
-        <div className="sb-view">
-          <img src="/images/student-builder/objectives.png" className="sb-view-img" />
-          <h4 className="sb-view-title">Learning Objectives</h4>
-        </div>
+        {projectItems.map((projectItem, index) => {
+          return <SidebarView key={index}
+            projectItem={projectItem}
+            currentMenuItem={currentMenuItem}
+            setCurrentMenuItem={setCurrentMenuItem} 
+          />
+        })}
       </div>
       <div id="sb-arrow-container">
         <div id="sb-arrow-outer">

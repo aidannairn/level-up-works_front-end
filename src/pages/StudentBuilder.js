@@ -22,12 +22,55 @@ const StudentBuilder = () => {
     steps: 14
   }
 
+  const currentUser = {
+    name: 'Rawiri Fletcher',
+    image: 'rawiri-fletcher.png'
+  }
+
+  const projectItems = [
+    {
+      id: 'learningObjectives',
+      menuItem: 'Learning Objectives',
+      icon: 'objectives.png'
+    },
+    {
+      id: 'instructions',
+      menuItem: 'Instructions',
+      icon: 'steps.png'
+    },
+    { 
+      id: 'videoTutorial',
+      menuItem: 'Video Tutorial',
+      icon: 'video.png'
+    },
+    { 
+      id: 'makeProject',
+      menuItem: 'Make Project',
+      icon: 'new-project.png'
+    },
+    { 
+      id: 'submitProject',
+      menuItem: 'Submit Project',
+      icon: 'submit-project.png'
+    },
+    { 
+      id: 'bonusChallenge',
+      menuItem: 'Bonus Challenge',
+      icon: 'prize.png'
+    },
+    { 
+      id: 'takeTheQuiz',
+      menuItem: 'Take The Quiz',
+      icon: 'list.png'
+    },
+  ]
+
   return (
     <>
       <MainHeader layout='2' 
       projectBar={projectBar} 
       navBtns={navBtns} />
-      <ProjectBuilder />
+      <ProjectBuilder projectItems={projectItems} currentUser={currentUser} />
     </>
   )
 }

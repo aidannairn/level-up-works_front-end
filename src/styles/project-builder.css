@@ -22,14 +22,15 @@
   margin: 1.5rem 0;
 }
 
-#sb-views {
-  padding: 0 1rem 1rem;
-}
-
 .sb-view {
   display: flex;
   text-transform: uppercase;
   align-items: center;
+  padding: 1rem;
+}
+
+.sb-view:hover {
+  cursor: pointer;
 }
 
 .sb-view img {
@@ -40,6 +41,18 @@
 .sb-view-title {
   margin: 0;
   width: max-content;
+}
+
+.sb-active-view {
+  background-color: #B2E4FA;
+}
+
+.sb-active-view img {
+  filter: invert(0.6);
+}
+
+.sb-active-view .sb-view-title {
+  color: #707070;
 }
 
 #sb-arrow-container {
