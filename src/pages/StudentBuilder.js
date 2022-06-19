@@ -2,7 +2,6 @@ import React from 'react'
 
 import MainHeader from '../components/header/MainHeader'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
-import '../styles/project-builder.css'
 
 const StudentBuilder = () => {
   const testScreenshotBtn = () => {
@@ -31,7 +30,35 @@ const StudentBuilder = () => {
     {
       id: 'learningObjectives',
       menuItem: 'Learning Objectives',
-      icon: 'objectives.png'
+      icon: 'objectives.png',
+      content: {
+        heading: 'Explore Scratch Blocks',
+        desc: 'Learn the basic function of some scratch blocks such as "say", "wait", "go to" and "hide".',
+        blocks: [
+          {
+            type: 'look',
+            mainBlock: 'look-main-block.png',
+            blockComponents: [
+              'look-component-1.png',
+              'look-component-2.png',
+            ]
+          },
+          {
+            type: 'control',
+            mainBlock: 'control-main-block.png',
+            blockComponents: [
+              'control-component-1.png'
+            ]
+          },
+          {
+            type: 'motion',
+            mainBlock: 'motion-main-block.png',
+            blockComponents: [
+              'motion-component-1.png'
+            ]
+          },
+        ]
+      }
     },
     {
       id: 'instructions',

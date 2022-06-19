@@ -8,9 +8,9 @@ const SidebarView = props => {
   return (
     <div 
       className={`sb-view ${id === currentMenuItem && 'sb-active-view'}`}
-      onClick={() => setCurrentMenuItem(id)}
+      onClick={() => setCurrentMenuItem(projectItem)}
     >
-      <img src={`/images/student-builder/${icon}`} className="sb-view-img" />
+      <img src={`/images/sidebar/${icon}`} className="sb-view-img" />
       <h4 className="sb-view-title">{menuItem}</h4>
     </div>
   )

@@ -1,0 +1,39 @@
+#pb-learning-objectives-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  color: #707070;
+}
+
+#pb-learning-objectives-container h2 {
+  text-transform: capitalize;
+}
+
+#pb-lo-header {
+  text-align: center;
+}
+
+#pb-lo-blocks-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pb-lo-blocks {
+  display: flex;
+}
+
+.pb-lo-blocks > img {
+  width: 50%;
+}
+
+.pb-lo-block-components {
+  width: calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.pb-lo-blk-img {
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
