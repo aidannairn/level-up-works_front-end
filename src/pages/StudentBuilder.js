@@ -68,7 +68,14 @@ const StudentBuilder = () => {
     { 
       id: 'videoTutorial',
       menuItem: 'Video Tutorial',
-      icon: 'video.png'
+      icon: 'video.png',
+      content: {
+        youtubeSources: [
+          { id: 1, youtubeID: '-SjuiawRMU4'},
+          { id: 2, youtubeID: 'y5-cApGYXss'},
+          { id: 3, youtubeID: '-MIKW9Wcml0'},
+        ]
+      }
     },
     { 
       id: 'makeProject',
