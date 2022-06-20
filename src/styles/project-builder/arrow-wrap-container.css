@@ -1,31 +1,31 @@
-#pb-video-tutorial-container {
+#pb-arrow-wrap-container {
   padding: 2rem;
 }
 
-#pb-vt-main {
+#pb-arw-wrap-main {
   display: flex;
   justify-content: space-between;
   height: auto;
 }
 
-#pb-vt-outer {
+#pb-arw-wrap-outer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-#pb-vt-vid-wrapper {
+#pb-arw-wrap-vid-wrapper {
   width: 100%;
   margin: 0 1.5rem;
 }
 
-#pb-vt-vid-wrapper > iframe {
+#pb-arw-wrap-vid-wrapper > iframe {
   aspect-ratio: 16 / 9;
   width: 100%;
 }
 
-.pb-vt-nav-btn {
+.pb-arw-wrap-nav-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,37 +38,37 @@
   background-color: #E4EFF4;
 }
 
-.pb-vt-nav-btn:hover {
+.pb-arw-wrap-nav-btn:hover {
   background-color: #ddeaf2;
 }
 
-.pb-vt-nav-btn:active {
+.pb-arw-wrap-nav-btn:active {
   background-color: #cfe0ea;
 }
 
-.pb-vt-nav-arrow {
+.pb-arw-wrap-nav-arrow {
   border: solid #F91D85;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 6px;
 }
 
-.pb-vt-nav-arrow.prev {
+.pb-arw-wrap-nav-arrow.prev {
   transform: rotate(135deg);
   margin-left: 0.4rem;
 }
 
-.pb-vt-nav-arrow.next {
+.pb-arw-wrap-nav-arrow.next {
   transform: rotate(-45deg);
   margin-right: 0.4rem;
 }
 
-#pb-vt-vid-dot-container {
+#pb-arw-wrap-dot-container {
   display: flex;
   justify-content: center;
 }
 
-.pb-lo-vid-dot {
+.pb-arw-wrap-dot {
   height: 0.5rem;
   width: 0.5rem;
   margin: 0.25rem;
@@ -77,6 +77,6 @@
   opacity: 0.5;
 }
 
-.pb-lo-vid-dot.active {
+.pb-arw-wrap-dot.active {
   opacity: 1;
 }

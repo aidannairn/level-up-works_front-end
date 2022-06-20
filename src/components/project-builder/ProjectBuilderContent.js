@@ -1,9 +1,10 @@
 import LearningObjectives from '../student-builder/LearningObjectives'
-import VideoTutorial from '../student-builder/VideoTutorial'
+import ArrowWrapContainer from './ArrowWrapContainer'
 
 import '../../styles/project-builder/learning-objectives.css'
 
 const ProjectBuilderContent = ({ id, content }) => {
+
   return (
     <div id="pb-main-container">
       <div id="pb-main-content">
@@ -13,7 +14,7 @@ const ProjectBuilderContent = ({ id, content }) => {
         }
         {
           id === 'videoTutorial' &&
-          <VideoTutorial videos={content.youtubeSources} />
+          <ArrowWrapContainer type={content.type} contents={content.youtubeSources} />
         }
       </div>
     </div>
