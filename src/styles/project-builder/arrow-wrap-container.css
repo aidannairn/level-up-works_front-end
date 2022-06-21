@@ -107,3 +107,13 @@
   text-decoration: none;
 }
 /* END Instructions section */
+/* START Make Project section */
+#pb-aw-make-project-wrapper {
+  width: 100%;
+  margin: 0 1.5rem;
+}
+
+#pb-aw-mp-img {
+  width: 100%;
+}
+/* END Make Project section */

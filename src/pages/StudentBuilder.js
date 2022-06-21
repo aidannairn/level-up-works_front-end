@@ -126,7 +126,13 @@ const StudentBuilder = () => {
     { 
       id: 'makeProject',
       menuItem: 'Make Project',
-      icon: 'new-project.png'
+      icon: 'new-project.png',
+      contents: [{
+        type: 'images',
+        imageSources: [
+          { id: 1, src: 'make-project.png'}
+        ]
+      }]
     },
     { 
       id: 'submitProject',

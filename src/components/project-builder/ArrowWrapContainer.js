@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import Instructions from './Instruction'
 import Video from './Video'
+import MakeProject from './MakeProject'
 import '../../styles/project-builder/arrow-wrap-container.css'
 
 const Content = ({ index, content, type }) => {
@@ -10,7 +11,8 @@ const Content = ({ index, content, type }) => {
       return <Video video={content.youtubeID} />
     case 'instructionsPage':
       return <Instructions stepNum={index + 1}elements={content.elements} />
-  
+    case 'images':
+      return <MakeProject image={content.src} />
     default:
       break;
   }

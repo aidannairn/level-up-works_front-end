@@ -19,7 +19,11 @@ const ProjectBuilderContent = ({ id, contents }) => {
         {
           id === 'instructions' &&
           <ArrowWrapContainer type={contents[0].type} contents={contents[0].pages} />
-        }
+        },
+        {
+          id === 'makeProject' &&
+          <ArrowWrapContainer type={contents[0].type} contents={contents[0].imageSources} />
+        },
       </div>
     </div>
   )
