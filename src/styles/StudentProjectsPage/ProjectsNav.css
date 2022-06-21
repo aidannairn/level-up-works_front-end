@@ -4,23 +4,58 @@
 #ProjectsNav {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width:50%;
     margin: 0 auto;
     font-family: nunito;
     color: #6C6C6C;
   }
+
   #levelButton{
     margin-top: 50px;
   }
+
   #viewButton{
-    
+    margin-top: 50px;
+    width: 0;
   }
-  button {
-    font-weight: bold;
-    color: rgb(26, 26, 26);
-    background-color: rgb(240, 239, 239);
-    border-style: solid;
-    border-radius: 3px;
-    border-width: 1px;
-    border-color: #6C6C6C;
-  }
+
+
+
+.radio-button input {
+  display: none;
+}
+
+.radio-button span {
+  padding: 0.1em 0.6em;
+  background-color: rgba(247,240,240,255);
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: rgba(198,192,192,255);
+  text-align: center;
+}
+
+.radio-button input[name="level"]:checked + span {
+  background: linear-gradient(0deg, rgba(15,125,245,255),rgba(95,167,240,255));
+  color: white;
+}
+
+.radio-button2 input {
+  display: none;
+}
+
+.radio-button2 span {
+  padding: 0px 20px;
+  background-color: rgba(247,240,240,255);
+  border: 2px outset rgb(118, 118, 118);
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: rgba(198,192,192,255);
+  text-align: center;
+}
+
+.radio-button2 input[name="show"]:checked + span {
+  background: linear-gradient(0deg, rgba(15,125,245,255),rgba(95,167,240,255));
+  color: white;
+}
