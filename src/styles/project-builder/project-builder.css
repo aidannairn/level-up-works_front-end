@@ -58,6 +58,8 @@
 #sb-arrow-container {
   display: flex;
   margin: 1rem 0;
+  align-self: stretch;
+  flex-grow: 1;
   justify-content: right;
 }
 
@@ -69,6 +71,7 @@
   height: 4rem;
   border-radius: 0.5rem 0 0 0.5rem;
   background-color: #B2E4FA;
+  cursor: pointer;
 }
 
 #sb-arrow {
@@ -81,8 +84,6 @@
 
 #sb-user-options {
   display: flex;
-  flex-grow: 1;
-  align-self: stretch;
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 0.5rem;
@@ -96,10 +97,42 @@
   padding: 0.25rem;
   margin: 0.25rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .sb-user-option h5 {
   margin: 0.5rem 0;
+}
+
+
+.pb-sb-hidden .sb-view {
+  justify-content: center;
+}
+
+.pb-sb-hidden #sb-arrow-container {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.pb-sb-hidden #sb-arrow-outer {
+  transform: rotate(180deg);
+}
+
+.pb-sb-hidden #sb-user-options {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pb-sb-hidden .sb-user-option {
+  display: flex;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.pb-sb-hidden .sb-view-img {
+  margin-right: 0;
+  padding: 0.25rem 0.75rem;
 }
 
 #pb-main-container {
