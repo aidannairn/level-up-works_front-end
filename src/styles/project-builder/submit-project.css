@@ -1,0 +1,45 @@
+/* START Submit Project section */
+#pb-submit-project-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  color: #808385;
+  font-weight: bold;
+}
+
+.pb-sp-user-view-container {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.pb-sp-view-img {
+  width: 100%;
+  padding: 3rem 0;
+}
+
+.pb-sp-view-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pb-sp-view-btn {
+  width: fit-content;
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  background-color: #F91D85;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  color: white;
+}
+
+.pb-sp-view-btn > img {
+  height: 2.5rem;
+}
+
+.pb-sp-view-btn h4 {
+  margin: 0;
+}
+/* END Submit Project section */

@@ -130,14 +130,30 @@ const StudentBuilder = () => {
       contents: [{
         type: 'images',
         imageSources: [
-          { id: 1, src: 'make-project.png'}
+          { id: 1, src: 'project.png'}
         ]
       }]
     },
     { 
       id: 'submitProject',
       menuItem: 'Submit Project',
-      icon: 'submit-project.png'
+      icon: 'submit-project.png',
+      contents: {
+        sendPhoto: {
+          heading: 'Submit project photo',
+          paragraph: 'After completing your project, take a screenshot of your project and upload it here.',
+          image: 'project.png',
+          btnIcon: 'gallery-icon.png',
+          btnText: 'Send Photo'
+        },
+        callTeacher: {
+          heading: 'Show your teacher',
+          paragraph: 'If your teacher is in the same room as you, click the button below to let them know you are done.',
+          image: 'teacher-computer.png',
+          btnIcon: 'teacher-chalkboard.png',
+          btnText: 'Call Teacher'
+        },
+      }
     },
     { 
       id: 'bonusChallenge',

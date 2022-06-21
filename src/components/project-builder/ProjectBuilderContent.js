@@ -1,5 +1,6 @@
 import LearningObjectives from '../student-builder/LearningObjectives'
 import ArrowWrapContainer from './ArrowWrapContainer'
+import SubmitProject from './SubmitProject'
 
 import '../../styles/project-builder/learning-objectives.css'
 
@@ -19,11 +20,15 @@ const ProjectBuilderContent = ({ id, contents }) => {
         {
           id === 'instructions' &&
           <ArrowWrapContainer type={contents[0].type} contents={contents[0].pages} />
-        },
+        }
         {
           id === 'makeProject' &&
           <ArrowWrapContainer type={contents[0].type} contents={contents[0].imageSources} />
-        },
+        }
+        {
+          id === 'submitProject' &&
+          <SubmitProject sendPhoto={contents.sendPhoto} showTeacher={contents.callTeacher} />
+        }
       </div>
     </div>
   )
