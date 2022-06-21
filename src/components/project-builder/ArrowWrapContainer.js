@@ -1,29 +1,32 @@
 import { useEffect, useState } from 'react'
 
+import Instructions from './Instruction'
 import Video from './Video'
 import '../../styles/project-builder/arrow-wrap-container.css'
 
-const Content = ({ content, type }) => {
+const Content = ({ index, content, type }) => {
   switch (type) {
     case 'videos':
       return <Video video={content.youtubeID} />
-      break;
+    case 'instructionsPage':
+      return <Instructions stepNum={index + 1}elements={content.elements} />
   
     default:
       break;
   }
 }
 
-
 const ArrowWrapContainer = ({ type, contents }) => {
   const [content, setContent] = useState(contents[0])
-  
-  let currentContentIndex
+  const [currentContentIndex, setCurrentContentIndex] = useState(0)
+
+  // let currentContentIndex = 0
   
   useEffect(() => {
-    currentContentIndex = contents.findIndex(c => {
+    const newIndex = contents.findIndex(c => {
       return c.id === content.id
     })
+    setCurrentContentIndex(newIndex)
   }, [content])
 
   const includesAdditionalContent = contents.length > 1
@@ -48,12 +51,12 @@ const ArrowWrapContainer = ({ type, contents }) => {
               <div className="pb-arw-wrap-nav-btn prev" onClick={() => handleContentChange('prev')}>
                 <div className='pb-arw-wrap-nav-arrow prev'></div>
               </div>
-              <Content type={type} content={content} />
+              <Content type={type} content={content} index={currentContentIndex} />
               <div className="pb-arw-wrap-nav-btn next" onClick={() => handleContentChange('next')}>
                 <div className='pb-arw-wrap-nav-arrow next'></div>
               </div>
           </div>
-          : <Content type={type} content={content} />
+          : <Content type={type} content={content} index={currentContentIndex} />
         }
       </div>
       {includesAdditionalContent 

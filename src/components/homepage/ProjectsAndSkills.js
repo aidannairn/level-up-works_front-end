@@ -42,7 +42,7 @@ const ProjectsAndSkills = () => {
         <div id="hmpg-intro-and-projects">
           <div>
             <h2>What we offer</h2>
-            <p>The Creative Problem Solving programme is series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand’s leading IT industry experts and schools.</p>
+            <p>The Creative Problem Solving programme is series of digital creation projects aimed to encourage self-motivation and student agency, designed by New Zealand's leading IT industry experts and schools.</p>
           </div>
           <div id="hmpg-projects-container">
             <h3>What will students create?</h3>

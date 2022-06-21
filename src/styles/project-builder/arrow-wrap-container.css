@@ -15,16 +15,6 @@
   width: 100%;
 }
 
-#pb-arw-wrap-vid-wrapper {
-  width: 100%;
-  margin: 0 1.5rem;
-}
-
-#pb-arw-wrap-vid-wrapper > iframe {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
-
 .pb-arw-wrap-nav-btn {
   display: flex;
   justify-content: center;
@@ -80,3 +70,40 @@
 .pb-arw-wrap-dot.active {
   opacity: 1;
 }
+
+/* START Video section */
+#pb-arw-wrap-vid-wrapper {
+  width: 100%;
+  margin: 0 1.5rem;
+}
+
+#pb-arw-wrap-vid-wrapper > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+/* END Video section */
+
+/* START Instructions section */
+#pb-aw-instruction-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 3rem;
+  padding: 0 3rem;
+  color: #6C6C6C;
+  font-weight: bold;
+}
+
+.pb-aw-instr-heading {
+  font-family: Nunito;
+  font-weight: 900;
+}
+
+.pb-aw-instr-img {
+  max-width: 100%;
+}
+
+.pb-aw-instr-p-with-link > a{
+  text-decoration: none;
+}
+/* END Instructions section */

@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar"
 import '../../styles/project-builder/project-builder.css'
 
 const ProjectBuilder = ({ currentUser, projectItems }) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[2])
+  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[1])
 
   return (
     <div id='project-builder-container'>
@@ -14,7 +14,7 @@ const ProjectBuilder = ({ currentUser, projectItems }) => {
         projectItems={projectItems} 
         currentMenuItem={currentMenuItem.id} setCurrentMenuItem={setCurrentMenuItem} 
       />
-      <ProjectBuilderContent id={currentMenuItem.id} content={currentMenuItem.content} />
+      <ProjectBuilderContent id={currentMenuItem.id} contents={currentMenuItem.contents} />
     </div>
   )
 }
