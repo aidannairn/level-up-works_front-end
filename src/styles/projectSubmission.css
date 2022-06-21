@@ -1,0 +1,25 @@
+.psMainCompartment{
+    width: 100%;
+    height: 100%;
+}
+
+
+.psRightSide{
+    background-color: #B2E4FA;
+    position: absolute;
+    left: 260px;
+    top: 55px;
+    width: 1660px;
+    height: 874px;
+}
+
+.psInnerRightSide{
+    height: 90%;
+    width: 96%;
+    display: flex;
+    top: 5%;
+    left: 2%;
+    position: absolute;
+    background-color: #d9f4ff;
+    border-radius: 15px;
+}

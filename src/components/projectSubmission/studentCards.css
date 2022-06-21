@@ -1,0 +1,97 @@
+.studentCardSection{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    color: #6C6C6C;
+}
+
+.studentCardTopSectionLeft{
+    display: flex;
+    width: 50%;
+    text-align: center;
+    height: 10%;
+    padding-left: 80px;
+    padding-top: 3%;
+}
+
+.studentCardTopSectionRight{
+    width: 50%;
+    height: 10%;
+    gap: 5rem;
+    padding-top: 3%;
+    text-align: center;
+}
+.downloadFilesBtn{
+    display: flex;
+    width: 30%;
+    float: left;
+    padding-left: 20px;
+}
+.markAsCompleteBtn{
+    display: flex;
+    width: 60%;
+    float: right;
+}
+
+.tickIcon, .downloadIcon{
+    padding-right: 1rem;
+}
+
+.studentCardInfoBox{
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 15%;
+    bottom: 0;
+    right: 0;
+}
+
+.studentCardWhiteBox{
+    width: 87%;
+    margin-left: 3.5%;
+    display: flex;
+    height: 40%;
+    background-color: white;
+    border-radius: 20px;
+}
+.tickConfirmation{
+    padding-top: 3rem;
+    padding-left: 2rem ;
+    
+}
+.studentBox{
+    display: flex;
+}
+.studentCardMiddle{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding-top: 7%;
+}
+.zoomSection{
+    text-align: center;
+    font-size: 14px;
+    
+}
+.userProfilePic{
+    padding: 2rem 6rem 0 6rem;
+    
+}
+.userNameAndText{
+    text-align: center;
+    font-size: 24px;
+    
+}
+.submittedProject{
+    text-align: center;
+    
+}
+.timeStampsForProjects{
+    position: absolute;
+    text-align: end;
+    left: 78%;
+    font-size: 14px;
+    padding-top: 2%;
+    
+
+}
