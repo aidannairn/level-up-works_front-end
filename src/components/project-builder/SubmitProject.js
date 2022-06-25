@@ -24,11 +24,11 @@ const StudentActionsContainer = ({ content }) => {
   )
 }
 
-const SubmitProject = ({ sendPhoto, showTeacher }) => {
+const SubmitProject = ({ content }) => {
   return (
     <div id="pb-submit-project-container">
-      <StudentActionsContainer content={sendPhoto} />
-      <StudentActionsContainer content={showTeacher} />
+      <StudentActionsContainer key={content.sendPhoto.id} content={content.sendPhoto} />
+      <StudentActionsContainer key={content.callTeacher.id} content={content.callTeacher} />
     </div>
   )
 }

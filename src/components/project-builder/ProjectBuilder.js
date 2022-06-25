@@ -14,7 +14,7 @@ const ProjectBuilder = ({ currentUser, projectItems }) => {
         projectItems={projectItems} 
         currentMenuItem={currentMenuItem.id} setCurrentMenuItem={setCurrentMenuItem} 
       />
-      <ProjectBuilderContent id={currentMenuItem.id} contents={currentMenuItem.contents} />
+      <ProjectBuilderContent projectItem={currentMenuItem} />
     </div>
   )
 }

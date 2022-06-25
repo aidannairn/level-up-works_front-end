@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-
 const InstructionStep = ({ stepNum, element }) => {
   const { type, content } = element
 
@@ -30,19 +28,17 @@ const InstructionStep = ({ stepNum, element }) => {
       break;
   }
   
-  return (
-    <div>{instructionStep}</div>
-  )
+  return <div>{instructionStep}</div>
+
 }
 
-const Instruction = ({ stepNum, elements }) => {
-  return (
-    <div id='pb-aw-instruction-container'>
-      {elements.map((el, index) => {
-        return <InstructionStep key={index} stepNum={stepNum} element={el} />
-      })}
-    </div>
-  )
-}
+const Instruction = ({ content, index: stepNum }) => (
+  <div id='pb-aw-instruction-container'>
+    {content.elements.map((el, index) => {
+      return <InstructionStep key={index} stepNum={stepNum + 1} element={el} />
+    })}
+  </div>
+)
+
 
 export default Instruction
