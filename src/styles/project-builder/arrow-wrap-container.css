@@ -1,0 +1,121 @@
+#pb-arrow-wrap-container {
+  padding: 2rem;
+  width: 100%;
+  max-height: 100%;
+}
+
+#pb-arw-wrap-main {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+#pb-arw-wrap-outer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pb-arw-wrap-nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.9rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  border: 2px solid white;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  background-color: #E4EFF4;
+}
+
+.pb-arw-wrap-nav-btn:hover {
+  background-color: #ddeaf2;
+}
+
+.pb-arw-wrap-nav-btn:active {
+  background-color: #cfe0ea;
+}
+
+.pb-arw-wrap-nav-arrow {
+  border: solid #F91D85;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.pb-arw-wrap-nav-arrow.prev {
+  transform: rotate(135deg);
+  margin-left: 0.4rem;
+}
+
+.pb-arw-wrap-nav-arrow.next {
+  transform: rotate(-45deg);
+  margin-right: 0.4rem;
+}
+
+#pb-arw-wrap-dot-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pb-arw-wrap-dot {
+  height: 0.5rem;
+  width: 0.5rem;
+  margin: 0.25rem;
+  border-radius: 1rem;
+  background-color: #F82984;
+  opacity: 0.5;
+}
+
+.pb-arw-wrap-dot.active {
+  opacity: 1;
+}
+
+/* START Video section */
+#pb-arw-wrap-vid-wrapper {
+  width: 100%;
+  margin: 0 1.5rem;
+}
+
+#pb-arw-wrap-vid-wrapper > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+/* END Video section */
+
+/* START Instructions section */
+#pb-aw-instruction-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 3rem;
+  padding: 0 3rem;
+  color: #6C6C6C;
+  font-weight: bold;
+}
+
+.pb-aw-instr-heading {
+  font-family: Nunito;
+  font-weight: 900;
+}
+
+.pb-aw-instr-img {
+  max-width: 100%;
+}
+
+.pb-aw-instr-p-with-link > a{
+  text-decoration: none;
+}
+/* END Instructions section */
+/* START Make Project section */
+#pb-aw-make-project-wrapper {
+  width: 100%;
+  margin: 0 1.5rem;
+}
+
+#pb-aw-mp-img {
+  width: 100%;
+}
+/* END Make Project section */
