@@ -1,0 +1,31 @@
+/* .sideBarContainer{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    border: 1px solid blue;
+}
+
+.sideBarIcon, .sideBar{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid purple;
+}
+
+.sidebarProfile{
+    text-align: center;
+    padding-top: 5%;
+    width: 100%;
+}
+
+.sidebarIcons{
+    border: 1px solid orange;
+}
+
+.iconHolder{
+    border: 1px solid orange;
+    width: 100%;
+}
+
+.ul-item list{
+    border: 1px solid black;
+} */

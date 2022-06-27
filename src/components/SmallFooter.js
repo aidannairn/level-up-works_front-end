@@ -1,10 +1,10 @@
 import React from 'react'
-import './psFooter.css'
+import '../styles/small-footer.css'
 
-export default function PSFooter() {
+export default function SmallFooter() {
     return (
         <>
-            <div className='footerCompartment'>
+            <div className='small-footer-container'>
                 <h3>© LevelUp Works 2020</h3>
             </div>
         </>

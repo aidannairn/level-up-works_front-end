@@ -1,23 +1,39 @@
 import React from 'react'
 import MainHeader from '../components/header/MainHeader'
-import SideBar from '../components/projectSubmission/SideBar';
 import '../styles/projectSubmission.css'
-import StudentCards from '../components/projectSubmission/studentCards';
-import PSFooter from '../components/projectSubmission/psFooter';
+import ProjectSubmissionSidebar from '../components/projectSubmission/projectSubmissionSidebar';
+import ProjectSubmissionMainContent from '../components/projectSubmission/projectSubmissionMainContent';
+import SmallFooter from '../components/SmallFooter';
+import NewSidebar from '../components/projectSubmission/newSidebar';
+
+
+const navBtns = [
+    {
+        name: 'Take Screenshot',
+        action: ''
+    },
+    { name: 'Help Center', action: '' },
+    { name: 'More Projects', action: '' },
+];
+
+
 
 export default function ProjectSubmission() {
+
     return (
         <>
-        <div className="psMainCompartment">
-                <MainHeader />
-                <SideBar />
-                <div className='psRightSide'>
-                    <div className='psInnerRightSide'>
-                        <StudentCards />
+            <div className="project-submission-container">
+                <MainHeader layout='2' navBtns={navBtns} />
+                <div className='project-submission-content'>
+                    <div className='project-submission-left'>
+                        <NewSidebar />
+                    </div>
+                    <div className='project-submission-right'>
+                        <ProjectSubmissionMainContent />
                     </div>
                 </div>
+                <SmallFooter />
             </div>
-            <PSFooter />
         </>
     );
 }

@@ -1,0 +1,64 @@
+.white-box-container{
+    display: flex;
+    position: relative;
+    margin-top: 3%;
+    padding-bottom: 15px;
+}
+
+.white-box-inner-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 85%;
+    margin-left: 5vw ;
+    padding: 15px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+input[type="checkbox"] {
+    zoom: 1.6;
+    position: absolute;
+    left: 30px;
+    top: 15px;
+}
+.project-submission-check-box{
+    
+}
+
+.project-submission-profile-pic{
+    
+}
+
+.project-submission-submit-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.project-submitted-text{
+    font-weight: 600;
+    color: #707070;
+    font-family: 'Open Sans';
+    font-size: 24px;   
+}
+
+.project-submitted-screen-shot{
+    font-weight: 600;
+    color: #707070;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    text-align: center;
+
+}
+
+.project-submission-time-stamp{
+    text-align: end;
+    font-weight: 600;
+    color: #707070;
+    font-family: 'Open Sans';
+    font-size: 14px;
+}
+
+.project-submission-white-box-white-space{
+    width: 30%;
+}

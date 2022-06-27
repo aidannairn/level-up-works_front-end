@@ -1,0 +1,61 @@
+.project-submission-content-parent{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+
+.project-submission-content-container{
+    background-color: #d7f3ff;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+    height: 70vh;
+    width: 94%;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.project-submission-content-container::-webkit-scrollbar {
+    width: 1rem;
+    position: relative;
+}
+
+.project-submission-content-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px white;
+    border-radius: 15px;
+}
+
+.project-submission-content-container::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #43C0F6;
+    outline: 1px solid white;
+}
+
+
+.project-submission-content-titles{
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    position: absolute;
+    top: 5vh;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #707070;
+    font-family: 'Open Sans';
+}
+
+
+.project-submission-white-space{
+    width: auto;
+    width: 45vw;
+}
+
+.project-submission-content-display{
+    height: 600px;
+    width: 100%;
+    margin-top: 30px;
+}
