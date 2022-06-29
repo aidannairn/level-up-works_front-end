@@ -1,10 +1,19 @@
 import React from 'react'
 import MainHeader from '../components/header/MainHeader'
 import '../styles/projectSubmission.css'
-import ProjectSubmissionSidebar from '../components/projectSubmission/projectSubmissionSidebar';
-import ProjectSubmissionMainContent from '../components/projectSubmission/projectSubmissionMainContent';
-import SmallFooter from '../components/SmallFooter';
-import NewSidebar from '../components/projectSubmission/newSidebar';
+import ProjectBuilder from "../components/project-builder/ProjectBuilder";
+import HelpRequests from '../components/project-submission/HelpRequests';
+import ProgressTracker from '../components/project-submission/ProgressTracker';
+import ProjectLibrary from '../components/project-submission/ProjectLibrary';
+import StudentProfiles from '../components/project-submission/StudentProfiles';
+import ProjectSubmission2 from '../components/project-submission/ProjectSubmission2';
+
+
+
+const currentUser = {
+    name: "Jasmina Salvador",
+    image: "jasmina-salvador.png",
+};
 
 
 const navBtns = [
@@ -16,23 +25,56 @@ const navBtns = [
     { name: 'More Projects', action: '' },
 ];
 
+const helpRequests = {
+    id: 'helpRequests',
+    component: HelpRequests, // Remember to import this component at the top
+    menuItem: 'Help Requests',
+    icon: 'help-icon.png',
+}
+const progressTracker = {
+    id: 'progressTracker',
+    component: ProgressTracker, // Remember to import this component at the top
+    menuItem: 'Progress Tracker',
+    icon: 'progress-icon.png',
+}
+const studentProfiles = {
+    id: 'studentProfiles',
+    component: StudentProfiles, // Remember to import this component at the top
+    menuItem: 'Student Profiles',
+    icon: 'student-icon.png',
+}
+const projectLibrary = {
+    id: 'projectLibrary',
+    component: ProjectLibrary, // Remember to import this component at the top
+    menuItem: 'Project Library',
+    icon: 'library-icon.png',
+}
+const projectSubmission = {
+    id: 'projectSubmission',
+    component: ProjectSubmission2, // Remember to import this component at the top
+    menuItem: 'Project Submissions',
+    icon: 'submit-icon.png',
+}
 
 
-export default function ProjectSubmission() {
+const projectItems = [
+    progressTracker,
+    studentProfiles,
+    helpRequests,
+    projectSubmission,
+    projectLibrary
+];
+
+
+
+
+export default function ProjectSubmissionTest() {
 
     return (
         <>
             <div className="project-submission-container">
                 <MainHeader layout='2' navBtns={navBtns} />
-                <div className='project-submission-content'>
-                    <div className='project-submission-left'>
-                        <NewSidebar />
-                    </div>
-                    <div className='project-submission-right'>
-                        <ProjectSubmissionMainContent />
-                    </div>
-                </div>
-                <SmallFooter />
+                        <ProjectBuilder projectItems={projectItems} currentUser={currentUser} />
             </div>
         </>
     );

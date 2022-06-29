@@ -6,6 +6,7 @@
 
 
 .project-submission-content-container{
+
     background-color: #d7f3ff;
     border-radius: 25px;
     align-items: center;
@@ -13,6 +14,7 @@
     display: flex;
     margin: auto;
     height: 70vh;
+    top: 5em;
     width: 94%;
     position: relative;
     overflow: hidden;
@@ -41,11 +43,13 @@
     flex-direction: row;
     width: 75vw;
     position: absolute;
-    top: 5vh;
+    top: 2em;
     justify-content: space-between;
     font-weight: 600;
     color: #707070;
     font-family: 'Open Sans';
+    font-size: 24px;
+    white-space: nowrap;
 }
 
 
@@ -55,7 +59,11 @@
 }
 
 .project-submission-content-display{
-    height: 600px;
+    height: 35em;
     width: 100%;
     margin-top: 30px;
+}
+
+.test-space{
+    width: 4em;
 }

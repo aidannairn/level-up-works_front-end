@@ -1,8 +1,8 @@
 import React from 'react'
 import ProjectSubmissionWhiteBox from './projectSubmissionWhiteBox'
-import './projectSubmissionMainContent.css'
+import './projectSubmission2.css'
 
-export default function ProjectSubmissionMainContent() {
+export default function ProjectSubmission2() {
     return (
         <>
             <div className='project-submission-content-parent'>
@@ -11,6 +11,7 @@ export default function ProjectSubmissionMainContent() {
                         <div className='project-submission-header'>PROJECT SUBMISSIONS</div>
                         <span className='project-submission-white-space'></span>
                         <div className='project-download-btn'><img src='images/projectSubmission/download-icon.svg' alt='download' width={15} />DOWNLOAD FILES</div>
+                        <span className='test-space'></span>
                         <div className='project-complete-btn'><img src='images/projectSubmission/tick-icon.svg' alt='download' width={25} />MARK AS COMPLETE</div>
                 </div>
                     <div className='project-submission-content-display'>
@@ -24,3 +25,4 @@ export default function ProjectSubmissionMainContent() {
         </>
     )
 }
+

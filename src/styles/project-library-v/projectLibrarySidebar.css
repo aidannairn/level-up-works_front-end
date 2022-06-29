@@ -1,0 +1,6 @@
+.pl-sb-container{
+    display: flex;
+    border: 1px solid red;
+    max-width: 30%;
+    height: 100%;
+}
