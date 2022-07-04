@@ -6,7 +6,7 @@ import HelpRequests from '../components/project-submission/HelpRequests';
 import ProgressTracker from '../components/project-submission/ProgressTracker';
 import ProjectLibrary from '../components/project-submission/ProjectLibrary';
 import StudentProfiles from '../components/project-submission/StudentProfiles';
-import ProjectSubmission2 from '../components/project-submission/ProjectSubmission2';
+import ProjectSubmissionPage from '../components/project-submission/ProjectSubmissionPage';
 
 
 
@@ -51,7 +51,7 @@ const projectLibrary = {
 }
 const projectSubmission = {
     id: 'projectSubmission',
-    component: ProjectSubmission2, // Remember to import this component at the top
+    component: ProjectSubmissionPage, // Remember to import this component at the top
     menuItem: 'Project Submissions',
     icon: 'submit-icon.png',
 }

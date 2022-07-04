@@ -1,0 +1,77 @@
+.pl-btn-container{
+    display: flex;
+    flex-direction: row;
+    height: 15%;
+    justify-content: space-between;
+    padding: 60px 40px 40px 40px;
+}
+
+.pl-left-btn{
+display: flex;
+}
+.pl-right-btn{
+display: flex;
+}
+
+.pl-right-text{
+    font-size: 16px;
+    font-weight: 600;
+    color: #6C6C6C;
+}
+
+.first-pl{
+    border-radius: 5px 0 0 5px;
+}
+
+.last-pl{
+    border-radius: 0 5px 5px 0;
+}
+
+.pl-filter-btn{
+    padding: 0 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0.5px solid #6C6C6C;
+}
+
+.pl-filter-btn:hover{
+    /* background-color: rgb(0, 106, 245); */
+    background-color: rgb(255, 255, 255);
+    color: rgb(6, 105, 253);
+}
+
+/* Project library front page buttons */
+
+.pl-page-btns{
+    display: flex;
+    justify-content: flex-end;
+    margin: 150px;
+    width: 85%;
+}
+
+.pl-btd-btn, .pl-btt-btn{
+    margin: 30px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 1px 1px #b1b1b1
+}
+
+.pl-btd-btn{
+    background-color: #F91D84;
+}
+
+.pl-btt-btn{
+    background-color: #E6AB2C;
+}
+
+.pl-btt-btn:hover{
+    transform: scale(0.98);
+}
+
+.pl-btd-btn:hover{
+    transform: scale(0.98);
+}

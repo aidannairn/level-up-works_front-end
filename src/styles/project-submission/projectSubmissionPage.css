@@ -19,6 +19,7 @@
     position: relative;
     overflow: hidden;
     overflow-y: scroll;
+    flex-direction: column;
 }
 
 .project-submission-content-container::-webkit-scrollbar {
@@ -42,8 +43,6 @@
     display: flex;
     flex-direction: row;
     width: 75vw;
-    position: absolute;
-    top: 2em;
     justify-content: space-between;
     font-weight: 600;
     color: #707070;
@@ -55,15 +54,18 @@
 
 .project-submission-white-space{
     width: auto;
-    width: 45vw;
+    width: 28vw;
 }
 
 .project-submission-content-display{
     height: 35em;
     width: 100%;
-    margin-top: 30px;
 }
 
 .test-space{
     width: 4em;
+}
+
+.project-complete-btn, .project-download-btn{
+    cursor: pointer;
 }

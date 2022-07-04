@@ -1,32 +1,42 @@
-const userData = [
+export const data = [
     {
         id: 1,
         image: 'aiden-andrews.png',
         name: 'AIDEN',
-        submitted: 'aidens-screen-shot.png'
+        submitted: 'aidens-screen-shot.png',
+        date: 'TUE 28 April 2020',
+        time: '10:43AM',
     },
     {
         id: 2,
         image: 'rawiri-fletcher.png',
         name: 'RAWIRI',
-        submitted: ''
+        submitted: 'aidens-screen-shot.png',
+        date: 'TUE 28 April 2020',
+        time: '10:43AM',
     },
     {
         id: 3,
         image: 'neveah-machenry.png',
         name: 'NEVEAH',
-        submitted: ''
+        submitted: 'aidens-screen-shot.png',
+        date: 'TUE 28 April 2020',
+        time: '10:43AM',
     },
     {
         id: 4,
         image: 'simon-laine.png',
         name: 'SIMON',
-        submitted: ''
+        submitted: 'aidens-screen-shot.png',
+        date: 'TUE 28 April 2020',
+        time: '10:43AM',
     },
     {
         id: 5,
         image: 'tokio-han.png',
         name: 'TOKIO',
-        submitted: ''
+        submitted: 'aidens-screen-shot.png',
+        date: 'TUE 28 April 2020',
+        time: '10:43AM',
     },
-]
+];

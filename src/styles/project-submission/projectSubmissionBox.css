@@ -18,7 +18,7 @@
 
 input[type="checkbox"] {
     zoom: 1.6;
-    position: absolute;
+    position: relative;
     left: 30px;
     top: 15px;
 }
@@ -41,6 +41,7 @@ input[type="checkbox"] {
     font-family: 'Open Sans';
     font-size: 14px;
     text-align: center;
+    cursor: pointer;
 
 }
 
@@ -55,3 +56,6 @@ input[type="checkbox"] {
 .project-submission-white-box-white-space{
     width: 30%;
 }
+
+
+

@@ -1,13 +1,13 @@
 import React from "react";
 import ProjectSubmission from "./pages/ProjectSubmission";
-import ProjectLibraryTest from "./components/project-library-v/projectLibraryTest";
+import ProjectLibraryTeacher from "./components/project-library-v/projectLibraryTeacher";
 
 
 function App() {
   return (
     <div className="App">
-      <ProjectSubmission />
-      {/* <ProjectLibraryTest /> */}
+      {/* <ProjectSubmission /> */}
+      <ProjectLibraryTeacher />
     </div>
   );
 }
