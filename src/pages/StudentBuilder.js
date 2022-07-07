@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
+import instructionsJSON from '../instructions.json'
 import MainHeader from '../components/header/MainHeader'
 import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 
 const StudentBuilder = () => {
+  const [projectIndex, setProject] = useState(0)
+  
   const testScreenshotBtn = () => {
     console.log('Test screenshot button')
   }
@@ -20,7 +23,9 @@ const StudentBuilder = () => {
 
   const projectBar = {
     name: 'Introduction',
-    steps: 14
+    projects: instructionsJSON.length,
+    currentProject: projectIndex,
+    setProject: setProject
   }
   // END Header Props
 
@@ -94,7 +99,7 @@ const StudentBuilder = () => {
       <MainHeader layout='2' 
       projectBar={projectBar} 
       navBtns={navBtns} />
-      <ProjectBuilder projectItems={projectItems} currentUser={currentUser} />
+      <ProjectBuilder key={projectIndex} projectIndex={projectIndex} projectItems={projectItems} currentUser={currentUser} />
     </>
   )
 }
