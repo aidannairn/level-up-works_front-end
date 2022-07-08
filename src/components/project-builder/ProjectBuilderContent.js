@@ -6,6 +6,7 @@ const ProjectBuilderContent = ({ projectItem }) => {
     id,
     component,
     isArrowNavEnabled,
+    content,
     contents
   } = projectItem
 
@@ -17,7 +18,7 @@ const ProjectBuilderContent = ({ projectItem }) => {
         { 
           isArrowNavEnabled
           ? <ArrowWrapContainer key={id} component={component} contents={contents} />
-          : <ProjectItem key={id} content={contents} />
+          : <ProjectItem key={id} content={content} />
         }
       </div>
     </div>

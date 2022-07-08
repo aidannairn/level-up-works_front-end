@@ -1,14 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
+import instructionsJSON from '../instructions.json'
+import Instruction from '../components/project-builder/Instruction'
 import MainHeader from '../components/header/MainHeader'
 import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 
 const StudentBuilder = () => {
+  const [projectIndex, setProject] = useState(0)
+  const [projectInstructions, setProjectInstructions] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  const {
+    REACT_APP_BACKEND_HOST: host,
+    REACT_APP_BACKEND_PORT: port
+  } = process.env
+
+  useEffect(() => {
+    setProjectInstructions([])
+    axios.get(`${host}${port}/student-builder/instructions/${projectIndex + 1}`)
+    .then(res => {
+      setProjectInstructions(res.data)
+    })
+  }, [projectIndex])
+
+  useEffect(() => {
+    projectInstructions.length ? setIsLoading(false) : setIsLoading(true)
+  }, [projectInstructions])
+
   const testScreenshotBtn = () => {
     console.log('Test screenshot button')
   }
+
   // START Header Props
   const navBtns = [
     { name: 'Take Screenshot', 
@@ -20,7 +45,9 @@ const StudentBuilder = () => {
 
   const projectBar = {
     name: 'Introduction',
-    steps: 14
+    projects: instructionsJSON.length,
+    currentProject: projectIndex,
+    setProject: setProject
   }
   // END Header Props
 
@@ -30,6 +57,15 @@ const StudentBuilder = () => {
   }
 
   // START Student Project Builder Views
+  const instructions = {
+    id: 'instructions',
+    component: Instruction,
+    isArrowNavEnabled: true,
+    menuItem: 'Instructions',
+    icon: 'steps.png',
+    contents: projectInstructions
+  } 
+
   const makeProject = { 
     id: 'makeProject',
     component: MakeProject,
@@ -46,7 +82,7 @@ const StudentBuilder = () => {
     component: SubmitProject,
     menuItem: 'Submit Project',
     icon: 'submit-project.png',
-    contents: {
+    content: {
       sendPhoto: {
         id: 'sendPhoto',
         heading: 'Submit project photo',
@@ -77,11 +113,11 @@ const StudentBuilder = () => {
     menuItem: 'Take The Quiz',
     icon: 'list.png'
   }
-// END Student Project Builder Views
+  // END Student Project Builder Views
 
   const projectItems = [
     { learningObjectives: 'insert' },
-    { instructions: 'insert' },
+    instructions,
     { videoTutorial: 'insert' },
     makeProject,
     submitProject,
@@ -89,12 +125,12 @@ const StudentBuilder = () => {
     takeTheQuiz
   ]
 
-  return (
+  return isLoading ? '' : (
     <>
       <MainHeader layout='2' 
       projectBar={projectBar} 
       navBtns={navBtns} />
-      <ProjectBuilder projectItems={projectItems} currentUser={currentUser} />
+      <ProjectBuilder key={projectIndex} projectIndex={projectIndex} projectItems={projectItems} currentUser={currentUser} isLoading />
     </>
   )
 }
