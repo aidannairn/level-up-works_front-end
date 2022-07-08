@@ -1,24 +1,22 @@
 import { useState } from "react"
 
-import instructionsJSON from '../../instructions.json'
 import videoTutorialsJSON from '../../videoTutorials.json'
 import ProjectBuilderContent from "./ProjectBuilderContent"
 import Sidebar from "./Sidebar"
 import LearningObjectives from './LearningObjectives'
-import Instruction from './Instruction'
 import VideoTutorial from './VideoTutorial'
 
 import '../../styles/project-builder/project-builder.css'
 
 const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])
+  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])  
 
   const learningObjectives = {
     id: 'learningObjectives',
     component: LearningObjectives,
     menuItem: 'Learning Objectives',
     icon: 'objectives.png',
-    contents: {
+    content: {
       heading: 'Explore Scratch Blocks',
       desc: 'Learn the basic function of some scratch blocks such as "say", "wait", "go to" and "hide".',
       blocks: [
@@ -43,19 +41,10 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
           blockComponents: [
             'motion-component-1.png'
           ]
-        },
+        }
       ]
     }
   }
-
-  const instructions = {
-    id: 'instructions',
-    component: Instruction,
-    isArrowNavEnabled: true,
-    menuItem: 'Instructions',
-    icon: 'steps.png',
-    contents: instructionsJSON[projectIndex]
-  } 
 
   const videoTutorial = { 
     id: 'videoTutorial',
@@ -68,7 +57,6 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
 
   const projectBuilderItems = {
     learningObjectives,
-    instructions,
     videoTutorial
   }
 
@@ -86,7 +74,7 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
         projectItems={projectItems} 
         currentMenuItem={currentMenuItem.id} setCurrentMenuItem={setCurrentMenuItem} 
       />
-      <ProjectBuilderContent projectindex={projectIndex} projectItem={currentMenuItem} />
+      <ProjectBuilderContent key={projectIndex} projectindex={projectIndex} projectItem={currentMenuItem} />
     </div>
   )
 }
