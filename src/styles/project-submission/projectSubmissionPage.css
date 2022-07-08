@@ -6,11 +6,10 @@
 
 
 .project-submission-content-container{
-
     background-color: #d7f3ff;
     border-radius: 25px;
     align-items: center;
-    justify-content: center;
+    
     display: flex;
     margin: auto;
     height: 70vh;

@@ -75,3 +75,16 @@ display: flex;
 .pl-btd-btn:hover{
     transform: scale(0.98);
 }
+
+/* .pl-filter-btn:focus {
+    color: red;
+    background-color: rgb(0, 106, 245);
+    color: white;
+} */
+
+/* when selected */
+
+.pl-selected-btn{
+    background-color: rgb(0, 106, 245) ;
+    color: white ;
+}

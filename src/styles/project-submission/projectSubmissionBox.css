@@ -1,8 +1,8 @@
 .white-box-container{
     display: flex;
     position: relative;
-    margin-top: 3%;
-    padding-bottom: 15px;
+    margin-top: 40px;
+    
 }
 
 .white-box-inner-container{
@@ -21,6 +21,11 @@ input[type="checkbox"] {
     position: relative;
     left: 30px;
     top: 15px;
+}
+
+.project-submission-profile-pic{
+    cursor: pointer;
+    height: fit-content;
 }
 
 .project-submission-submit-details{
@@ -42,7 +47,7 @@ input[type="checkbox"] {
     font-size: 14px;
     text-align: center;
     cursor: pointer;
-
+    
 }
 
 .project-submission-time-stamp{
