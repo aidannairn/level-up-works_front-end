@@ -4,23 +4,18 @@ import Modal from "../project-submission/Modal";
 
 export default function ProjectSubmissionBox({
     tick,
+    untick,
     item: { id, image, name, submitted, date, time },
 }) {
     const [checkbox, setCheckbox] = useState(false);
     const tickCheckbox = () => {
         setCheckbox(!checkbox);
-        tickCheckValue();
+        untick();
     };
 
     const [clicked, setClicked] = useState(true);
     const handleClick = () => {
         setClicked(!clicked);
-    };
-
-    const [checkValue, setCheckValue] = useState(true);
-    const tickCheckValue = () => {
-        setCheckValue(!checkbox);
-        console.log(`check value being invoked`, checkValue);
     };
 
     const [showModal, setShowModal] = useState(false);
@@ -37,7 +32,7 @@ export default function ProjectSubmissionBox({
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={id}
-                        value={checkValue ? "ticked" : "not ticked"}
+                        value={checkbox ? "not ticked" : "ticked"}
                         checked={checkbox ? true : false}
                         onChange={tick}
                     ></input>

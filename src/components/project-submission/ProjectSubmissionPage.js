@@ -9,17 +9,23 @@ export default function ProjectSubmissionPage() {
     const [tickBox, setTickBox] = useState("");
 
     const tick = (e) => {
-        setComplete((oldComplete) => [...oldComplete, e.target.id]);
+        setComplete([...complete, e.target.id]);
         setTickBox(e.target.value);
-        console.log(`catching multiple ids`, complete);
+        console.log(e.target.id, e.target.value);
+        console.log(`complete`, complete);
     };
 
     const completed = () => {
-        console.log(`complete data after parseInt`, parseInt(...complete));
+        console.log(`catching multiple ids`, tickBox);
+        console.log(`complete data after parseInt`, parseInt(complete));
         if (tickBox === "ticked")
             return setAllData(
-                allData.filter((item) => item.id !== parseInt(complete))
+                allData.filter((item) => item.id !== parseInt([complete]))
             );
+    };
+
+    const untick = () => {
+        console.log(`unticked checkbox`);
     };
 
     return (
@@ -57,6 +63,7 @@ export default function ProjectSubmissionPage() {
                                 key={index}
                                 item={item}
                                 tick={tick}
+                                untick={untick}
                             />
                         ))}
                     </div>
