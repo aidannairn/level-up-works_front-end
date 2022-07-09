@@ -1,0 +1,12 @@
+.pb-aw-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pb-aw-instr-img {
+  width: fit-content;
+}
+
+.pb-center-paragraph {
+  text-align: center;
+}
