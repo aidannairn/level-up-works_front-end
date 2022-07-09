@@ -9,41 +9,14 @@ import VideoTutorial from './VideoTutorial'
 import '../../styles/project-builder/project-builder.css'
 
 const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[1])  
+  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])  
 
   const learningObjectives = {
     id: 'learningObjectives',
     component: LearningObjectives,
     menuItem: 'Learning Objectives',
     icon: 'objectives.png',
-    content: {
-      heading: 'Explore Scratch Blocks',
-      desc: 'Learn the basic function of some scratch blocks such as "say", "wait", "go to" and "hide".',
-      blocks: [
-        {
-          type: 'look',
-          mainBlock: 'look-main-block.png',
-          blockComponents: [
-            'look-component-1.png',
-            'look-component-2.png',
-          ]
-        },
-        {
-          type: 'control',
-          mainBlock: 'control-main-block.png',
-          blockComponents: [
-            'control-component-1.png'
-          ]
-        },
-        {
-          type: 'motion',
-          mainBlock: 'motion-main-block.png',
-          blockComponents: [
-            'motion-component-1.png'
-          ]
-        }
-      ]
-    }
+    content: {}
   }
 
   const instructions = {
@@ -70,14 +43,13 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
     videoTutorial
   }
 
-  // If projectItem is an object - The value should be an array with 'insert' as the first item, and the contents data as the second item. Update projectBuilderItems accordingly.
+  // If projectItem only includes one property - The key is to reference one of the project builder items declared above. The value of the key will then be used to replace the project builder item's content.
   projectItems.map((projectItem, index) => {
-    for (const key in projectItem) {
-      if (projectItem[key][0] === 'insert') {
+    if (Object.keys(projectItem).length === 1) {
+      for (const key in projectItem) {
         projectItems[index] = projectBuilderItems[key]
-        if (projectItem[key][1]) {
-          projectItems[index].contents = projectItem[key][1]
-        }
+        const contentType = "content" in projectItems[index] ? 'content' : 'contents'
+        projectItems[index][contentType] = projectItem[key]
       }
     }
   })

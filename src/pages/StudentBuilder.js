@@ -106,9 +106,9 @@ const StudentBuilder = () => {
   // END Student Project Builder Views
 
   const projectItems = [
-    { learningObjectives: ['insert'] },
-    { instructions: ['insert', project.instructions] },
-    { videoTutorial: ['insert', project.video] },
+    { learningObjectives: project.learningObjectives },
+    { instructions: project.instructions },
+    { videoTutorial: project.videos },
     makeProject,
     submitProject,
     bonusChallenge,
