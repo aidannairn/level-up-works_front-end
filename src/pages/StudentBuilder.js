@@ -7,6 +7,7 @@ import MainHeader from '../components/header/MainHeader'
 import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
+import LoadingScreen from '../components/LoadingScreen'
 
 const StudentBuilder = () => {
   const [projectIndex, setProject] = useState(0)
@@ -125,7 +126,7 @@ const StudentBuilder = () => {
     takeTheQuiz
   ]
 
-  return isLoading ? '' : (
+  return isLoading ? <LoadingScreen /> : (
     <>
       <MainHeader layout='2' 
       projectBar={projectBar} 
