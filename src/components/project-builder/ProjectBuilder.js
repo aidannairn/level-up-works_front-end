@@ -1,15 +1,15 @@
 import { useState } from "react"
 
-import videoTutorialsJSON from '../../videoTutorials.json'
 import ProjectBuilderContent from "./ProjectBuilderContent"
 import Sidebar from "./Sidebar"
 import LearningObjectives from './LearningObjectives'
+import Instruction from './Instruction'
 import VideoTutorial from './VideoTutorial'
 
 import '../../styles/project-builder/project-builder.css'
 
 const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])  
+  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[1])  
 
   const learningObjectives = {
     id: 'learningObjectives',
@@ -46,24 +46,38 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
     }
   }
 
+  const instructions = {
+    id: 'instructions',
+    component: Instruction,
+    isArrowNavEnabled: true,
+    menuItem: 'Instructions',
+    icon: 'steps.png',
+    contents: []
+  } 
+
   const videoTutorial = { 
     id: 'videoTutorial',
     component: VideoTutorial,
     isArrowNavEnabled: true,
     menuItem: 'Video Tutorial',
     icon: 'video.png',
-    contents: videoTutorialsJSON[projectIndex]
+    contents: []
   }
 
   const projectBuilderItems = {
     learningObjectives,
+    instructions,
     videoTutorial
   }
 
+  // If projectItem is an object - The value should be an array with 'insert' as the first item, and the contents data as the second item. Update projectBuilderItems accordingly.
   projectItems.map((projectItem, index) => {
     for (const key in projectItem) {
-      if (projectItem[key] === 'insert') {
+      if (projectItem[key][0] === 'insert') {
         projectItems[index] = projectBuilderItems[key]
+        if (projectItem[key][1]) {
+          projectItems[index].contents = projectItem[key][1]
+        }
       }
     }
   })

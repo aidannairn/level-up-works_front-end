@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import instructionsJSON from '../instructions.json'
-import Instruction from '../components/project-builder/Instruction'
 import MainHeader from '../components/header/MainHeader'
 import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
@@ -10,8 +8,8 @@ import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 import LoadingScreen from '../components/LoadingScreen'
 
 const StudentBuilder = () => {
-  const [projectIndex, setProject] = useState(0)
-  const [projectInstructions, setProjectInstructions] = useState([])
+  const [projectIndex, setProjectIndex] = useState(0)
+  const [project, setProject] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
   const {
@@ -20,16 +18,16 @@ const StudentBuilder = () => {
   } = process.env
 
   useEffect(() => {
-    setProjectInstructions([])
-    axios.get(`${host}${port}/student-builder/instructions/${projectIndex + 1}`)
+    setProject({})
+    axios.get(`${host}${port}/student-builder/project/${projectIndex + 1}`)
     .then(res => {
-      setProjectInstructions(res.data)
+      setProject(res.data)
     })
   }, [projectIndex])
 
   useEffect(() => {
-    projectInstructions.length ? setIsLoading(false) : setIsLoading(true)
-  }, [projectInstructions])
+    Object.keys(project).length === 0 ? setIsLoading(true) : setIsLoading(false)
+  }, [project])  
 
   const testScreenshotBtn = () => {
     console.log('Test screenshot button')
@@ -46,9 +44,9 @@ const StudentBuilder = () => {
 
   const projectBar = {
     name: 'Introduction',
-    projects: instructionsJSON.length,
+    projects: 1,
     currentProject: projectIndex,
-    setProject: setProject
+    setProject: setProjectIndex
   }
   // END Header Props
 
@@ -58,15 +56,6 @@ const StudentBuilder = () => {
   }
 
   // START Student Project Builder Views
-  const instructions = {
-    id: 'instructions',
-    component: Instruction,
-    isArrowNavEnabled: true,
-    menuItem: 'Instructions',
-    icon: 'steps.png',
-    contents: projectInstructions
-  } 
-
   const makeProject = { 
     id: 'makeProject',
     component: MakeProject,
@@ -117,9 +106,9 @@ const StudentBuilder = () => {
   // END Student Project Builder Views
 
   const projectItems = [
-    { learningObjectives: 'insert' },
-    instructions,
-    { videoTutorial: 'insert' },
+    { learningObjectives: ['insert'] },
+    { instructions: ['insert', project.instructions] },
+    { videoTutorial: ['insert', project.video] },
     makeProject,
     submitProject,
     bonusChallenge,
