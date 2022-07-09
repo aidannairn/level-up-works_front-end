@@ -21,7 +21,7 @@ figcaption {
 
 }
 #backtotop {
-    width: 15%;
+    width: 17%;
     margin-left: auto;
     padding-right: 50px;
     margin-top: 150px;
@@ -39,3 +39,21 @@ figcaption {
     border-color: rgba(229,171,44,255);
 }
 
+@media only screen and (max-width: 768px) {
+
+    #Projects figure {
+        display: flex;
+        margin-top: 100px;
+        max-width: 768px;
+        justify-content: center;
+        margin-left: 0px;
+        vertical-align: top;
+    }
+    #Projects figcaption {
+        display: block;
+    }
+    #backtotop {
+        margin-left: 0px;
+    }
+
+}

@@ -6,7 +6,7 @@ const Projects = () => {
       <div id='Projectimagesone'>
           <figure>
           <img src='/images/studentProjectspage/intro.png' alt="intro"/>
-          <figcaption>introduction</figcaption><figcaption>BEGINNER | Animation</figcaption>
+          <figcaption>introduction<br></br>BEGINNER | Animation</figcaption>
           </figure>
           <figure>
           <img src='/images/studentProjectspage/mybirthday.png' alt="myBirthday"/>
@@ -62,7 +62,7 @@ const Projects = () => {
     <div id='Projectimagesfive'>
           <figure>
           <img src='/images/studentProjectspage/birthdaycard.png' alt="birthday card"/>
-          <figcaption>=Birthday card<br></br>BEGINNER | Animation</figcaption>
+          <figcaption>Birthday card<br></br>BEGINNER | Animation</figcaption>
           </figure>
           <figure>
           <img src='/images/studentProjectspage/thelionpt1.png' alt="the lion pt 1"/>

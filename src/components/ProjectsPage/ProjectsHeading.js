@@ -11,4 +11,3 @@ const ProjectsHeading = () => {
 }
 
 export default ProjectsHeading
-

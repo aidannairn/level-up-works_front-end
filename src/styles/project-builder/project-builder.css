@@ -1,0 +1,151 @@
+#project-builder-container {
+  display: flex;
+  height: calc(100vh - 3.5rem);
+  background-color: #B2E4FA;
+}
+
+#pb-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+  background-color: #43C0F6;
+  color: white;
+}
+
+#sb-profile-img-wrapper {
+  text-align: center;
+}
+
+#sb-profile-img-wrapper img {
+  width: 4rem;
+  margin: 1.5rem 0;
+}
+
+.sb-view {
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  padding: 1rem;
+}
+
+.sb-view:hover {
+  cursor: pointer;
+}
+
+.sb-view img {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.sb-view-title {
+  margin: 0;
+  width: max-content;
+}
+
+.sb-active-view {
+  background-color: #B2E4FA;
+}
+
+.sb-active-view img {
+  filter: invert(0.6);
+}
+
+.sb-active-view .sb-view-title {
+  color: #707070;
+}
+
+#sb-arrow-container {
+  display: flex;
+  margin: 1rem 0;
+  align-self: stretch;
+  flex-grow: 1;
+  justify-content: right;
+}
+
+#sb-arrow-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 4rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  background-color: #B2E4FA;
+  cursor: pointer;
+}
+
+#sb-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent; 
+  border-right: 15px solid #F91D84; 
+}
+
+#sb-user-options {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sb-user-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sb-user-option h5 {
+  margin: 0.5rem 0;
+}
+
+
+.pb-sb-hidden .sb-view {
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.pb-sb-hidden #sb-arrow-container {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.pb-sb-hidden #sb-arrow-outer {
+  transform: rotate(180deg);
+}
+
+.pb-sb-hidden #sb-user-options {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pb-sb-hidden .sb-user-option {
+  display: flex;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.pb-sb-hidden .sb-view-img {
+  margin-right: 0;
+  padding: 0.25rem 0.75rem;
+}
+
+#pb-main-container {
+  background-color: #D9F2FD;
+  width: 100%;
+  height: calc(100% - 4rem);
+  margin: 2rem 1rem;
+  border-radius: 2rem;
+}
+
+#pb-main-content {
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+}

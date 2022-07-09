@@ -3,7 +3,7 @@ import '../../Styles/StudentProjectsPage/ProjectSideBar.css'
 const Sidebar = () => {
   return (
     <div className="projectSideBar">
-        <div>
+        <div id='Subscription'>
             <h5>SUBSCRIPTION</h5>
             <input type='checkbox' name='free' value='free'></input>
             <label for='free'>Free</label>
@@ -12,7 +12,7 @@ const Sidebar = () => {
             <label for='premium'>Premium</label>
         </div>
         <br></br>
-        <div>
+        <div id='Activity'>
             <h5>ACTIVITY TYPE</h5>
             <input type='checkbox' name='animation' value='animation'></input>
             <label for='animation'>Animation</label>
@@ -28,7 +28,7 @@ const Sidebar = () => {
             <br></br>
         </div>
         <br></br>
-        <div>
+        <div id='Year'>
             <h5>YEAR LEVEL</h5>
             <input type='checkbox' name='1 - 4' value='1 - 4'></input>
             <label for='1 - 4'>1 - 4</label>
@@ -44,7 +44,7 @@ const Sidebar = () => {
             <br></br>
         </div>
         <br></br>
-        <div>
+        <div id='Subject'>
             <h5>SUBJECT MATTER</h5>
             <input type='checkbox' name='computer science' value='computer science'></input>
             <label for='computer science'>Computer Science</label>
