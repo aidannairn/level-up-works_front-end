@@ -1,10 +1,12 @@
 const ProjectBar = ({ projectBar }) => {
-  const { name, steps } = projectBar
+  const { name, projects, currentProject, setProject } = projectBar
 
-  const stepCircles = []
+  const projectCircles = []
 
-  for (let step = 0; step < steps; step++) {
-    stepCircles.push(<div key={step} className='pb-step-circle'></div>)
+  const handleProjectClick = projectIndex => setProject(projectIndex)
+
+  for (let project = 0; project < projects; project++) {
+    projectCircles.push(<div key={project} className='pb-step-circle' onClick={() => handleProjectClick(project)}></div>)
   }
 
   return (
@@ -15,9 +17,12 @@ const ProjectBar = ({ projectBar }) => {
           <p>Introduction</p>
         </div>
         <div id="pb-num-steps-container">
-          <div id="pb-number">1</div>
           <div id='pb-step-circles'>
-            {stepCircles}
+            {projectCircles.map((project, index) => {
+              return currentProject === index 
+                ? <div key={index} id="pb-number">{index + 1}</div>
+                : project
+            })}
           </div>
         </div>
       </div>

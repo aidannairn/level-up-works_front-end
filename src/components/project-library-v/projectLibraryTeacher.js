@@ -10,16 +10,16 @@ import { libraryData } from "../../data/project-library-data";
 import { useState } from "react";
 
 export default function ProjectLibraryTeacher() {
-    // const navLinks = [
-    //     { name: 'Home', route: '#' },
-    //     { name: 'Features', route: '#' },
-    //     { name: 'Teachers', route: '#' },
-    // ];
+    const navLinks = [
+        { name: "Home", route: "#" },
+        { name: "Features", route: "#" },
+        { name: "Teachers", route: "#" },
+    ];
 
-    // const currentUser = {
-    //     name: "Jasmina Salvador",
-    //     image: "jasmina-salvador.png",
-    // };
+    const currentUser = {
+        name: "Jasmina Salvador",
+        image: "jasmina-salvador.png",
+    };
 
     const data = libraryData;
     const beginner = data.filter((level) => level.level === "BEGINNER");
@@ -143,7 +143,11 @@ export default function ProjectLibraryTeacher() {
 
     return (
         <>
-            <MainHeader layout={1} />
+            <MainHeader
+                layout="1"
+                navLinks={navLinks}
+                currentUser={currentUser}
+            />
             <div className="pl-container">
                 <ProjectLibrarySidebar
                     sub={sub}

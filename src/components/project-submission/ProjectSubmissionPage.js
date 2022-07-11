@@ -1,12 +1,22 @@
 import ProjectSubmissionBox from "./projectSubmissionBox";
 import "../../styles/project-submission/projectSubmissionPage.css";
 import { data } from "../../data/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ProjectSubmissionPage() {
     const [allData, setAllData] = useState(data);
     const [complete, setComplete] = useState([]);
     const [tickBox, setTickBox] = useState("");
+    const [student, setStudent] = useState([]);
+    const [forData, setForData] = useState([]);
+
+    useEffect(() => {
+        setStudent([]);
+        axios.get(`http://localhost:4000/project-submission`).then((res) => {
+            setStudent(res.data);
+        });
+    }, []);
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
@@ -58,7 +68,7 @@ export default function ProjectSubmissionPage() {
                         </div>
                     </div>
                     <div className="project-submission-content-display">
-                        {allData.map((item, index) => (
+                        {student.map((item, index) => (
                             <ProjectSubmissionBox
                                 key={index}
                                 item={item}

@@ -1,7 +1,7 @@
 /* START Submit Project section */
 #pb-submit-project-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   text-align: center;
   color: #808385;
@@ -12,7 +12,6 @@
   max-width: 40%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
 }
 
 .pb-sp-user-view-container h2, .pb-sp-user-view-container p {
@@ -21,10 +20,11 @@
 
 .pb-sp-view-img {
   width: 100%;
-  padding: 3rem 0;
+  margin: 0 0 3rem 0;
 }
 
 .pb-sp-view-btn-container {
+  border: 1px solid red;
   display: flex;
   justify-content: center;
   margin-top: 2rem;

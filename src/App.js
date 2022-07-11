@@ -28,12 +28,5 @@ function App() {
         </div>
     );
 }
-//     return (
-//         <div className="App">
-//             <ProjectSubmission />
-//             {/* <ProjectLibraryTeacher /> */}
-//         </div>
-//     );
-// }
 
 export default App;
