@@ -6,8 +6,9 @@ import ProjectLibraryContent from "./projectLibraryContent";
 import ProjectLibraryPageButtons from "./projectLibraryPageButtons";
 import Footer from "../MainFooter";
 import "../../styles/project-library-v/projectLibrary.css";
-import { libraryData } from "../../data/project-library-data";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectLibraryTeacher() {
     const navLinks = [
@@ -21,13 +22,25 @@ export default function ProjectLibraryTeacher() {
         image: "jasmina-salvador.png",
     };
 
-    const data = libraryData;
-    const beginner = data.filter((level) => level.level === "BEGINNER");
-    const intermediate = data.filter((level) => level.level === "INTERMEDIATE");
-    const advanced = data.filter((level) => level.level === "ADVANCED");
+    const [projectData, setProjectData] = useState([]);
+    const [myTime, setMyTime] = useState(new Date());
+    const data = projectData;
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/project-library`).then((res) => {
+            setProjectData(res.data);
+        });
+    }, []);
+
+    const beginner = projectData.filter((i) => i.course === "Beginner");
+    const intermediate = projectData.filter((i) => i.course === "Intermediate");
+    const advanced = projectData.filter((i) => i.course === "Advanced");
 
     const [filteredLevel, setFilteredLevel] = useState(data);
-    const [showAmount, setShowAmount] = useState(1000);
+
+    // const [showAmount, setShowAmount] = useState(1000);
     const [subscribe, setSubscribe] = useState("Free");
 
     // Gave up on the filter sidebar. Maybe approached it wrong
@@ -64,22 +77,22 @@ export default function ProjectLibraryTeacher() {
             case "ADVANCED":
                 return setFilteredLevel(advanced);
             default:
-                return null;
+                return setFilteredLevel(data);
         }
     };
 
-    const changeAmount = (e) => {
-        switch (e.target.value) {
-            case "25":
-                return setShowAmount(25);
-            case "50":
-                return setShowAmount(50);
-            case "100":
-                return setShowAmount(100);
-            default:
-                return null;
-        }
-    };
+    // const changeAmount = (e) => {
+    //     switch (e.target.value) {
+    //         case "25":
+    //             return setShowAmount(25);
+    //         case "50":
+    //             return setShowAmount(50);
+    //         case "100":
+    //             return setShowAmount(100);
+    //         default:
+    //             return null;
+    //     }
+    // };
 
     const sub = (e) => {
         switch (e.target.value) {
@@ -141,6 +154,12 @@ export default function ProjectLibraryTeacher() {
     //     }
     // };
 
+    const click = (e) => {
+        if (e.target.id === "1") {
+            navigate("/project-submission");
+        }
+    };
+
     return (
         <>
             <MainHeader
@@ -159,16 +178,17 @@ export default function ProjectLibraryTeacher() {
                     <ProjectLibraryMain />
                     <ProjectLibraryFilterButtons
                         levelFilter={levelFilter}
-                        changeAmount={changeAmount}
+                        // changeAmount={changeAmount}
                     />
                     <div className="pl-body-direction">
                         {filteredLevel
-                            .filter((level) => level.subscription === subscribe)
-                            .filter((id, index) => index < showAmount)
+                            .filter((i) => i.subscription === subscribe)
+                            // .filter((i, index) => index < showAmount)
                             .map((item, index) => (
                                 <ProjectLibraryContent
                                     key={index}
                                     item={item}
+                                    click={click}
                                 />
                             ))}
                     </div>

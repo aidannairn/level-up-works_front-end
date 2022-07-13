@@ -1,29 +1,26 @@
-import { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
 export default function ProjectSubmissionBox({
     tick,
-    untick,
-    item: { studentid, datesubmitted, name, profilepic, submitted, time },
+
+    item: { studentID, dateSubmitted, name, profilePic, submission, time },
 }) {
     const [checkbox, setCheckbox] = useState(false);
-    const tickCheckbox = () => {
+    const tickCheckbox = (e) => {
         setCheckbox(!checkbox);
-        untick();
+        console.log(`check box`, e.target.type);
     };
 
     const [clicked, setClicked] = useState(true);
-    const handleClick = () => {
-        setClicked(!clicked);
-    };
+    const handleClick = () => setClicked(!clicked);
 
     const [showModal, setShowModal] = useState(false);
-    const triggerModal = () => {
-        setShowModal(true);
-    };
+    const triggerModal = () => setShowModal(true);
 
-    let date = new Date(datesubmitted);
+    let date = new Date(dateSubmitted);
 
     return (
         <>
@@ -33,9 +30,8 @@ export default function ProjectSubmissionBox({
                         className="ticky"
                         onClick={tickCheckbox}
                         type="checkbox"
-                        id={studentid}
-                        value={checkbox ? "not ticked" : "ticked"}
-                        checked={checkbox ? true : false}
+                        id={studentID}
+                        checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
@@ -45,7 +41,7 @@ export default function ProjectSubmissionBox({
                         className="project-submission-profile-pic"
                         onClick={handleClick}
                     >
-                        <img src={profilepic} alt=" " width={50} />
+                        <img src={profilePic} alt=" " width={50} />
                     </div>
 
                     {clicked ? (
@@ -61,7 +57,7 @@ export default function ProjectSubmissionBox({
                                 <div className="project-submitted-screen-shot">
                                     <img
                                         onClick={triggerModal}
-                                        src={`/images/projectSubmission/${submitted}`}
+                                        src={submission}
                                         alt=""
                                         width={200}
                                     />{" "}
@@ -76,7 +72,7 @@ export default function ProjectSubmissionBox({
                                 {showModal && (
                                     <Modal
                                         name={name.toUpperCase()}
-                                        submitted={submitted}
+                                        submission={submission}
                                         closeModal={setShowModal}
                                     />
                                 )}

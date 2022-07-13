@@ -1,7 +1,8 @@
+import React from "react";
 import ProjectSubmissionBox from "./projectSubmissionBox";
 import "../../styles/project-submission/projectSubmissionPage.css";
 import { data } from "../../data/data";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 export default function ProjectSubmissionPage() {
@@ -9,33 +10,28 @@ export default function ProjectSubmissionPage() {
     const [complete, setComplete] = useState([]);
     const [tickBox, setTickBox] = useState("");
     const [student, setStudent] = useState([]);
-    const [forData, setForData] = useState([]);
+    const [updatedStudent, setUpdatedStudent] = useState(false);
 
     useEffect(() => {
-        setStudent([]);
-        axios.get(`http://localhost:4000/project-submission`).then((res) => {
+        axios.get(`http://localhost:4000/project-submission/`).then((res) => {
             setStudent(res.data);
         });
-    }, []);
+    }, [updatedStudent]);
+
+    const markedComplete = () => {
+        setUpdatedStudent(!updatedStudent);
+        axios.put(`http://localhost:4000/project-submission/${complete}`);
+    };
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
         setTickBox(e.target.value);
-        console.log(e.target.id, e.target.value);
-        console.log(`complete`, complete);
+        console.log(`tick feature id is ${e.target.id}`);
     };
 
     const completed = () => {
-        console.log(`catching multiple ids`, tickBox);
         console.log(`complete data after parseInt`, parseInt(complete));
-        if (tickBox === "ticked")
-            return setAllData(
-                allData.filter((item) => item.id !== parseInt([complete]))
-            );
-    };
-
-    const untick = () => {
-        console.log(`unticked checkbox`);
+        if (tickBox === "ticked") return console.log("hello from completed");
     };
 
     return (
@@ -57,7 +53,7 @@ export default function ProjectSubmissionPage() {
                         </div>
                         <div
                             className="project-complete-btn"
-                            onClick={completed}
+                            onClick={markedComplete}
                         >
                             <img
                                 src="images/projectSubmission/tick-icon.svg"
@@ -73,7 +69,6 @@ export default function ProjectSubmissionPage() {
                                 key={index}
                                 item={item}
                                 tick={tick}
-                                untick={untick}
                             />
                         ))}
                     </div>
