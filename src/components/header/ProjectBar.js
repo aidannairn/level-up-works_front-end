@@ -1,9 +1,9 @@
 const ProjectBar = ({ projectBar }) => {
-  const { name, projects, currentProject, setProject } = projectBar
+  const { name, projects, currentProject, setProjectIndex } = projectBar
 
   const projectCircles = []
 
-  const handleProjectClick = projectIndex => setProject(projectIndex)
+  const handleProjectClick = projectIndex => setProjectIndex(projectIndex)
 
   for (let project = 0; project < projects; project++) {
     projectCircles.push(<div key={project} className='pb-step-circle' onClick={() => handleProjectClick(project)}></div>)
