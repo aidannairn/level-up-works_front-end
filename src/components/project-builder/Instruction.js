@@ -33,7 +33,7 @@ const InstructionStep = ({ stepNum, element }) => {
 }
 
 const Instruction = ({ content, index: stepNum }) => (
-  <div id='pb-aw-instruction-container'>
+  <div id='pb-aw-instruction-container' className='scrollable'>
     {content.elements.map((el, index) => {
       return <InstructionStep key={index} stepNum={stepNum + 1} element={el} />
     })}

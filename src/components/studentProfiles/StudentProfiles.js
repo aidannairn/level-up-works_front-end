@@ -1,3 +1,4 @@
+
 import '../../Styles/student-profile-viewer/student-cards.css';
 
 const StudentProfile = props => {
@@ -99,10 +100,12 @@ const StudentProfiles = () => {
 
 
 return (
-  <div className='studentCards'>
+  <div className='scrollable'>
+    <div className='studentCards'>
     {studentsArray.map((student, index) => {
       return <StudentProfile key={index} student={student} />
     })}
+    </div>
   </div>
   )
 }

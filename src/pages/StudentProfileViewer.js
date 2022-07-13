@@ -1,14 +1,14 @@
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+
 import MainHeader from '../Components/header/MainHeader'
 import ProjectBuilder from '../Components/project-builder/ProjectBuilder'
 import StudentProfiles from '../Components/studentProfiles/StudentProfiles'
 import ProgressTracker from '../Components/studentProfiles/ProgressTracker'
-import '../Styles/student-profile-viewer/progress-tracker.css'
-
-
-
 
 
 const StudentProfileViewer = () => {
+
   const testScreenshotBtn = () => {
     console.log('Test screenshot button')
   }
@@ -53,6 +53,9 @@ const StudentProfileViewer = () => {
     HelpRequest,
   ]
 
+  
+
+
   return (
     <>
      <MainHeader layout='2' navBtns={navBtns} />
@@ -65,3 +68,6 @@ const StudentProfileViewer = () => {
 
 
 export default StudentProfileViewer
+
+
+
