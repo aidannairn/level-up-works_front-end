@@ -23,8 +23,6 @@ export default function ProjectLibraryTeacher() {
     };
 
     const [projectData, setProjectData] = useState([]);
-    const [myTime, setMyTime] = useState(new Date());
-    const data = projectData;
 
     const navigate = useNavigate();
 
@@ -34,11 +32,7 @@ export default function ProjectLibraryTeacher() {
         });
     }, []);
 
-    const beginner = projectData.filter((i) => i.course === "Beginner");
-    const intermediate = projectData.filter((i) => i.course === "Intermediate");
-    const advanced = projectData.filter((i) => i.course === "Advanced");
-
-    const [filteredLevel, setFilteredLevel] = useState(data);
+    const [courseLevel, setCourseLevel] = useState("Beginner");
 
     // const [showAmount, setShowAmount] = useState(1000);
     const [subscribe, setSubscribe] = useState("Free");
@@ -71,13 +65,13 @@ export default function ProjectLibraryTeacher() {
     const levelFilter = (e) => {
         switch (e.target.value) {
             case "BEGINNER":
-                return setFilteredLevel(beginner);
+                return setCourseLevel("Beginner");
             case "INTERMEDIATE":
-                return setFilteredLevel(intermediate);
+                return setCourseLevel("Intermediate");
             case "ADVANCED":
-                return setFilteredLevel(advanced);
+                return setCourseLevel("Advanced");
             default:
-                return setFilteredLevel(data);
+                return null;
         }
     };
 
@@ -107,52 +101,60 @@ export default function ProjectLibraryTeacher() {
 
     // Part of the filter code from above
 
-    // const type = (e) => {
-    //     switch (e.target.value) {
-    //         case "Animation":
-    //             return setActivity("Animation");
-    //         case "Game":
-    //             return setActivity("Game");
-    //         case "Chat":
-    //             return setActivity("Chat");
-    //         case "Augmented Reality":
-    //             return setActivity("Augmented Reality");
-    //         default:
-    //             return null;
-    //     }
-    // };
-    // const year = (e) => {
-    //     switch (e.target.value) {
-    //         case "1 - 4":
-    //             return setYearLevel(year1);
-    //         case "5 - 6":
-    //             return setYearLevel(year2);
-    //         case "7 - 8":
-    //             return setYearLevel(year3);
-    //         case "9 - 13":
-    //             return setYearLevel(year4);
-    //         default:
-    //             return null;
-    //     }
-    // };
-    // const matter = (e) => {
-    //     switch (e.target.value) {
-    //         case "Computer Science":
-    //             return setSubject(mat1);
-    //         case "Maths":
-    //             return setSubject(mat2);
-    //         case "Science":
-    //             return setSubject(mat3);
-    //         case "Language":
-    //             return setSubject(mat4);
-    //         case "Art":
-    //             return setSubject(mat5);
-    //         case "Music":
-    //             return setSubject(mat6);
-    //         default:
-    //             return null;
-    //     }
-    // };
+    const [activity, setActivity] = useState("Animation");
+
+    const type = (e) => {
+        switch (e.target.value) {
+            case "Animation":
+                return setActivity("Animation");
+            case "Game":
+                return setActivity("Game");
+            case "Chat":
+                return setActivity("Chat");
+            case "Augmented Reality":
+                return setActivity("Augmented Reality");
+            default:
+                return null;
+        }
+    };
+
+    const [yearLevel, setYearLevel] = useState("1 - 4");
+
+    const year = (e) => {
+        switch (e.target.value) {
+            case "1 - 4":
+                return setYearLevel("1 - 4");
+            case "5 - 6":
+                return setYearLevel("5 - 6");
+            case "7 - 8":
+                return setYearLevel("7 - 8");
+            case "9 - 13":
+                return setYearLevel("9 - 13");
+            default:
+                return null;
+        }
+    };
+
+    const [subject, setSubject] = useState("Computer Science");
+
+    const matter = (e) => {
+        switch (e.target.value) {
+            case "Computer Science":
+                return setSubject("Computer Science");
+            case "Maths":
+                return setSubject("Maths");
+            case "Science":
+                return setSubject("Science");
+            case "Language":
+                return setSubject("Language");
+            case "Art":
+                return setSubject("Art");
+            case "Music":
+                return setSubject("Music");
+            default:
+                return null;
+        }
+    };
 
     const click = (e) => {
         if (e.target.id === "1") {
@@ -179,9 +181,13 @@ export default function ProjectLibraryTeacher() {
                     <ProjectLibraryFilterButtons
                         levelFilter={levelFilter}
                         // changeAmount={changeAmount}
+                        type={type}
+                        year={year}
+                        matter={matter}
                     />
                     <div className="pl-body-direction">
-                        {filteredLevel
+                        {projectData
+                            .filter((i) => i.course === courseLevel)
                             .filter((i) => i.subscription === subscribe)
                             // .filter((i, index) => index < showAmount)
                             .map((item, index) => (
