@@ -18,12 +18,12 @@
   text-align: center;
 }
 
-#lo-img-wrapper {
+#pb-learning-objectives-container > div > div {
   display: flex;
   justify-content: center;
 }
 
-#lo-img-wrapper img {
+#pb-learning-objectives-container img {
   width: fit-content;
   max-width: 60%;
 }

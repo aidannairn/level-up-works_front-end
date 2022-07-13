@@ -13,11 +13,11 @@ const InstructionStep = ({ stepNum, element }) => {
         textBefore,
         textAfter,
         href,
-        text,
+        link,
         linkColor
       } = content
 
-      return <p className={`pb-aw-instr-p-with-link ${(textBefore + text + textAfter).length < 100 ? 'pb-center-paragraph' : ''}`}>{textBefore} <a href={href} target='_blank' style={{color: `${linkColor}`}}>{text}</a>{textAfter}</p>
+      return <p className={`pb-aw-instr-p-with-link ${(textBefore + link + textAfter).length < 100 ? 'pb-center-paragraph' : ''}`}>{textBefore} <a href={href} target='_blank' style={{color: `${linkColor}`}}>{link}</a>{textAfter}</p>
     case 'image':
       return <div className='pb-aw-img-container'>
         <img className='pb-aw-instr-img' src={`https://cdn.filestackcontent.com/${content}`} />

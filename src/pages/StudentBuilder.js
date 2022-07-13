@@ -11,6 +11,7 @@ const StudentBuilder = () => {
   const [projectIndex, setProjectIndex] = useState(0)
   const [project, setProject] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [projectBarCount, setProjectBarCount] = useState(0)
 
   const {
     REACT_APP_BACKEND_HOST: host,
@@ -18,9 +19,15 @@ const StudentBuilder = () => {
   } = process.env
 
   useEffect(() => {
+    axios.get(`${host}${port}/student/project/`)
+    .then(res => { setProjectBarCount(res.data.totalProjects) })
+  }, [])
+  
+  useEffect(() => {
     setProject({})
-    axios.get(`${host}${port}/student-builder/project/${projectIndex + 1}`)
-    .then(res => {
+    axios.get(`${host}${port}/student/project/${projectIndex + 1}`)
+    .then(res => { 
+      console.log(res.data)
       setProject(res.data)
     })
   }, [projectIndex])
@@ -44,9 +51,9 @@ const StudentBuilder = () => {
 
   const projectBar = {
     name: 'Introduction',
-    projects: 1,
+    projects: projectBarCount,
     currentProject: projectIndex,
-    setProject: setProjectIndex
+    setProjectIndex: setProjectIndex
   }
   // END Header Props
 
@@ -95,20 +102,22 @@ const StudentBuilder = () => {
   const bonusChallenge = { 
     id: 'bonusChallenge',
     menuItem: 'Bonus Challenge',
-    icon: 'prize.png'
+    icon: 'prize.png',
+    content: {}
   }
 
   const takeTheQuiz = { 
     id: 'takeTheQuiz',
     menuItem: 'Take The Quiz',
-    icon: 'list.png'
+    icon: 'list.png',
+    content: {}
   }
   // END Student Project Builder Views
 
   const projectItems = [
     { learningObjectives: project.learningObjectives },
     { instructions: project.instructions },
-    { videoTutorial: project.videos },
+    { video: project.video },
     makeProject,
     submitProject,
     bonusChallenge,

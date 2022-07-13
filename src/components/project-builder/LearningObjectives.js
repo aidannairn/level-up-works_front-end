@@ -1,15 +1,14 @@
 import '../../styles/project-builder/learning-objectives.css'
 
 const LearningObjectives = ({ content }) => {
-  const { text, image } = content
-  console.log(content)
+  const { heading, htmlStr } = content
+
+  const html = htmlStr.replace('src="', 'src="https://cdn.filestackcontent.com/')
+
   return (
     <div id='pb-learning-objectives-container'>
-      <h1>Learning Objectives</h1>
-      <div id="lo-img-wrapper">
-        <img src={`https://cdn.filestackcontent.com/${image}`} alt="Learning Objectives image" />
-      </div>
-      <h2>{text}</h2>
+      <h1>{heading}</h1>
+      <div dangerouslySetInnerHTML={{__html: `${html}`}} />
     </div>
   )
 }

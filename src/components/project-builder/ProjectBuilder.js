@@ -28,19 +28,18 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
     contents: []
   } 
 
-  const videoTutorial = { 
+  const video = { 
     id: 'videoTutorial',
     component: VideoTutorial,
-    isArrowNavEnabled: true,
     menuItem: 'Video Tutorial',
     icon: 'video.png',
-    contents: []
+    content: {}
   }
 
   const projectBuilderItems = {
     learningObjectives,
     instructions,
-    videoTutorial
+    video
   }
 
   // If projectItem only includes one property - The key is to reference one of the project builder items declared above. The value of the key will then be used to replace the project builder item's content.
