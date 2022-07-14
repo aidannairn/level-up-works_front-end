@@ -9,26 +9,29 @@ import "../../styles/project-library-v/projectLibrary.css";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading";
 
 export default function ProjectLibraryTeacher() {
     const navLinks = [
-        { name: "Home", route: "#" },
+        { name: "Home", route: "/" },
         { name: "Features", route: "#" },
         { name: "Teachers", route: "#" },
     ];
 
     const currentUser = {
         name: "Jasmina Salvador",
-        image: "jasmina-salvador.png",
+        image: "jasmina-salvador",
     };
 
     const [projectData, setProjectData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:4000/project-library`).then((res) => {
             setProjectData(res.data);
+            setIsLoading(false);
         });
     }, []);
 
@@ -156,15 +159,20 @@ export default function ProjectLibraryTeacher() {
         }
     };
 
+    const hello = () => console.log(`hello from the user`);
+
     const click = (e) => {
         if (e.target.id === "1") {
             navigate("/project-submission");
         }
     };
-
+    if (isLoading) {
+        return <Loading />;
+    }
     return (
         <>
             <MainHeader
+                onClick={hello}
                 layout="1"
                 navLinks={navLinks}
                 currentUser={currentUser}
