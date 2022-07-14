@@ -27,7 +27,6 @@ const StudentBuilder = () => {
     setProject({})
     axios.get(`${host}${port}/student/project/${projectIndex + 1}`)
     .then(res => { 
-      console.log(res.data)
       setProject(res.data)
     })
   }, [projectIndex])
