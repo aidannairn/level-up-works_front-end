@@ -21,8 +21,11 @@ const Header = props => {
     navLinks,
     currentUser,
     projectBar,
-    navBtns
+    navBtns,
+    setIsModalVisible
   } = props
+
+  const handleAuthClick = () => setIsModalVisible(true)
 
   return (
     <div id="header" className={`header-layout-${layout}`}>
@@ -41,7 +44,7 @@ const Header = props => {
       {layout === '1' && 
         <div id='auth-lang-container'>
           <NavFlags lang/>
-          <div id="auth-container">
+          <div id="auth-container" onClick={handleAuthClick}>
             {currentUser ? <>
               <img id='navbar-current-user-img' src={`images/students/${currentUser.image}.png`} />
               <h2>{currentUser.name}</h2>
