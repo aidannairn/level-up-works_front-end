@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28" viewBox="0 0 28 28">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="28" height="28" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="0.353" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dbdbdb"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="Check_Box" data-name="Check Box" clip-path="url(#clip-path)">
+    <g id="Check_Box-2" data-name="Check Box" stroke="rgba(0,0,0,0.25)" stroke-width="0.5" fill="url(#linear-gradient)">
+      <rect width="28" height="28" rx="3" stroke="none"/>
+      <rect x="0.25" y="0.25" width="27.5" height="27.5" rx="2.75" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+.small-footer-container{
+    display: flex;
+    margin-top: auto;
+    align-self: center; 
+}
