@@ -1,6 +1,6 @@
 .project-submission-content-parent{
     display: flex;
-    height: 100%;
+    height: 85vh;
     width: 100%;
 }
 
@@ -9,16 +9,15 @@
     background-color: #d7f3ff;
     border-radius: 25px;
     align-items: center;
-    
     display: flex;
     margin: auto;
-    height: 100%;
-    top: 5em;
+    height: 85%;
     width: 94%;
     position: relative;
     overflow: hidden;
     overflow-y: scroll;
     flex-direction: column;
+    margin-bottom: 4%;
 }
 
 .project-submission-content-container::-webkit-scrollbar {

@@ -1,14 +1,11 @@
 import React from "react";
 import ProjectSubmissionBox from "./projectSubmissionBox";
 import "../../styles/project-submission/projectSubmissionPage.css";
-import { data } from "../../data/data";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function ProjectSubmissionPage() {
-    const [allData, setAllData] = useState(data);
     const [complete, setComplete] = useState([]);
-    const [tickBox, setTickBox] = useState("");
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
 
@@ -18,20 +15,14 @@ export default function ProjectSubmissionPage() {
         });
     }, [updatedStudent]);
 
-    const markedComplete = () => {
+    const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
         axios.put(`http://localhost:4000/project-submission/${complete}`);
     };
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
-        setTickBox(e.target.value);
         console.log(`tick feature id is ${e.target.id}`);
-    };
-
-    const completed = () => {
-        console.log(`complete data after parseInt`, parseInt(complete));
-        if (tickBox === "ticked") return console.log("hello from completed");
     };
 
     return (
@@ -53,7 +44,7 @@ export default function ProjectSubmissionPage() {
                         </div>
                         <div
                             className="project-complete-btn"
-                            onClick={markedComplete}
+                            onClick={markedAsComplete}
                         >
                             <img
                                 src="images/projectSubmission/tick-icon.svg"

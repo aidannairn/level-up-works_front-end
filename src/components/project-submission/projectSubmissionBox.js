@@ -1,22 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
 export default function ProjectSubmissionBox({
     tick,
-
-    item: { studentID, dateSubmitted, name, profilePic, submission, time },
+    item: { studentID, dateSubmitted, firstname, profilePic, submission, time },
 }) {
-    const [checkbox, setCheckbox] = useState(false);
+    const [checkbox, setCheckbox] = useState("");
     const tickCheckbox = (e) => {
-        setCheckbox(!checkbox);
-        console.log(`check box`, e.target.type);
+        setCheckbox(e.target.id);
     };
 
     const [clicked, setClicked] = useState(true);
-    const handleClick = () => setClicked(!clicked);
-
+    const handleClick = () => {
+        setClicked(!clicked);
+    };
     const [showModal, setShowModal] = useState(false);
     const triggerModal = () => setShowModal(true);
 
@@ -31,7 +30,6 @@ export default function ProjectSubmissionBox({
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={studentID}
-                        checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
@@ -41,18 +39,24 @@ export default function ProjectSubmissionBox({
                         className="project-submission-profile-pic"
                         onClick={handleClick}
                     >
-                        <img src={profilePic} alt=" " width={50} />
+                        <img
+                            src={`https://cdn.filestackcontent.com/${profilePic}`}
+                            alt="student pic"
+                            width={50}
+                        />
                     </div>
 
                     {clicked ? (
                         <div className="project-submitted-text">
-                            {name.toUpperCase()} wants to show their project
+                            {firstname.toUpperCase()} wants to show their
+                            project
                         </div>
                     ) : (
                         <>
                             <div className="project-submission-submit-details">
                                 <div className="project-submitted-text">
-                                    {name.toUpperCase()} submitted thier project
+                                    {firstname.toUpperCase()} submitted thier
+                                    project
                                 </div>
                                 <div className="project-submitted-screen-shot">
                                     <img
@@ -71,7 +75,7 @@ export default function ProjectSubmissionBox({
                                 </div>
                                 {showModal && (
                                     <Modal
-                                        name={name.toUpperCase()}
+                                        name={firstname.toUpperCase()}
                                         submission={submission}
                                         closeModal={setShowModal}
                                     />
@@ -79,7 +83,6 @@ export default function ProjectSubmissionBox({
                             </div>
                         </>
                     )}
-
                     <span className="project-submission-white-box-white-space"></span>
                     <div className="project-submission-time-stamp">
                         <p>{date.toUTCString()}</p>

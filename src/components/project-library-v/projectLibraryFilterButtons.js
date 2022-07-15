@@ -6,14 +6,10 @@ export default function ProjectLibraryFilterButtons({
     changeAmount,
 }) {
     const [filterLevel, setFilterLevel] = useState("BEGINNER");
-    const changeLevel = (e) => {
-        setFilterLevel(e.target.value);
-    };
+    const changeLevel = (e) => setFilterLevel(e.target.value);
 
     const [filterAmount, setFilterAmount] = useState("25");
-    const changeShown = (e) => {
-        setFilterAmount(e.target.value);
-    };
+    const changeShown = (e) => setFilterAmount(e.target.value);
 
     const styledButton = {
         backgroundColor: "rgb(0, 106, 245)",

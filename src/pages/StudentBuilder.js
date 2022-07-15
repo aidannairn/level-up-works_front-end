@@ -1,138 +1,145 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-import instructionsJSON from '../instructions.json'
-import Instruction from '../components/project-builder/Instruction'
-import MainHeader from '../components/header/MainHeader'
-import MakeProject from '../components/project-builder/MakeProject'
-import SubmitProject from '../components/project-builder/SubmitProject'
-import ProjectBuilder from '../components/project-builder/ProjectBuilder'
+import instructionsJSON from "../instructions.json";
+import Instruction from "../components/project-builder/Instruction";
+import MainHeader from "../components/header/MainHeader";
+import MakeProject from "../components/project-builder/MakeProject";
+import SubmitProject from "../components/project-builder/SubmitProject";
+import ProjectBuilder from "../components/project-builder/ProjectBuilder";
 
 const StudentBuilder = () => {
-  const [projectIndex, setProject] = useState(0)
-  const [projectInstructions, setProjectInstructions] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+    const [projectIndex, setProject] = useState(0);
+    const [projectInstructions, setProjectInstructions] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-  const {
-    REACT_APP_BACKEND_HOST: host,
-    REACT_APP_BACKEND_PORT: port
-  } = process.env
+    const { REACT_APP_BACKEND_HOST: host, REACT_APP_BACKEND_PORT: port } =
+        process.env;
 
-  useEffect(() => {
-    setProjectInstructions([])
-    axios.get(`${host}${port}/student-builder/instructions/${projectIndex + 1}`)
-    .then(res => {
-      setProjectInstructions(res.data)
-    })
-  }, [projectIndex])
+    useEffect(() => {
+        setProjectInstructions([]);
+        axios
+            .get(
+                `${host}${port}/student-builder/instructions/${
+                    projectIndex + 1
+                }`
+            )
+            .then((res) => {
+                setProjectInstructions(res.data);
+            });
+    }, [projectIndex]);
 
-  useEffect(() => {
-    projectInstructions.length ? setIsLoading(false) : setIsLoading(true)
-  }, [projectInstructions])
+    useEffect(() => {
+        projectInstructions.length ? setIsLoading(false) : setIsLoading(true);
+    }, [projectInstructions]);
 
-  const testScreenshotBtn = () => {
-    console.log('Test screenshot button')
-  }
+    const testScreenshotBtn = () => {
+        console.log("Test screenshot button");
+    };
 
-  // START Header Props
-  const navBtns = [
-    { name: 'Take Screenshot', 
-      action: testScreenshotBtn
-    },
-    { name: 'Ask Teacher for help', action: '' },
-    { name: 'More Projects', action: '' },
-  ]
+    // START Header Props
+    const navBtns = [
+        { name: "Take Screenshot", action: testScreenshotBtn },
+        { name: "Ask Teacher for help", action: "" },
+        { name: "More Projects", action: "" },
+    ];
 
-  const projectBar = {
-    name: 'Introduction',
-    projects: instructionsJSON.length,
-    currentProject: projectIndex,
-    setProject: setProject
-  }
-  // END Header Props
+    const projectBar = {
+        name: "Introduction",
+        projects: instructionsJSON.length,
+        currentProject: projectIndex,
+        setProject: setProject,
+    };
+    // END Header Props
 
-  const currentUser = {
-    name: 'Rawiri Fletcher',
-    image: 'rawiri-fletcher.png'
-  }
+    const currentUser = {
+        name: "Rawiri Fletcher",
+        image: "rawiri-fletcher.png",
+    };
 
-  // START Student Project Builder Views
-  const instructions = {
-    id: 'instructions',
-    component: Instruction,
-    isArrowNavEnabled: true,
-    menuItem: 'Instructions',
-    icon: 'steps.png',
-    contents: projectInstructions
-  } 
+    // START Student Project Builder Views
+    const instructions = {
+        id: "instructions",
+        component: Instruction,
+        isArrowNavEnabled: true,
+        menuItem: "Instructions",
+        icon: "steps.png",
+        contents: projectInstructions,
+    };
 
-  const makeProject = { 
-    id: 'makeProject',
-    component: MakeProject,
-    isArrowNavEnabled: true,
-    menuItem: 'Make Project',
-    icon: 'new-project.png',
-    contents: [
-      { id: 1, src: 'project.png'}
-    ]
-  }
+    const makeProject = {
+        id: "makeProject",
+        component: MakeProject,
+        isArrowNavEnabled: true,
+        menuItem: "Make Project",
+        icon: "new-project.png",
+        contents: [{ id: 1, src: "project.png" }],
+    };
 
-  const submitProject = { 
-    id: 'submitProject',
-    component: SubmitProject,
-    menuItem: 'Submit Project',
-    icon: 'submit-project.png',
-    content: {
-      sendPhoto: {
-        id: 'sendPhoto',
-        heading: 'Submit project photo',
-        paragraph: 'After completing your project, take a screenshot of your project and upload it here.',
-        image: 'project.png',
-        btnIcon: 'gallery-icon.png',
-        btnText: 'Send Photo'
-      },
-      callTeacher: {
-        id: 'callTeacher',
-        heading: 'Show your teacher',
-        paragraph: 'If your teacher is in the same room as you, click the button below to let them know you are done.',
-        image: 'teacher-computer.png',
-        btnIcon: 'teacher-chalkboard.png',
-        btnText: 'Call Teacher'
-      },
-    }
-  }
+    const submitProject = {
+        id: "submitProject",
+        component: SubmitProject,
+        menuItem: "Submit Project",
+        icon: "submit-project.png",
+        content: {
+            sendPhoto: {
+                id: "sendPhoto",
+                heading: "Submit project photo",
+                paragraph:
+                    "After completing your project, take a screenshot of your project and upload it here.",
+                image: "project.png",
+                btnIcon: "gallery-icon.png",
+                btnText: "Send Photo",
+            },
+            callTeacher: {
+                id: "callTeacher",
+                heading: "Show your teacher",
+                paragraph:
+                    "If your teacher is in the same room as you, click the button below to let them know you are done.",
+                image: "teacher-computer.png",
+                btnIcon: "teacher-chalkboard.png",
+                btnText: "Call Teacher",
+            },
+        },
+    };
 
-  const bonusChallenge = { 
-    id: 'bonusChallenge',
-    menuItem: 'Bonus Challenge',
-    icon: 'prize.png'
-  }
+    const bonusChallenge = {
+        id: "bonusChallenge",
+        menuItem: "Bonus Challenge",
+        icon: "prize.png",
+    };
 
-  const takeTheQuiz = { 
-    id: 'takeTheQuiz',
-    menuItem: 'Take The Quiz',
-    icon: 'list.png'
-  }
-  // END Student Project Builder Views
+    const takeTheQuiz = {
+        id: "takeTheQuiz",
+        menuItem: "Take The Quiz",
+        icon: "list.png",
+    };
+    // END Student Project Builder Views
 
-  const projectItems = [
-    { learningObjectives: 'insert' },
-    instructions,
-    { videoTutorial: 'insert' },
-    makeProject,
-    submitProject,
-    bonusChallenge,
-    takeTheQuiz
-  ]
+    const projectItems = [
+        { learningObjectives: "insert" },
+        instructions,
+        { videoTutorial: "insert" },
+        makeProject,
+        submitProject,
+        bonusChallenge,
+        takeTheQuiz,
+    ];
 
-  return isLoading ? '' : (
-    <>
-      <MainHeader layout='2' 
-      projectBar={projectBar} 
-      navBtns={navBtns} />
-      <ProjectBuilder key={projectIndex} projectIndex={projectIndex} projectItems={projectItems} currentUser={currentUser} isLoading />
-    </>
-  )
-}
+    return isLoading ? (
+        ""
+    ) : (
+        <>
+            <MainHeader layout="2" projectBar={projectBar} navBtns={navBtns} />
+            <ProjectBuilder
+                key={projectIndex}
+                projectIndex={projectIndex}
+                projectItems={projectItems}
+                currentUser={currentUser}
+                isLoading
+            />
+        </>
+    );
+};
 
-export default StudentBuilder
+export default StudentBuilder;
