@@ -6,37 +6,24 @@
   max-height: 100%;
 }
 
-#pb-learning-objectives-container h2 {
+#pb-learning-objectives-container h1 {
   margin-top: 0;
-  text-transform: capitalize;
-}
-
-#pb-lo-header {
+  font-family: Nunito;
+  font-weight: 900;
   text-align: center;
 }
 
-#pb-lo-blocks-container {
+#pb-learning-objectives-container h2 {
+  font-family: Nunito;
+  text-align: center;
+}
+
+#pb-learning-objectives-container > div > div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-.pb-lo-blocks {
-  display: flex;
-  height: 80%;
-}
-
-.pb-lo-blocks > img {
-  width: 50%;
-}
-
-.pb-lo-block-components {
-  width: calc(50% - 2rem);
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem;
-}
-
-.pb-lo-blk-img {
-  width: 100%;
-  margin-bottom: 0.3rem;
+#pb-learning-objectives-container img {
+  width: fit-content;
+  max-width: 60%;
 }

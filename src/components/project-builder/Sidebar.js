@@ -43,12 +43,16 @@ const Sidebar = props => {
       </div>
       <div id="sb-views">
         {projectItems.map((projectItem, index) => {
-          return <SidebarView key={index}
-            projectItem={projectItem}
-            currentMenuItem={currentMenuItem}
-            setCurrentMenuItem={setCurrentMenuItem} 
-            sidebarExpanded={sidebarExpanded}
-          />
+          const { content, contents } = projectItem
+          const includesContents = contents && contents.length
+          if (content || includesContents) {
+            return <SidebarView key={index}
+              projectItem={projectItem}
+              currentMenuItem={currentMenuItem}
+              setCurrentMenuItem={setCurrentMenuItem} 
+              sidebarExpanded={sidebarExpanded}
+            />
+          }
         })}
       </div>
       <div id="sb-arrow-container">
