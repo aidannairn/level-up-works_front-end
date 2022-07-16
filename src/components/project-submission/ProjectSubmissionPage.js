@@ -9,6 +9,7 @@ export default function ProjectSubmissionPage() {
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
 
+    console.log("Parent Render");
     useEffect(() => {
         axios.get(`http://localhost:4000/project-submission/`).then((res) => {
             setStudent(res.data);

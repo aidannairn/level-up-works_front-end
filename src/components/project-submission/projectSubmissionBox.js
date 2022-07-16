@@ -1,15 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
-export default function ProjectSubmissionBox({
+const ProjectSubmissionBox = ({
     tick,
     item: { studentID, dateSubmitted, firstname, profilePic, submission, time },
-}) {
-    const [checkbox, setCheckbox] = useState("");
+}) => {
+    useEffect(() => {
+        setCheckbox(false);
+        setClicked(true);
+    }, [studentID]);
+
+    const [checkbox, setCheckbox] = useState(false);
     const tickCheckbox = (e) => {
-        setCheckbox(e.target.id);
+        setCheckbox(!checkbox);
+        // setCheckbox(e.target.id);
+        // console.log(`checkbox`, e.target.id);
     };
 
     const [clicked, setClicked] = useState(true);
@@ -30,6 +37,7 @@ export default function ProjectSubmissionBox({
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={studentID}
+                        checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
@@ -92,4 +100,6 @@ export default function ProjectSubmissionBox({
             </div>
         </>
     );
-}
+};
+
+export default ProjectSubmissionBox;

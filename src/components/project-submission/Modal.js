@@ -1,21 +1,19 @@
 import "../../styles/project-submission/modal.css";
 
-export default function Modal({ closeModal, name, submission }) {
+export default function Modal({ closeModal, submission }) {
     return (
         <>
             <div className="modal-background">
                 <div className="modal-container">
-                    <div className="modal-image">
-                        <img src={submission} alt="" />
-                    </div>
-                    <div className="modal-footer">{name}'S PROJECT</div>
-                    <button
+                    <h1
                         className="modal-close"
                         onClick={() => closeModal(false)}
                     >
-                        {" "}
-                        close{" "}
-                    </button>
+                        X
+                    </h1>
+                    <div className="modal-image">
+                        <img src={submission} alt="" />
+                    </div>
                 </div>
             </div>
         </>
