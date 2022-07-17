@@ -1,6 +1,6 @@
 const MakeProject = ({ content }) => (
-  <div id='pb-aw-make-project-wrapper' >
-    <img id='pb-aw-mp-img' src={`images/student-builder/${content.src}`} />
+  <div id='pb-make-project-container' >
+    <iframe id="mp-scratch-gui" src={content} frameborder="0" allowTransparency allowFullScreen allow="autoplay" scrolling="no" ></iframe>
   </div>
 )
 

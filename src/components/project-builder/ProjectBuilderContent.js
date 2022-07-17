@@ -11,7 +11,7 @@ const ProjectBuilderContent = ({ projectItem }) => {
   } = projectItem
 
   const ProjectItem = component
-
+  console.log(projectItem)
   return (
     <div id="pb-main-container">
       <div id="pb-main-content">

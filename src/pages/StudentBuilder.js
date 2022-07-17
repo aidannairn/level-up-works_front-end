@@ -27,7 +27,6 @@ const StudentBuilder = () => {
     setProject({})
     axios.get(`${host}${port}/student/project/${projectIndex + 1}`)
     .then(res => { 
-      console.log(res.data)
       setProject(res.data)
     })
   }, [projectIndex])
@@ -66,12 +65,9 @@ const StudentBuilder = () => {
   const makeProject = { 
     id: 'makeProject',
     component: MakeProject,
-    isArrowNavEnabled: true,
     menuItem: 'Make Project',
     icon: 'new-project.png',
-    contents: [
-      { id: 1, src: 'project.png'}
-    ]
+    content: 'https://llk.github.io/scratch-gui/develop/'
   }
 
   const submitProject = { 
