@@ -205,3 +205,19 @@
   width: 100%;
   height: 100%;
 }
+
+/* START Video section */
+#pb-arw-wrap-vid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-height: 100%;
+  margin: 0 5%;
+}
+
+#pb-arw-wrap-vid-wrapper > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+/* END Video section */

@@ -73,18 +73,6 @@
   opacity: 1;
 }
 
-/* START Video section */
-#pb-arw-wrap-vid-wrapper {
-  width: 100%;
-  margin: 0 1.5rem;
-}
-
-#pb-arw-wrap-vid-wrapper > iframe {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-}
-/* END Video section */
-
 /* START Instructions section */
 #pb-aw-instruction-container {
   display: flex;
