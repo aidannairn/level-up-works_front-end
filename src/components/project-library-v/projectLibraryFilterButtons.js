@@ -71,35 +71,35 @@ export default function ProjectLibraryFilterButtons({
                 </div>
                 <div className="pl-right-btn">
                     <span className="pl-right-text">SHOW &nbsp;</span>
-                    {filterAmount === "25" ? (
+                    {filterAmount === "5" ? (
                         <button
                             style={styledButton}
                             className="pl-filter-btn first-pl"
                         >
-                            25
+                            5
                         </button>
                     ) : (
                         <button
-                            value="25"
+                            value="5"
                             onClick={changeShown}
                             className="pl-filter-btn first-pl"
                             onClickCapture={changeAmount}
                         >
-                            25
+                            5
                         </button>
                     )}
-                    {filterAmount === "50" ? (
+                    {filterAmount === "10" ? (
                         <button style={styledButton} className="pl-filter-btn">
-                            50
+                            10
                         </button>
                     ) : (
                         <button
-                            value="50"
+                            value="10"
                             onClick={changeShown}
                             className="pl-filter-btn"
                             onClickCapture={changeAmount}
                         >
-                            50
+                            10
                         </button>
                     )}
                     {filterAmount === "100" ? (

@@ -8,13 +8,25 @@ export default function ProjectSubmissionPage() {
     const [complete, setComplete] = useState([]);
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
+    const [submissionImages, setSubmissionImages] = useState([]);
+    const [triggerUse, setTriggerUse] = useState(true);
+    const [studentID, setStudentID] = useState([]);
+    const [download, setDownload] = useState([]);
 
-    console.log("Parent Render");
-    useEffect(() => {
-        axios.get(`http://localhost:4000/project-submission/`).then((res) => {
-            setStudent(res.data);
-        });
-    }, [updatedStudent]);
+    useEffect(
+        () => {
+            axios
+                .get(`http://localhost:4000/project-submission/`)
+                .then((res) => {
+                    setStudent(res.data);
+                    setSubmissionImages(res.data.submission);
+                    setStudentID(res.data.studentID);
+                    console.log(`res data`, res.data);
+                });
+        },
+        [updatedStudent],
+        [triggerUse]
+    );
 
     const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
@@ -23,8 +35,27 @@ export default function ProjectSubmissionPage() {
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
-        console.log(`tick feature id is ${e.target.id}`);
+        setDownload(e.target.id);
+        setDownloadReady(true);
     };
+
+    const [downloadReady, setDownloadReady] = useState(false);
+
+    const downloadFunction = () => {
+        let downloadImage = student[download - 1].studentID; // Selects student based on e.target caught in download
+        setDownload([]); // Empties download array after download btn is clicked
+        setTriggerUse(!triggerUse);
+        setDownloadReady(false);
+        if (downloadImage === parseInt(complete)) {
+            return console.log(`${student[download - 1].projectid}`);
+        }
+    };
+
+    useEffect(() => {
+        console.log(`use effect triggered`);
+        setComplete([]);
+    }, [triggerUse]);
+    console.log(`complete`, complete);
 
     return (
         <>
@@ -35,10 +66,13 @@ export default function ProjectSubmissionPage() {
                             PROJECT SUBMISSIONS
                         </div>
                         <span className="project-submission-white-space"></span>
-                        <div className="project-download-btn">
+                        <div
+                            className="project-download-btn"
+                            onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
+                        >
                             <img
                                 src="images/projectSubmission/download-icon.svg"
-                                alt="download"
+                                alt="download icon"
                                 width={15}
                             />{" "}
                             &nbsp; DOWNLOAD FILES
@@ -49,7 +83,7 @@ export default function ProjectSubmissionPage() {
                         >
                             <img
                                 src="images/projectSubmission/tick-icon.svg"
-                                alt="download"
+                                alt="tick icon"
                                 width={25}
                             />{" "}
                             &nbsp; MARK AS COMPLETE

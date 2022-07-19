@@ -13,16 +13,11 @@ const ProjectSubmissionBox = ({
     }, [studentID]);
 
     const [checkbox, setCheckbox] = useState(false);
-    const tickCheckbox = (e) => {
-        setCheckbox(!checkbox);
-        // setCheckbox(e.target.id);
-        // console.log(`checkbox`, e.target.id);
-    };
+    const tickCheckbox = () => setCheckbox(!checkbox);
 
     const [clicked, setClicked] = useState(true);
-    const handleClick = () => {
-        setClicked(!clicked);
-    };
+    const handleClick = () => setClicked(!clicked);
+
     const [showModal, setShowModal] = useState(false);
     const triggerModal = () => setShowModal(true);
 
@@ -49,7 +44,7 @@ const ProjectSubmissionBox = ({
                     >
                         <img
                             src={`https://cdn.filestackcontent.com/${profilePic}`}
-                            alt="student pic"
+                            alt="Student Pic"
                             width={50}
                         />
                     </div>
@@ -70,14 +65,14 @@ const ProjectSubmissionBox = ({
                                     <img
                                         onClick={triggerModal}
                                         src={submission}
-                                        alt=""
+                                        alt="Submitted Project"
                                         width={200}
                                     />{" "}
                                     <br></br>
                                     <img
                                         onClick={triggerModal}
                                         src="images/projectSubmission/zoom-icon.svg"
-                                        alt=" "
+                                        alt="zoom icon"
                                     />{" "}
                                     &nbsp; ENLARGE PHOTO
                                 </div>

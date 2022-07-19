@@ -16,7 +16,7 @@ export default function ProjectLibraryTeacher() {
     const [isLoading, setIsLoading] = useState(true);
     const [courseLevel, setCourseLevel] = useState("Beginner");
     const [subscribe, setSubscribe] = useState("Free");
-    // const [showAmount, setShowAmount] = useState(1000);
+    const [showAmount, setShowAmount] = useState(1000);
     const [teacherName, setTeacherName] = useState([]);
     const [teacherPic, setTeacherPic] = useState([]);
 
@@ -65,18 +65,18 @@ export default function ProjectLibraryTeacher() {
         }
     };
 
-    // const changeAmount = (e) => {
-    //     switch (e.target.value) {
-    //         case "25":
-    //             return setShowAmount(25);
-    //         case "50":
-    //             return setShowAmount(50);
-    //         case "100":
-    //             return setShowAmount(100);
-    //         default:
-    //             return null;
-    //     }
-    // };
+    const changeAmount = (e) => {
+        switch (e.target.value) {
+            case "5":
+                return setShowAmount(5);
+            case "10":
+                return setShowAmount(10);
+            case "100":
+                return setShowAmount(100);
+            default:
+                return null;
+        }
+    };
 
     const navigate = useNavigate();
 
@@ -101,13 +101,13 @@ export default function ProjectLibraryTeacher() {
                     <ProjectLibraryMain />
                     <ProjectLibraryFilterButtons
                         levelFilter={levelFilter}
-                        // changeAmount={changeAmount}
+                        changeAmount={changeAmount}
                     />
                     <div className="pl-body-direction">
                         {projectData
                             .filter((i) => i.course === courseLevel)
                             .filter((i) => i.subscription === subscribe)
-                            // .filter((i, index) => index < showAmount)
+                            .filter((i, index) => index < showAmount)
                             .map((item, index) => (
                                 <ProjectLibraryContent
                                     key={index}
