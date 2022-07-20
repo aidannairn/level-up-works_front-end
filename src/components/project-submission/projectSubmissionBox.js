@@ -10,7 +10,7 @@ const ProjectSubmissionBox = ({
     useEffect(() => {
         setCheckbox(false);
         setClicked(true);
-    }, [studentID]);
+    }, [studentID],[submission]);
 
     const [checkbox, setCheckbox] = useState(false);
     const tickCheckbox = () => setCheckbox(!checkbox);
@@ -32,15 +32,17 @@ const ProjectSubmissionBox = ({
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={studentID}
+                        value={submission}
                         checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
                 </label>
-                <div className="white-box-inner-container">
+                {/* Double click fixed issue of single & modal not working */}
+                <div className="white-box-inner-container" onDoubleClick={handleClick}>
                     <div
                         className="project-submission-profile-pic"
-                        onClick={handleClick}
+                        // onClick={handleClick}
                     >
                         <img
                             src={`https://cdn.filestackcontent.com/${profilePic}`}

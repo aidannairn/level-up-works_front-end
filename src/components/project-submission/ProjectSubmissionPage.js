@@ -8,10 +8,8 @@ export default function ProjectSubmissionPage() {
     const [complete, setComplete] = useState([]);
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
-    const [submissionImages, setSubmissionImages] = useState([]);
-    const [triggerUse, setTriggerUse] = useState(true);
-    const [studentID, setStudentID] = useState([]);
-    const [download, setDownload] = useState([]);
+    const [downloadSubmission, setDownloadSubmission] = useState([]);
+    const [triggerUse, setTriggerUse] = useState(false)
 
     useEffect(
         () => {
@@ -19,43 +17,50 @@ export default function ProjectSubmissionPage() {
                 .get(`http://localhost:4000/project-submission/`)
                 .then((res) => {
                     setStudent(res.data);
-                    setSubmissionImages(res.data.submission);
-                    setStudentID(res.data.studentID);
-                    console.log(`res data`, res.data);
                 });
         },
-        [updatedStudent],
-        [triggerUse]
+        [updatedStudent],[triggerUse]
     );
 
     const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
+        setComplete([])
+        setDownloadSubmission([]); // Empties download array after download btn is clicked
         axios.put(`http://localhost:4000/project-submission/${complete}`);
     };
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
-        setDownload(e.target.id);
+        setDownloadSubmission([...downloadSubmission, e.target.value]);
         setDownloadReady(true);
     };
+
+
+    // DL fn 
+    // One at a time
 
     const [downloadReady, setDownloadReady] = useState(false);
 
     const downloadFunction = () => {
-        let downloadImage = student[download - 1].studentID; // Selects student based on e.target caught in download
-        setDownload([]); // Empties download array after download btn is clicked
-        setTriggerUse(!triggerUse);
         setDownloadReady(false);
-        if (downloadImage === parseInt(complete)) {
-            return console.log(`${student[download - 1].projectid}`);
-        }
+        setTriggerUse(!triggerUse)
+        axios({
+            url: `${downloadSubmission}`, //your url
+            method: 'GET',
+            responseType: 'blob', // important
+        }).then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'file.png'); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+            window.URL.revokeObjectURL(url)
+        });
     };
+    
 
-    useEffect(() => {
-        console.log(`use effect triggered`);
-        setComplete([]);
-    }, [triggerUse]);
-    console.log(`complete`, complete);
+
 
     return (
         <>
