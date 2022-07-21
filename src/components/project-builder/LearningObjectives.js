@@ -1,37 +1,14 @@
-const BlockContainer = ({ block }) => {
-  const { type, mainBlock, blockComponents } = block
-
-  return (
-    <div className="pb-lo-block-container">
-      <h2>{type} Blocks</h2>
-      <div className="pb-lo-blocks">
-        <img src={`images/student-builder/learning-objectives/${mainBlock}`} alt="Main block" />
-        <div className="pb-lo-block-components">
-          {blockComponents.map((blkComp, index) => {
-            return (
-              <img key={index} className="pb-lo-blk-img" src={`images/student-builder/learning-objectives/${blkComp}`}  />            
-            )
-          })}
-        </div>
-      </div>
-    </div>
-  )
-}
+import '../../styles/project-builder/learning-objectives.css'
 
 const LearningObjectives = ({ content }) => {
-  const { heading, desc, blocks } = content
+  const { heading, htmlStr } = content
+
+  const html = htmlStr.replace('src="', 'src="https://cdn.filestackcontent.com/')
 
   return (
-    <div id="pb-learning-objectives-container">
-      <div id="pb-lo-header">
-        <h1>{heading}</h1>
-        <h3>{desc}</h3>
-      </div>
-      <div id="pb-lo-blocks-container">
-        {blocks.map((block, index) => {
-          return <BlockContainer key={index} block={block} />
-        })}
-      </div>
+    <div id='pb-learning-objectives-container'>
+      <h1>{heading}</h1>
+      <div dangerouslySetInnerHTML={{__html: `${html}`}} />
     </div>
   )
 }

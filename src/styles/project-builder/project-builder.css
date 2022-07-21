@@ -181,3 +181,17 @@
   width: 100%;
   max-height: 100%;
 }
+
+#loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #B2E4FA;
+}
+
+#loading-screen h1 {
+  color: #D8F2FD;
+  font-size: 7.5rem;
+}

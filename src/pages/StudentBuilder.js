@@ -1,37 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import instructionsJSON from "../instructions.json";
-import Instruction from "../components/project-builder/Instruction";
 import MainHeader from "../components/header/MainHeader";
 import MakeProject from "../components/project-builder/MakeProject";
 import SubmitProject from "../components/project-builder/SubmitProject";
 import ProjectBuilder from "../components/project-builder/ProjectBuilder";
+import LoadingScreen from "../components/LoadingScreen";
 
 const StudentBuilder = () => {
-    const [projectIndex, setProject] = useState(0);
-    const [projectInstructions, setProjectInstructions] = useState([]);
+    const [projectIndex, setProjectIndex] = useState(0);
+    const [project, setProject] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [projectBarCount, setProjectBarCount] = useState(0);
 
     const { REACT_APP_BACKEND_HOST: host, REACT_APP_BACKEND_PORT: port } =
         process.env;
 
     useEffect(() => {
-        setProjectInstructions([]);
+        axios.get(`${host}${port}/student/project/`).then((res) => {
+            setProjectBarCount(res.data.totalProjects);
+        });
+    }, []);
+
+    useEffect(() => {
+        setProject({});
         axios
-            .get(
-                `${host}${port}/student-builder/instructions/${
-                    projectIndex + 1
-                }`
-            )
+            .get(`${host}${port}/student/project/${projectIndex + 1}`)
             .then((res) => {
-                setProjectInstructions(res.data);
+                console.log(res.data);
+                setProject(res.data);
             });
     }, [projectIndex]);
 
     useEffect(() => {
-        projectInstructions.length ? setIsLoading(false) : setIsLoading(true);
-    }, [projectInstructions]);
+        Object.keys(project).length === 0
+            ? setIsLoading(true)
+            : setIsLoading(false);
+    }, [project]);
 
     const testScreenshotBtn = () => {
         console.log("Test screenshot button");
@@ -46,9 +51,9 @@ const StudentBuilder = () => {
 
     const projectBar = {
         name: "Introduction",
-        projects: instructionsJSON.length,
+        projects: projectBarCount,
         currentProject: projectIndex,
-        setProject: setProject,
+        setProjectIndex: setProjectIndex,
     };
     // END Header Props
 
@@ -58,15 +63,6 @@ const StudentBuilder = () => {
     };
 
     // START Student Project Builder Views
-    const instructions = {
-        id: "instructions",
-        component: Instruction,
-        isArrowNavEnabled: true,
-        menuItem: "Instructions",
-        icon: "steps.png",
-        contents: projectInstructions,
-    };
-
     const makeProject = {
         id: "makeProject",
         component: MakeProject,
@@ -107,19 +103,21 @@ const StudentBuilder = () => {
         id: "bonusChallenge",
         menuItem: "Bonus Challenge",
         icon: "prize.png",
+        content: {},
     };
 
     const takeTheQuiz = {
         id: "takeTheQuiz",
         menuItem: "Take The Quiz",
         icon: "list.png",
+        content: {},
     };
     // END Student Project Builder Views
 
     const projectItems = [
-        { learningObjectives: "insert" },
-        instructions,
-        { videoTutorial: "insert" },
+        { learningObjectives: project.learningObjectives },
+        { instructions: project.instructions },
+        { video: project.video },
         makeProject,
         submitProject,
         bonusChallenge,
@@ -127,7 +125,7 @@ const StudentBuilder = () => {
     ];
 
     return isLoading ? (
-        ""
+        <LoadingScreen />
     ) : (
         <>
             <MainHeader layout="2" projectBar={projectBar} navBtns={navBtns} />
