@@ -28,13 +28,6 @@ const StudentBuilder = () => {
       })
     }, [projectIndex])
 
-      useEffect(() => {
-          axios.get(`${url}/student/project/`).then((res) => {
-              setProjectBarCount(res.data.totalProjects);
-          });
-      }, []);
-
-
     useEffect(() => {
         setProject({});
         axios
@@ -70,20 +63,14 @@ const StudentBuilder = () => {
     };
     // END Header Props
 
-    const currentUser = {
-        name: "Rawiri Fletcher",
-        image: "rawiri-fletcher.png",
-    };
-
-    // START Student Project Builder Views
-    const makeProject = {
-        id: "makeProject",
-        component: MakeProject,
-        isArrowNavEnabled: true,
-        menuItem: "Make Project",
-        icon: "new-project.png",
-        contents: [{ id: 1, src: "project.png" }],
-    };
+  // START Student Project Builder Views
+  const makeProject = { 
+    id: 'makeProject',
+    component: MakeProject,
+    menuItem: 'Make Project',
+    icon: 'new-project.png',
+    content: 'https://llk.github.io/scratch-gui/develop/'
+  }
 
     const submitProject = {
         id: "submitProject",

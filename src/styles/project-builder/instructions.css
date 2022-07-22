@@ -10,3 +10,7 @@
 .pb-center-paragraph {
   text-align: center;
 }
+
+.pb-aw-instr-p-with-link a:visited {
+  color: #F5308F;
+}
