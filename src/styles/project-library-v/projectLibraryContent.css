@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+}
+
+.pl-content-container{
+    display: flex;
+    flex-direction: column;
+    width: 19.92vw;
+    height: fit-content;
+    width: 20vw;
+}
+
+.pl-content-main{
+    text-align: center;
+    cursor: pointer;
+    margin: 0 25px 0 25px;
+    cursor: pointer;
+}
+
+.pl-content-body{
+    text-align: center;
+    width: 100%;
+}
+
+.pl-content-h2{
+    font-size: 30px;
+    color: #6C6C6C;
+    line-height: 26px;
+    font-weight: 800;
+    height: 19px;
+    cursor: default;
+    width: 100%;
+}
+
+.pl-content-h3{
+    color: #6C6C6C;
+    text-align: center;
+    margin-bottom: 50px;
+    cursor: default;
+}
+
+.pl-content-main:hover{
+    transform: scale(1.1);
+}

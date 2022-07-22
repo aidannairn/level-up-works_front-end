@@ -39,7 +39,7 @@ const Sidebar = props => {
   return (
     <div id="pb-sidebar" className={`${sidebarExpanded ? '' : 'pb-sb-hidden'}`}>
       <div id="sb-profile-img-wrapper">
-        <img src={`/images/students/${userImg}`} alt="Profile image." />
+        <img src={`/images/students/${userImg}`} alt="Profile image" />
       </div>
       <div id="sb-views">
         {projectItems.map((projectItem, index) => {

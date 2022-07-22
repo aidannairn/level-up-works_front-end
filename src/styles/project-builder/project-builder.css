@@ -6,7 +6,7 @@
 
 #pb-main-container {
   padding: 2rem;
-  max-height: calc(100% - 8rem);
+  max-height: calc(100% - 4rem);
 }
 
 .scrollable {
