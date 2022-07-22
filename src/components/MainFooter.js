@@ -1,4 +1,4 @@
-import '../Styles/main-footer.css'
+import '../styles/main-footer.css'
 
 const Footer = () => {
   const topics = [

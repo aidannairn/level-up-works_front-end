@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import ProgressHeader from "./ProgressHeader"
 import ProgressCards from "./Progress-cards"
-import '../../Styles/student-profile-viewer/progress-tracker.css'
+import '../../styles/student-profile-viewer/progress-tracker.css'
 
 
 const ProgressTracker = () => {
