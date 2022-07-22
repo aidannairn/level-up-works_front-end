@@ -4,7 +4,7 @@ import axios from 'axios'
 import MainHeader from '../Components/header/MainHeader'
 import ProjectBuilder from '../Components/project-builder/ProjectBuilder'
 import StudentProfiles from '../Components/studentProfiles/StudentProfiles'
-import ProgressTracker from '../Components/studentProfiles/ProgressTracker'
+import ProgressTracker from '../Components/progress-tracker/ProgressTracker'
 
 
 const StudentProfileViewer = () => {
