@@ -22,18 +22,44 @@ const NavFlags = ({ lang }) => {
   )
 }
 
+const UserOptions = () => {
+  const navigate = useNavigate()
+  
+  const { REACT_APP_URL: url } = process.env
+
+  const handleUserLogout = async () => {
+    try {
+      await axios.delete(`${url}/logout`)
+      navigate('/', { replace: true })
+      window.location.reload()
+    } catch (error) {
+      if (error) console.log(error.response.data)
+    }
+  }
+
+  return (
+    <div id="user-options-container">
+      <div id="user-options-arrow"></div>
+      <div id="user-options">
+        <h4 className="user-option">My Profile</h4>
+        <h4 className="user-option">Settings</h4>
+        <h4 className="user-option" onClick={handleUserLogout} >Log out</h4>
+      </div>
+    </div>
+  )
+}
+
 const Header = props => {
   const [id, setID] = useState(null)
   const [fName, setFName] = useState('')
   const [lName, setLName] = useState('')
   const [profilePic, setProfilePic] = useState('')
-  const [token, setToken] = useState('')
   const [expire, setExpire] = useState('')
+  const [areUserOptionsVisible, setAreUserOptionsVisible] = useState(false)
 
   const {
     layout,
     navLinks,
-    currentUser,
     projectBar,
     navBtns,
     setIsModalVisible
@@ -50,7 +76,6 @@ const Header = props => {
   const refreshToken = async () => {
     try {
       const response = await axios.get(`${url}/token`)
-      setToken(response.data.accessToken)
       const decoded = jwtDecode(response.data.accessToken)
       setID(decoded.studentID)
       setFName(decoded.fName)
@@ -73,7 +98,6 @@ const Header = props => {
     if (expire * 1000 < currentDate.getTime()) {
       const response = await axios.get(`${url}/token`)
       config.headers.Authorization = `Bearer ${response.data.accessToken}`
-      setToken(response.data.accessToken)
       const decoded = jwtDecode(response.data.accessToken)
       setID(decoded.studentID)
       setFName(decoded.fName)
@@ -85,6 +109,8 @@ const Header = props => {
   }, (error) => {
     return Promise.reject(error)
   })
+
+  const handleUserClick = () => setAreUserOptionsVisible(!areUserOptionsVisible)
 
   const handleAuthClick = () => setIsModalVisible(true)
 
@@ -105,13 +131,14 @@ const Header = props => {
       {layout === '1' && 
         <div id='auth-lang-container'>
           <NavFlags lang/>
-          <div id="auth-container" onClick={handleAuthClick}>
+          <div id="auth-container">
             {id ? <Fragment key={id}>
               <img id='navbar-current-user-img' src={`https://cdn.filestackcontent.com/${profilePic}`} />
-              <h2>{fName} {lName}</h2>
+              <h2 onClick={handleUserClick}>{fName} {lName}</h2>
+              {areUserOptionsVisible && <UserOptions />}
             </Fragment> : <>
               <i className="auth-icon fa fa-user-circle" aria-hidden="true"></i>
-              <h2>REGISTER | LOGIN</h2>
+              <h2 onClick={handleAuthClick} >REGISTER | LOGIN</h2>
             </>}
           </div>
         </div>

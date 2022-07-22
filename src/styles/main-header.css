@@ -189,6 +189,35 @@ nav {
   font-size: 1rem;
 }
 
+#user-options-container {
+  position: absolute;
+  top: 3rem;
+  z-index: 1;
+  cursor: auto;
+}
+
+#user-options-arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 15px solid #FDF7D3;
+}
+
+#user-options {
+  background-color: #FDF7D3;
+  color: #707070;
+  padding: 0 1rem;
+  text-transform: none;
+  cursor: pointer;
+  box-shadow: 4px 3px rgb(198, 193, 165);
+}
+
+#user-options h4 {
+  margin: 0;
+  padding: 0.5rem 1rem;
+}
+
 @media only screen and (max-width: 768px) {
   #header {
     flex-direction: column;
