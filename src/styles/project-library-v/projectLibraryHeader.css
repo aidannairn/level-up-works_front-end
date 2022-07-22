@@ -1,0 +1,95 @@
+.pl-header-container{
+    display: flex;
+    background-color: #43C0F6;
+}
+
+.pl-header-left{
+    width: 33%;
+    padding: 0 190px;
+    align-self: center;
+}
+
+.pl-header-middle-container{
+    width: 33%;
+}
+
+.pl-header-middle-1{
+    height: 30%;
+}
+.pl-header-middle-2{
+    display: flex;
+    color: white;
+    gap: 8rem;
+    font-size: 10px;
+    justify-content: center;
+    
+}
+
+.pl-header-btn{
+    cursor: pointer;
+    
+}
+
+.pl-header-right-container{
+    width: 20%;
+}
+
+.pl-header-left-top{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 11px;
+    margin-top: 20px;
+    font-weight: 600;
+    height: 1px;
+}
+
+.pl-nz-flag{
+    margin: 0 5px;
+}
+
+.pl-maori-flag{
+    margin: 0 5px;
+    
+}
+
+.pl-header-left-bottom{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.pl-header-profile-pic{
+    margin: 0 10px;
+}
+
+.pl-header-profile-name{
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pl-settings-container{
+    z-index: 1000;
+    position: absolute;
+    left: 75%;
+    height: 100px;
+    width: 200px;
+    background-color: #FDF7D3;
+    clip-path: polygon(8% 10%, 100% 10%, 100% 100%, 0 100%, 0 10%, 4% 0);
+}
+
+.pl-settings-content{
+    margin: 20px 10px 0 10px;
+    font-weight: 500;
+}
+
+.pl-settings-btn-1:hover, .pl-settings-btn-2:hover, .pl-settings-btn-3:hover{
+    background-color: #e0d073;
+    cursor: pointer;
+}

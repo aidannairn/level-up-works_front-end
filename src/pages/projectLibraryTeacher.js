@@ -1,22 +1,23 @@
-import MainHeader from "../header/MainHeader";
-import ProjectLibrarySidebar from "./projectLibrarySidebar";
-import ProjectLibraryMain from "./projectLibraryMain";
-import ProjectLibraryFilterButtons from "./projectLibraryFilterButtons";
-import ProjectLibraryContent from "./projectLibraryContent";
-import ProjectLibraryPageButtons from "./projectLibraryPageButtons";
-import Footer from "../MainFooter";
-import Loading from "../Loading";
+import ProjectLibraryHeader from "../components/project-library-v/projectLibraryHeader";
+import ProjectLibrarySidebar from "../components/project-library-v/projectLibrarySidebar";
+import ProjectLibraryMain from "../components/project-library-v/projectLibraryMain";
+import ProjectLibraryFilterButtons from "../components/project-library-v/projectLibraryFilterButtons";
+import ProjectLibraryContent from "../components/project-library-v/projectLibraryContent";
+import ProjectLibraryPageButtons from "../components/project-library-v/projectLibraryPageButtons";
+import Footer from "../components/MainFooter";
+import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../styles/project-library-v/projectLibrary.css";
+import "../styles/project-library-v/projectLibrary.css";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function ProjectLibraryTeacher() {
     const [projectData, setProjectData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [courseLevel, setCourseLevel] = useState("Beginner");
     const [subscribe, setSubscribe] = useState("Free");
-    // const [showAmount, setShowAmount] = useState(1000);
+    const [showAmount, setShowAmount] = useState(1000);
     const [teacherName, setTeacherName] = useState([]);
     const [teacherPic, setTeacherPic] = useState([]);
 
@@ -29,17 +30,6 @@ export default function ProjectLibraryTeacher() {
             setIsLoading(false);
         });
     }, []);
-
-    const navLinks = [
-        { name: "Home", route: "/" },
-        { name: "Features", route: "#" },
-        { name: "Teachers", route: "#" },
-    ];
-
-    const currentUser = {
-        name: teacherName,
-        image: teacherPic,
-    };
 
     const levelFilter = (e) => {
         switch (e.target.value) {
@@ -65,18 +55,18 @@ export default function ProjectLibraryTeacher() {
         }
     };
 
-    // const changeAmount = (e) => {
-    //     switch (e.target.value) {
-    //         case "25":
-    //             return setShowAmount(25);
-    //         case "50":
-    //             return setShowAmount(50);
-    //         case "100":
-    //             return setShowAmount(100);
-    //         default:
-    //             return null;
-    //     }
-    // };
+    const changeAmount = (e) => {
+        switch (e.target.value) {
+            case "5":
+                return setShowAmount(5);
+            case "10":
+                return setShowAmount(10);
+            case "100":
+                return setShowAmount(100);
+            default:
+                return null;
+        }
+    };
 
     const navigate = useNavigate();
 
@@ -86,28 +76,24 @@ export default function ProjectLibraryTeacher() {
         }
     };
     if (isLoading) {
-        return <Loading />;
+        return <LoadingScreen />;
     }
     return (
         <>
-            <MainHeader
-                layout="1"
-                navLinks={navLinks}
-                currentUser={currentUser}
-            />
+            <ProjectLibraryHeader teacherName={teacherName} teacherPic={teacherPic} />
             <div className="pl-container">
                 <ProjectLibrarySidebar sub={sub} />
                 <div className="pl-body">
                     <ProjectLibraryMain />
                     <ProjectLibraryFilterButtons
                         levelFilter={levelFilter}
-                        // changeAmount={changeAmount}
+                        changeAmount={changeAmount}
                     />
                     <div className="pl-body-direction">
                         {projectData
                             .filter((i) => i.course === courseLevel)
                             .filter((i) => i.subscription === subscribe)
-                            // .filter((i, index) => index < showAmount)
+                            .filter((i, index) => index < showAmount)
                             .map((item, index) => (
                                 <ProjectLibraryContent
                                     key={index}

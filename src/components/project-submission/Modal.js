@@ -12,7 +12,7 @@ export default function Modal({ closeModal, submission }) {
                         X
                     </h1>
                     <div className="modal-image">
-                        <img src={submission} alt="" />
+                        <img src={submission} alt="Submitted Project" />
                     </div>
                 </div>
             </div>

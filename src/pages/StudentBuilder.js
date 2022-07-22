@@ -6,6 +6,14 @@ import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 
+<<<<<<< HEAD
+import MainHeader from "../components/header/MainHeader";
+import MakeProject from "../components/project-builder/MakeProject";
+import SubmitProject from "../components/project-builder/SubmitProject";
+import ProjectBuilder from "../components/project-builder/ProjectBuilder";
+import LoadingScreen from "../components/LoadingScreen";
+=======
+>>>>>>> main
 
 const StudentBuilder = () => {
     const [projectIndex, setProjectIndex] = useState(0);
@@ -16,6 +24,12 @@ const StudentBuilder = () => {
     const { REACT_APP_URL: url } = process.env
 
     useEffect(() => {
+<<<<<<< HEAD
+        axios.get(`${host}${port}/student/project/`).then((res) => {
+            setProjectBarCount(res.data.totalProjects);
+        });
+    }, []);
+=======
       axios.get(`${url}/student/project/`)
       .then(res => { setProjectBarCount(res.data.totalProjects) })
     }, [])
@@ -27,11 +41,16 @@ const StudentBuilder = () => {
         setProject(res.data)
       })
     }, [projectIndex])
+>>>>>>> main
 
     useEffect(() => {
         setProject({});
         axios
+<<<<<<< HEAD
+            .get(`${host}${port}/student/project/${projectIndex + 1}`)
+=======
             .get(`${url}/student/project/${projectIndex + 1}`)
+>>>>>>> main
             .then((res) => {
                 console.log(res.data);
                 setProject(res.data);
@@ -63,6 +82,22 @@ const StudentBuilder = () => {
     };
     // END Header Props
 
+<<<<<<< HEAD
+    const currentUser = {
+        name: "Rawiri Fletcher",
+        image: "rawiri-fletcher.png",
+    };
+
+    // START Student Project Builder Views
+    const makeProject = {
+        id: "makeProject",
+        component: MakeProject,
+        isArrowNavEnabled: true,
+        menuItem: "Make Project",
+        icon: "new-project.png",
+        contents: [{ id: 1, src: "project.png" }],
+    };
+=======
   // START Student Project Builder Views
   const makeProject = { 
     id: 'makeProject',
@@ -71,6 +106,7 @@ const StudentBuilder = () => {
     icon: 'new-project.png',
     content: 'https://llk.github.io/scratch-gui/develop/'
   }
+>>>>>>> main
 
     const submitProject = {
         id: "submitProject",
