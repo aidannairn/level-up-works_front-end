@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProgressCards from "./Progress-cards"
-import '../../Styles/student-profile-viewer/progress-tracker.css'
+import '../../styles/student-profile-viewer/progress-tracker.css'
 
 
 const ProgressButtons = () => {

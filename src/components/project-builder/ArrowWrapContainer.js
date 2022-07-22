@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import '../../Styles/project-builder/arrow-wrap-container.css'
+import '../../styles/project-builder/arrow-wrap-container.css'
 
 const ArrowWrapContainer = ({ component, contents }) => {
   const [content, setContent] = useState(contents[0])

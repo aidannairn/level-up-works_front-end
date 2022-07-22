@@ -1,4 +1,4 @@
-import '../../Styles/project-builder/submit-project.css'
+import '../../styles/project-builder/submit-project.css'
 
 const StudentActionsContainer = ({ content }) => {
   const {
