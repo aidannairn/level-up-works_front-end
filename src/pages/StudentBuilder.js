@@ -13,20 +13,20 @@ const StudentBuilder = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [projectBarCount, setProjectBarCount] = useState(0);
 
-    const { REACT_APP_URL: url } = process.env;
+    const { REACT_APP_URL: url } = process.env
 
-  useEffect(() => {
-    axios.get(`${url}/student/project/`)
-    .then(res => { setProjectBarCount(res.data.totalProjects) })
-  }, [])
+    useEffect(() => {
+      axios.get(`${url}/student/project/`)
+      .then(res => { setProjectBarCount(res.data.totalProjects) })
+    }, [])
   
-  useEffect(() => {
-    setProject({})
-    axios.get(`${url}/student/project/${projectIndex + 1}`)
-    .then(res => { 
-      setProject(res.data)
-    })
-  }, [projectIndex])
+    useEffect(() => {
+      setProject({})
+      axios.get(`${url}/student/project/${projectIndex + 1}`)
+      .then(res => { 
+        setProject(res.data)
+      })
+    }, [projectIndex])
 
     useEffect(() => {
         setProject({});
