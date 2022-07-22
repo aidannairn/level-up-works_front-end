@@ -1,0 +1,59 @@
+#Projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: 0 auto;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+figure {
+    display: inline-block;
+}
+figcaption {
+    text-align: center;
+    font-family: nunito;
+    color: #6C6C6C;
+
+}
+#backtotop {
+    width: 17%;
+    margin-left: auto;
+    padding-right: 50px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    display: inline;
+    
+}
+#backtotop button {
+    width: 150px;
+    height: 30px;
+    font-family: nunito;
+    color: white;
+    background-color: rgba(229,171,44,255);
+    border-radius: 10px;
+    border-color: rgba(229,171,44,255);
+}
+
+@media only screen and (max-width: 768px) {
+
+    #Projects figure {
+        display: flex;
+        margin-top: 100px;
+        max-width: 768px;
+        justify-content: center;
+        margin-left: 0px;
+        vertical-align: top;
+    }
+    #Projects figcaption {
+        display: block;
+    }
+    #backtotop {
+        margin-left: 0px;
+    }
+
+}

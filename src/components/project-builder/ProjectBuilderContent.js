@@ -1,5 +1,5 @@
 import ArrowWrapContainer from './ArrowWrapContainer'
-import '../../styles/project-builder/learning-objectives.css'
+import '../../Styles/project-builder/learning-objectives.css'
 
 const ProjectBuilderContent = ({ projectItem }) => {
   const {
