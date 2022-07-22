@@ -34,4 +34,3 @@ const StudentProfiles = () => {
 }
 
 export default StudentProfiles
-
