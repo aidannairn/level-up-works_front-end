@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext'
 import NavLinks from './NavLinks'
 import ProjectBar from './ProjectBar'
 
-import '../../styles/main-header.css'
+import "../../styles/main-header.css";
 
 const NavFlags = ({ lang }) => {
   return (
@@ -100,4 +100,4 @@ const Header = props => {
   )
 }
 
-export default Header
+export default Header;

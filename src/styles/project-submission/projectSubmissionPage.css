@@ -1,0 +1,69 @@
+.project-submission-content-parent{
+    display: flex;
+    height: 85vh;
+    width: 100%;
+}
+
+
+.project-submission-content-container{
+    background-color: #d7f3ff;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    height: 85%;
+    width: 94%;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    flex-direction: column;
+    margin-bottom: 4%;
+}
+
+.project-submission-content-container::-webkit-scrollbar {
+    width: 1rem;
+    position: relative;
+}
+
+.project-submission-content-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px white;
+    border-radius: 15px;
+}
+
+.project-submission-content-container::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #43C0F6;
+    outline: 1px solid white;
+}
+
+
+.project-submission-content-titles{
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    justify-content: space-between;
+    font-weight: 600;
+    color: #707070;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+
+.project-submission-white-space{
+    width: auto;
+    width: 28vw;
+}
+
+.project-submission-content-display{
+    height: 35em;
+    width: 100%;
+}
+
+.test-space{
+    width: 4em;
+}
+
+.project-complete-btn, .project-download-btn{
+    cursor: pointer;
+}

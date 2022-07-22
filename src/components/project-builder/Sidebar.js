@@ -43,6 +43,7 @@ const Sidebar = props => {
     <div id="pb-sidebar" className={`${sidebarExpanded ? '' : 'pb-sb-hidden'}`}>
       <div id="sb-profile-img-wrapper">
         <img src={`https://cdn.filestackcontent.com/${user.profilePic}`} alt="Profile image." />
+
       </div>
       <div id="sb-views">
         {projectItems.map((projectItem, index) => {
