@@ -1,15 +1,16 @@
-import MainHeader from "../header/MainHeader";
-import ProjectLibrarySidebar from "./projectLibrarySidebar";
-import ProjectLibraryMain from "./projectLibraryMain";
-import ProjectLibraryFilterButtons from "./projectLibraryFilterButtons";
-import ProjectLibraryContent from "./projectLibraryContent";
-import ProjectLibraryPageButtons from "./projectLibraryPageButtons";
-import Footer from "../MainFooter";
-import Loading from "../Loading";
+import ProjectLibraryHeader from "../components/project-library-v/projectLibraryHeader";
+import ProjectLibrarySidebar from "../components/project-library-v/projectLibrarySidebar";
+import ProjectLibraryMain from "../components/project-library-v/projectLibraryMain";
+import ProjectLibraryFilterButtons from "../components/project-library-v/projectLibraryFilterButtons";
+import ProjectLibraryContent from "../components/project-library-v/projectLibraryContent";
+import ProjectLibraryPageButtons from "../components/project-library-v/projectLibraryPageButtons";
+import Footer from "../components/MainFooter";
+import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../styles/project-library-v/projectLibrary.css";
+import "../styles/project-library-v/projectLibrary.css";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function ProjectLibraryTeacher() {
     const [projectData, setProjectData] = useState([]);
@@ -29,17 +30,6 @@ export default function ProjectLibraryTeacher() {
             setIsLoading(false);
         });
     }, []);
-
-    const navLinks = [
-        { name: "Home", route: "/" },
-        { name: "Features", route: "#" },
-        { name: "Teachers", route: "#" },
-    ];
-
-    const currentUser = {
-        name: teacherName,
-        image: teacherPic,
-    };
 
     const levelFilter = (e) => {
         switch (e.target.value) {
@@ -86,15 +76,11 @@ export default function ProjectLibraryTeacher() {
         }
     };
     if (isLoading) {
-        return <Loading />;
+        return <LoadingScreen />;
     }
     return (
         <>
-            <MainHeader
-                layout="1"
-                navLinks={navLinks}
-                currentUser={currentUser}
-            />
+            <ProjectLibraryHeader teacherName={teacherName} teacherPic={teacherPic} />
             <div className="pl-container">
                 <ProjectLibrarySidebar sub={sub} />
                 <div className="pl-body">
