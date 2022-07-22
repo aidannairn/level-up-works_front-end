@@ -1,35 +1,34 @@
+import '../../styles/project-builder/instructions.css'
+
 const InstructionStep = ({ stepNum, element }) => {
   const { type, content } = element
 
-  let instructionStep
-
   switch (type) {
     case 'heading':
-      instructionStep = <h1 className="pb-aw-instr-heading">{stepNum}. {content}</h1>
-      break
+      return <h1 className="pb-aw-instr-heading">{stepNum}. {content}</h1>
     case 'paragraph':
-      instructionStep = <p>{content}</p>
-      break
+      return <p className={`${content.length < 100 ? 'pb-center-paragraph' : ''}`}>{content}</p>
     case 'paragraphWithLink':
       const {
         textBefore,
         textAfter,
         href,
-        text,
+        link,
         linkColor
       } = content
 
-      instructionStep = <p className='pb-aw-instr-p-with-link'>{textBefore} <a href={href} target='_blank' style={{color: `${linkColor}`}}>{text}</a>{textAfter}</p>
-      break
+      return <p className={`pb-aw-instr-p-with-link ${(textBefore + link + textAfter).length < 100 ? 'pb-center-paragraph' : ''}`}>{textBefore} <a href={href} target='_blank' style={{color: `${linkColor}`}}>{link}</a>{textAfter}</p>
     case 'image':
-      instructionStep = <img className='pb-aw-instr-img' src={`images/student-builder/${content}`} />
-      break
+      return <div className='pb-aw-img-container'>
+        <img className='pb-aw-instr-img' src={`https://cdn.filestackcontent.com/${content}`} />
+      </div>
+    case 'orderedList':
+      return <ol>
+        {content.map((item) => <li>{item}</li>)}
+      </ol>
     default:
       break;
   }
-  
-  return <div>{instructionStep}</div>
-
 }
 
 const Instruction = ({ content, index: stepNum }) => (

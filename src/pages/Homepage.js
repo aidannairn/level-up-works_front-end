@@ -1,13 +1,18 @@
-import Intro from '../Components/homepage/Intro'
-import Offers from '../Components/homepage/ProjectsAndSkills'
-import ProgrammeBenefits from '../Components/homepage/ProgrammeBenefits'
-import Signup from '../Components/homepage/Signup'
-import MainHeader from '../Components/header/MainHeader'
-import MainFooter from '../Components/MainFooter'
+import { useState } from 'react'
 
-import '../Styles/homepage.css'
+import Intro from '../components/homepage/Intro'
+import Offers from '../components/homepage/ProjectsAndSkills'
+import ProgrammeBenefits from '../components/homepage/ProgrammeBenefits'
+import Signup from '../components/homepage/Signup'
+import MainHeader from '../components/header/MainHeader'
+import MainFooter from '../components/MainFooter'
+import AuthModal from "../components/auth-modal/AuthModal";
+
+import '../styles/homepage.css'
 
 const Homepage = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
   const navLinks = [
     { name: 'Home', route: '#' },
     { name: 'Features', route: '#' },
@@ -16,7 +21,8 @@ const Homepage = () => {
 
   return (
     <>
-      <MainHeader layout='1' navLinks={navLinks} />
+      {isModalVisible && <AuthModal setIsModalVisible={setIsModalVisible} />}
+      <MainHeader layout='1' navLinks={navLinks} setIsModalVisible={setIsModalVisible} />
       <div id='homepage-container'>
         <Intro />
         <Offers />
@@ -28,4 +34,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default Homepage;

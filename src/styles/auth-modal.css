@@ -1,0 +1,83 @@
+#auth-modal-bg {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#am-forms-container {
+  display: flex;
+  position: relative;
+  background-color: white;
+  color: #707070;
+}
+
+#am-modal-esc {
+  font-size: 3rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  cursor: pointer;
+}
+
+.am-form-container {
+  padding: 3rem;
+}
+
+.am-form-container:first-of-type {
+  border-right: 2px solid #707070;
+}
+
+img {
+  display: block;
+  width: fit-content;
+  max-width: 20vw;
+  margin: auto;
+}
+
+h2 {
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 2em;
+  text-align: center;
+}
+
+.am-auth-options {
+  display: flex;
+  justify-content: space-evenly;
+  color: #A5A5A5;
+}
+
+.am-auth-options .active {
+  color: #707070;
+  border-bottom: 3px solid #43C0F6;
+}
+
+.am-auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.am-auth-form input {
+  margin: 0.75rem 0;
+  padding: 0.3rem;
+  border: 1px solid #A5A5A5;
+  border-radius: 0.5rem;
+}
+
+.am-auth-form input[type="submit"] {
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: #F91C85;
+  border-color: #F91C85;
+  color: white;
+  box-shadow: 5px 5px 15px -5px #b5b5b5;
+  cursor: pointer;
+}

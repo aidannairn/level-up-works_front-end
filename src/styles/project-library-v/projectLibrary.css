@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+
+.pl-container{
+    display: flex;
+    height: auto;
+    width: 98vw;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.pl-body{
+    width: 60vw;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+}
+
+.pl-body-direction{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}

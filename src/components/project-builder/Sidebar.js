@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+
+import { UserContext } from "../../contexts/UserContext"
 
 const UserOption = ({ icon, heading, sidebarExpanded }) => {
   return (
@@ -29,8 +31,9 @@ const SidebarView = props => {
 }
 
 const Sidebar = props => {
+  const user = useContext(UserContext)
   const [sidebarExpanded, setSidebarExpanded] = useState(false)
-  const { userImg, projectItems, currentMenuItem, setCurrentMenuItem } = props
+  const { projectItems, currentMenuItem, setCurrentMenuItem } = props
 
   const handleSidebarState = () => {
     setSidebarExpanded(!sidebarExpanded)
@@ -39,16 +42,21 @@ const Sidebar = props => {
   return (
     <div id="pb-sidebar" className={`${sidebarExpanded ? '' : 'pb-sb-hidden'}`}>
       <div id="sb-profile-img-wrapper">
-        <img src={`/images/students/${userImg}`} alt="Profile image." />
+        <img src={`https://cdn.filestackcontent.com/${user.profilePic}`} alt="Profile image." />
+
       </div>
       <div id="sb-views">
         {projectItems.map((projectItem, index) => {
-          return <SidebarView key={index}
-            projectItem={projectItem}
-            currentMenuItem={currentMenuItem}
-            setCurrentMenuItem={setCurrentMenuItem} 
-            sidebarExpanded={sidebarExpanded}
-          />
+          const { content, contents } = projectItem
+          const includesContents = contents && contents.length
+          if (content || includesContents) {
+            return <SidebarView key={index}
+              projectItem={projectItem}
+              currentMenuItem={currentMenuItem}
+              setCurrentMenuItem={setCurrentMenuItem} 
+              sidebarExpanded={sidebarExpanded}
+            />
+          }
         })}
       </div>
       <div id="sb-arrow-container">

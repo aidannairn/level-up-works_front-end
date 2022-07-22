@@ -1,28 +1,70 @@
+import { useState, useContext, Fragment } from "react";
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
+import { UserContext } from '../../contexts/UserContext'
 import NavLinks from './NavLinks'
 import ProjectBar from './ProjectBar'
 
-import '../../Styles/main-header.css'
+import "../../styles/main-header.css";
 
 const NavFlags = ({ lang }) => {
   return (
     <div id="lang-container">
       {lang && <label htmlFor="language">Lang</label>}
-      <img className='header-flag
-      ' src="images/nz-flag.png" alt="New Zealand flag." />
-      <img className='header-flag
-      ' src="images/maori-flag.png" alt="The Maori flag" />
+      <div className="nav-lang-img-wrap">
+        <img className='header-flag' src="images/nz-flag.png" alt="New Zealand flag." />
+      </div>
+      <div className="nav-lang-img-wrap">
+        <img className='header-flag' src="images/maori-flag.png" alt="The Maori flag" />
+      </div>
+    </div>
+  )
+}
+
+const UserOptions = () => {
+  const navigate = useNavigate()
+  
+  const { REACT_APP_URL: url } = process.env
+
+  const handleUserLogout = async () => {
+    try {
+      await axios.delete(`${url}/logout`)
+      navigate('/', { replace: true })
+      window.location.reload()
+    } catch (error) {
+      if (error) console.log(error.response.data)
+    }
+  }
+
+  return (
+    <div id="user-options-container">
+      <div id="user-options-arrow"></div>
+      <div id="user-options">
+        <h4 className="user-option">My Profile</h4>
+        <h4 className="user-option">Settings</h4>
+        <h4 className="user-option" onClick={handleUserLogout} >Log out</h4>
+      </div>
     </div>
   )
 }
 
 const Header = props => {
+  const user = useContext(UserContext)
+
+  const [areUserOptionsVisible, setAreUserOptionsVisible] = useState(false)
+
   const {
     layout,
     navLinks,
-    currentUser,
     projectBar,
-    navBtns
+    navBtns,
+    setIsModalVisible
   } = props
+
+  const handleUserClick = () => setAreUserOptionsVisible(!areUserOptionsVisible)
+
+  const handleAuthClick = () => setIsModalVisible(true)
 
   return (
     <div id="header" className={`header-layout-${layout}`}>
@@ -42,12 +84,13 @@ const Header = props => {
         <div id='auth-lang-container'>
           <NavFlags lang/>
           <div id="auth-container">
-            {currentUser ? <>
-              <img id='navbar-current-user-img' src={`images/students/${currentUser.image}.png`} />
-              <h2>{currentUser.name}</h2>
-            </> : <>
+            {user.studentID ? <Fragment key={user.studentID}>
+              <img id='navbar-current-user-img' src={`https://cdn.filestackcontent.com/${user.profilePic}`} />
+              <h2 onClick={handleUserClick}>{user.fName} {user.lName}</h2>
+              {areUserOptionsVisible && <UserOptions />}
+            </Fragment> : <>
               <i className="auth-icon fa fa-user-circle" aria-hidden="true"></i>
-              <h2>REGISTER | LOGIN</h2>
+              <h2 onClick={handleAuthClick} >REGISTER | LOGIN</h2>
             </>}
           </div>
         </div>
@@ -57,4 +100,4 @@ const Header = props => {
   )
 }
 
-export default Header
+export default Header;

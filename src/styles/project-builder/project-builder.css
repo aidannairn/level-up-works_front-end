@@ -6,7 +6,7 @@
 
 #pb-main-container {
   padding: 2rem;
-  max-height: calc(100% - 8rem);
+  max-height: calc(100% - 4rem);
 }
 
 .scrollable {
@@ -179,5 +179,45 @@
 #pb-main-content {
   display: flex;
   width: 100%;
+  height: 100%;
   max-height: 100%;
 }
+
+#loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #B2E4FA;
+}
+
+#loading-screen h1 {
+  color: #D8F2FD;
+  font-size: 7.5rem;
+}
+
+#pb-make-project-container {
+  width: 100%;
+}
+
+#mp-scratch-gui {
+  width: 100%;
+  height: 100%;
+}
+
+/* START Video section */
+#pb-arw-wrap-vid-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-height: 100%;
+  margin: 0 5%;
+}
+
+#pb-arw-wrap-vid-wrapper > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+/* END Video section */
