@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import '../../styles/auth-modal.css'
 
 const {
-  REACT_APP_BACKEND_HOST: host,
-  REACT_APP_BACKEND_PORT: port
+  REACT_APP_URL: url
 } = process.env
 
 const AuthForm = ({ formContent, setIsModalVisible }) => {
@@ -19,14 +18,14 @@ const AuthForm = ({ formContent, setIsModalVisible }) => {
 
   const handleFormSubmit = e => {
     e.preventDefault()
-    axios.post(`${host}${port}/login`, {
+    axios.post(`${url}/login`, {
       type: type,
       email: email,
       password: password
     })
     .then(res => { 
-      console.log(res.data)
       setIsModalVisible(false)
+      window.location.reload()
     })
   }
 

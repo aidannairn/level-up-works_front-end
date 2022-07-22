@@ -159,10 +159,15 @@ nav {
   font-weight: bold;
 }
 
+.nav-lang-img-wrap {
+  padding-left: 0.8rem;
+}
+
 .header-flag {
+  display: inline-block;
   width: 22px;
   height: 12px;
-  margin-left: 8px;
+  text-align: right;
   margin-top: 0.30rem;
 }
 
