@@ -6,8 +6,8 @@ import ProgressCards from "./Progress-cards"
 import '../../styles/student-profile-viewer/progress-tracker.css'
 
 
-const ProgressTracker = () => {
-
+const ProgressTracker = (props) => {
+console.log(props)
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
