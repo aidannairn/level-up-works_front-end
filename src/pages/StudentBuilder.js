@@ -13,19 +13,25 @@ const StudentBuilder = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [projectBarCount, setProjectBarCount] = useState(0);
 
-    const { REACT_APP_BACKEND_HOST: host, REACT_APP_BACKEND_PORT: port } =
-        process.env;
+    const { REACT_APP_URL: url } = process.env;
 
-    useEffect(() => {
-        axios.get(`${host}${port}/student/project/`).then((res) => {
-            setProjectBarCount(res.data.totalProjects);
-        });
-    }, []);
+  useEffect(() => {
+    axios.get(`${url}/student/project/`)
+    .then(res => { setProjectBarCount(res.data.totalProjects) })
+  }, [])
+  
+  useEffect(() => {
+    setProject({})
+    axios.get(`${url}/student/project/${projectIndex + 1}`)
+    .then(res => { 
+      setProject(res.data)
+    })
+  }, [projectIndex])
 
     useEffect(() => {
         setProject({});
         axios
-            .get(`${host}${port}/student/project/${projectIndex + 1}`)
+            .get(`${url}/student/project/${projectIndex + 1}`)
             .then((res) => {
                 console.log(res.data);
                 setProject(res.data);
@@ -57,20 +63,14 @@ const StudentBuilder = () => {
     };
     // END Header Props
 
-    const currentUser = {
-        name: "Rawiri Fletcher",
-        image: "rawiri-fletcher.png",
-    };
-
-    // START Student Project Builder Views
-    const makeProject = {
-        id: "makeProject",
-        component: MakeProject,
-        isArrowNavEnabled: true,
-        menuItem: "Make Project",
-        icon: "new-project.png",
-        contents: [{ id: 1, src: "project.png" }],
-    };
+  // START Student Project Builder Views
+  const makeProject = { 
+    id: 'makeProject',
+    component: MakeProject,
+    menuItem: 'Make Project',
+    icon: 'new-project.png',
+    content: 'https://llk.github.io/scratch-gui/develop/'
+  }
 
     const submitProject = {
         id: "submitProject",
