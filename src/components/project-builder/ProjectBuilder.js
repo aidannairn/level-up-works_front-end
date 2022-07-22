@@ -6,7 +6,7 @@ import LearningObjectives from './LearningObjectives'
 import Instruction from './Instruction'
 import VideoTutorial from './VideoTutorial'
 
-import '../../styles/project-builder/project-builder.css'
+import '../../Styles/project-builder/project-builder.css'
 
 const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
   const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])  

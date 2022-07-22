@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import LoadingScreen from '../components/LoadingScreen'
+import MainHeader from '../components/header/MainHeader'
+import MakeProject from '../components/project-builder/MakeProject'
+import SubmitProject from '../components/project-builder/SubmitProject'
+import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 
-import MainHeader from "../components/header/MainHeader";
-import MakeProject from "../components/project-builder/MakeProject";
-import SubmitProject from "../components/project-builder/SubmitProject";
-import ProjectBuilder from "../components/project-builder/ProjectBuilder";
-import LoadingScreen from "../components/LoadingScreen";
 
 const StudentBuilder = () => {
     const [projectIndex, setProjectIndex] = useState(0);
@@ -133,7 +133,7 @@ const StudentBuilder = () => {
                 key={projectIndex}
                 projectIndex={projectIndex}
                 projectItems={projectItems}
-                currentUser={currentUser}
+                //currentUser={currentUser}
                 isLoading
             />
         </>

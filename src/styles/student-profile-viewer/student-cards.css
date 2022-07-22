@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+
+.studentCardContainter {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.StudentCards {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: white;
+    background-color: white;
+
+}
+
+.studentCards h4 {
+    font-family: nunito;
+    color: #6C6C6C;
+}
+
+.studentCards img {
+    height: 100px;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.profiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    width: 220px;
+    height: 200px;
+    margin: 20px 20px 30px 50px;
+}

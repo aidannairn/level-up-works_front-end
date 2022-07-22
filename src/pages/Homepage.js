@@ -8,7 +8,6 @@ import MainHeader from '../components/header/MainHeader'
 import MainFooter from '../components/MainFooter'
 import AuthModal from "../components/auth-modal/AuthModal";
 
-
 import '../styles/homepage.css'
 
 const Homepage = () => {
