@@ -72,8 +72,18 @@ const UserProvider = ({ children }) => {
     return Promise.reject(error)
   })
 
+  const handleUserLogout = async () => {
+    try {
+      await axios.delete(`${url}/logout`)
+      navigate('/', { replace: true })
+      window.location.reload()
+    } catch (error) {
+      if (error) console.log(error.response.data)
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ contactNum, course, dob, exp, fName, lName, profilePic, school, studentID, teacherID }} >
+    <UserContext.Provider value={{ contactNum, course, dob, exp, fName, lName, profilePic, school, studentID, teacherID, handleUserLogout }} >
       {children}
     </UserContext.Provider>
   )

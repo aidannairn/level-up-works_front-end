@@ -26,7 +26,7 @@ const StudentActionsContainer = ({ content }) => {
 
 const SubmitProject = ({ content }) => {
   return (
-    <div id="pb-submit-project-container">
+    <div id="pb-submit-project-container" className='scrollable'>
       <StudentActionsContainer key={content.sendPhoto.id} content={content.sendPhoto} />
       <StudentActionsContainer key={content.callTeacher.id} content={content.callTeacher} />
     </div>

@@ -7,8 +7,6 @@ import StudentProfiles from '../components/studentProfiles/StudentProfiles'
 import ProgressTracker from '../components/progress-tracker/ProgressTracker'
 import { projectLibrary, projectSubmission } from './ProjectSubmission'
 
-
-
 export const profiles = {
   id: 'studentProfiles',
   component: StudentProfiles, // Remember to import this component at the top

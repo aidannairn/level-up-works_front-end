@@ -1,6 +1,4 @@
 import { useState, useContext, Fragment } from "react";
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext'
 import NavLinks from './NavLinks'
@@ -22,28 +20,14 @@ const NavFlags = ({ lang }) => {
   )
 }
 
-const UserOptions = () => {
-  const navigate = useNavigate()
-  
-  const { REACT_APP_URL: url } = process.env
-
-  const handleUserLogout = async () => {
-    try {
-      await axios.delete(`${url}/logout`)
-      navigate('/', { replace: true })
-      window.location.reload()
-    } catch (error) {
-      if (error) console.log(error.response.data)
-    }
-  }
-
+const UserOptions = ({ logout }) => {
   return (
     <div id="user-options-container">
       <div id="user-options-arrow"></div>
       <div id="user-options">
         <h4 className="user-option">My Profile</h4>
         <h4 className="user-option">Settings</h4>
-        <h4 className="user-option" onClick={handleUserLogout} >Log out</h4>
+        <h4 className="user-option" onClick={logout} >Log out</h4>
       </div>
     </div>
   )
@@ -87,7 +71,7 @@ const Header = props => {
             {user.studentID ? <Fragment key={user.studentID}>
               <img id='navbar-current-user-img' src={`https://cdn.filestackcontent.com/${user.profilePic}`} />
               <h2 onClick={handleUserClick}>{user.fName} {user.lName}</h2>
-              {areUserOptionsVisible && <UserOptions />}
+              {areUserOptionsVisible && <UserOptions logout={user.handleUserLogout} />}
             </Fragment> : <>
               <i className="auth-icon fa fa-user-circle" aria-hidden="true"></i>
               <h2 onClick={handleAuthClick} >REGISTER | LOGIN</h2>

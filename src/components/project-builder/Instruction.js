@@ -24,7 +24,7 @@ const InstructionStep = ({ stepNum, element }) => {
       </div>
     case 'orderedList':
       return <ol>
-        {content.map((item) => <li>{item}</li>)}
+        {content.map((item, index) => <li key={index}>{item}</li>)}
       </ol>
     default:
       break;

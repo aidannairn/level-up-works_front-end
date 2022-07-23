@@ -79,6 +79,7 @@
   border: 3px solid #43C0F6;
   border-radius: 1rem;
   box-shadow: 5px 5px 15px -5px #b5b5b5;
+  box-sizing: unset;
 }
 
 #pb-step-circles {
@@ -95,6 +96,7 @@
   border: 3px solid #43C0F6;
   border-radius: 1rem;
   box-shadow: 5px 5px 15px -5px #b5b5b5;
+  box-sizing: unset;
 }
 
 nav {
