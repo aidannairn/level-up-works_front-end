@@ -18,9 +18,22 @@
   margin: 0;
 }
 
-.pb-sp-view-img {
+.pb-sb-view-img-wrapper {
   width: 100%;
+  min-height: 50%;
+  max-height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 0 3rem 0;
+  background-color: #D9F1FD; /* Slightly darker: #ceecfb */
+  border-radius: 1rem;
+}
+
+.pb-sp-view-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
 }
 
 .pb-sp-view-btn-container {
@@ -36,6 +49,7 @@
   background-color: #F91D85;
   box-shadow: 5px 5px 15px -5px #b5b5b5;
   color: white;
+  cursor: pointer;
 }
 
 .pb-sp-view-btn > img {

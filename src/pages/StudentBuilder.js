@@ -83,6 +83,7 @@ const StudentBuilder = () => {
         image: "project.png",
         btnIcon: "gallery-icon.png",
         btnText: "Send Photo",
+        projectID: project.id
       },
       callTeacher: {
         id: "callTeacher",
