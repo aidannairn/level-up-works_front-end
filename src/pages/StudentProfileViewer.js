@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import MainHeader from '../Components/header/MainHeader'
-import ProjectBuilder from '../Components/project-builder/ProjectBuilder'
-import StudentProfiles from '../Components/studentProfiles/StudentProfiles'
-import ProgressTracker from '../Components/progress-tracker/ProgressTracker'
+import MainHeader from '../components/header/MainHeader'
+import ProjectBuilder from '../components/project-builder/ProjectBuilder'
+import StudentProfiles from '../components/studentProfiles/StudentProfiles'
+import ProgressTracker from '../components/progress-tracker/ProgressTracker'
 
 
 const StudentProfileViewer = () => {
