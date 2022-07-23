@@ -11,6 +11,7 @@ const StudentBuilder = () => {
   const [project, setProject] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [projectBarCount, setProjectBarCount] = useState(0)
+  const [projectBarHeading, setProjectBarHeading] = useState('')
 
   const { REACT_APP_URL: url } = process.env
 
@@ -32,9 +33,12 @@ const StudentBuilder = () => {
   }, [projectIndex])
 
   useEffect(() => {
-    Object.keys(project).length === 0
-      ? setIsLoading(true)
-      : setIsLoading(false)
+    if (Object.keys(project).length === 0) {
+      setIsLoading(true)
+    } else {
+      setProjectBarHeading(project.learningObjectives.heading)
+      setIsLoading(false)
+    }
   }, [project])
 
   const testScreenshotBtn = () => {
@@ -49,7 +53,7 @@ const StudentBuilder = () => {
   ]
 
   const projectBar = {
-    name: "Introduction",
+    heading: projectBarHeading,
     projects: projectBarCount,
     currentProject: projectIndex,
     setProjectIndex: setProjectIndex,

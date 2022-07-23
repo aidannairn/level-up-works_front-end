@@ -1,6 +1,4 @@
 import { useState, useContext, Fragment } from "react";
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext'
 import NavLinks from './NavLinks'
@@ -23,8 +21,6 @@ const NavFlags = ({ lang }) => {
 }
 
 const UserOptions = ({ logout }) => {
-  const navigate = useNavigate()
-  
   return (
     <div id="user-options-container">
       <div id="user-options-arrow"></div>
