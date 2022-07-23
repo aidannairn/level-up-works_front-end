@@ -1,13 +1,22 @@
-import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useState, useEffect, useContext } from 'react'
 import { PickerOverlay } from 'filestack-react-18'
+
+import { UserContext } from '../../contexts/UserContext'
 
 import '../../styles/project-builder/submit-project.css'
 
-const filestackKey = process.env.REACT_APP_FILESTACK_API_KEY
+const {
+  REACT_APP_FILESTACK_API_KEY: filestackKey,
+  REACT_APP_URL: url
+} = process.env
 
 const StudentActionsContainer = ({ content }) => {
   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false)
-  const [imageURL, setImageURL] = useState()
+  const [imageURL, setImageURL] = useState('')
+  const [msg, setMsg] = useState('')
+
+  const { studentID } = useContext(UserContext)
 
   const {
     id,
@@ -15,14 +24,24 @@ const StudentActionsContainer = ({ content }) => {
     paragraph,
     image,
     btnIcon,
-    btnText
+    btnText,
+    projectID
   } = content
 
   useEffect(() => {
-    console.log(imageURL)
+    if (imageURL.length) {
+      console.log(imageURL)
+      axios.put(`${url}/student/project/${projectID}/student/${studentID}`, { imageURL })
+      .then(res => { 
+        setMsg(res.data)
+      })
+    }
   }, [imageURL])
-  
 
+  const handleFileUploadSuccess = (result) => {
+    setImageURL(result.filesUploaded[0].url)
+    setIsPickerOverlayVisible(false)
+  }
 
   const handleClick = () => {
     if (id === 'sendPhoto') {
@@ -38,8 +57,7 @@ const StudentActionsContainer = ({ content }) => {
         <PickerOverlay
           apikey={filestackKey}
           onSuccess={(result) => {
-            setImageURL(result.filesUploaded[0].url)
-            setIsPickerOverlayVisible(false)
+            handleFileUploadSuccess(result)
           }}
         />
       )}
