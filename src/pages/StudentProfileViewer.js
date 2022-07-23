@@ -5,7 +5,21 @@ import MainHeader from '../components/header/MainHeader'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 import StudentProfiles from '../components/studentProfiles/StudentProfiles'
 import ProgressTracker from '../components/progress-tracker/ProgressTracker'
+import { projectLibrary, projectSubmission } from './ProjectSubmission'
 
+export const profiles = {
+  id: 'studentProfiles',
+  component: StudentProfiles, // Remember to import this component at the top
+  menuItem: 'Student Profiles',
+  icon: 'student-profiles.png',
+}
+
+export const tracker = {
+  id: 'progressTracker',
+  component: ProgressTracker,
+  menuItem: 'Progress Tracker',
+  icon: 'progress-tracker.png',
+}
 
 const StudentProfileViewer = () => {
 
@@ -26,19 +40,7 @@ const StudentProfileViewer = () => {
     image: 'jasmina-salvador.png',
   }
 
-  const profiles = {
-    id: 'studentProfiles',
-    component: StudentProfiles, // Remember to import this component at the top
-    menuItem: 'Student Profiles',
-    icon: 'student-profiles.png',
-  }
 
-  const tracker = {
-    id: 'progressTracker',
-    component: ProgressTracker,
-    menuItem: 'Progress Tracker',
-    icon: 'progress-tracker.png',
-  }
 
   const HelpRequest = {
     id: 'HelpRequest',
@@ -51,6 +53,9 @@ const StudentProfileViewer = () => {
     tracker,
     profiles,
     HelpRequest,
+    projectSubmission,
+    projectLibrary,
+    
   ]
 
   

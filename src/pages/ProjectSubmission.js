@@ -40,13 +40,13 @@ const studentProfiles = {
     menuItem: "Student Profiles",
     icon: "student-icon.png",
 };
-const projectLibrary = {
+export const projectLibrary = {
     id: "projectLibrary",
     component: ProjectLibrary, // Remember to import this component at the top
     menuItem: "Project Library",
     icon: "library-icon.png",
 };
-const projectSubmission = {
+export const projectSubmission = {
     id: "projectSubmission",
     component: ProjectSubmissionPage, // Remember to import this component at the top
     menuItem: "Project Submissions",
