@@ -2,9 +2,9 @@ import { useState, useContext } from "react"
 
 import { UserContext } from "../../contexts/UserContext"
 
-const UserOption = ({ icon, heading, sidebarExpanded }) => {
+const UserOption = ({ icon, heading, sidebarExpanded, action }) => {
   return (
-    <div className="sb-user-option">
+    <div className="sb-user-option" onClick={action}>
       <i className={icon}></i>
       {sidebarExpanded && <h5>{heading}</h5>}
     </div>
@@ -73,7 +73,7 @@ const Sidebar = props => {
       <div id="sb-user-options">
         <UserOption icon='fa fa-user-circle' heading='Profile' sidebarExpanded={sidebarExpanded} />
         <UserOption icon='fa fa-cog' heading='Settings' sidebarExpanded={sidebarExpanded} />
-        <UserOption icon='fa fa-sign-out' heading='Log out' sidebarExpanded={sidebarExpanded} />
+        <UserOption icon='fa fa-sign-out' heading='Log out' action={user.handleUserLogout} sidebarExpanded={sidebarExpanded} />
       </div>
     </div>
   )
