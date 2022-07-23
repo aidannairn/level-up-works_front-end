@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import { PickerOverlay } from 'filestack-react-18'
 
 import { UserContext } from '../../contexts/UserContext'
+import AlertMessage from '../AlertMessage'
 
 import '../../styles/project-builder/submit-project.css'
 
@@ -14,7 +15,7 @@ const {
 const StudentActionsContainer = ({ content }) => {
   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false)
   const [imageURL, setImageURL] = useState('')
-  const [msg, setMsg] = useState('')
+  const [msg, setMsg] = useState(null)
 
   const { studentID } = useContext(UserContext)
 
@@ -61,6 +62,7 @@ const StudentActionsContainer = ({ content }) => {
           }}
         />
       )}
+      {msg !== null && <AlertMessage res={msg} />}
       <div className="pb-sb-view-img-wrapper">
         <img className='pb-sp-view-img' src={`images/student-builder/${image}`} alt="" />
       </div>
