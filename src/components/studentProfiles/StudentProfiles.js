@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import StudentCards from './Student-cards';
-import '../../Styles/student-profile-viewer/student-cards.css';
+import '../../styles/student-profile-viewer/student-cards.css';
 
 
 const StudentProfiles = () => {
@@ -34,4 +34,3 @@ const StudentProfiles = () => {
 }
 
 export default StudentProfiles
-

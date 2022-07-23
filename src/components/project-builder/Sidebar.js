@@ -49,7 +49,7 @@ const Sidebar = props => {
         {projectItems.map((projectItem, index) => {
           const { content, contents } = projectItem
           const includesContents = contents && contents.length
-          if (content || includesContents) {
+          if (true) {
             return <SidebarView key={index}
               projectItem={projectItem}
               currentMenuItem={currentMenuItem}
