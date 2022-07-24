@@ -1,3 +1,5 @@
-export default function StudentProfiles() {
-    return <div>StudentProfiles</div>;
+import StudentProfiles from "../studentProfiles/StudentProfiles";
+
+export default function StudentProfilesPage() {
+    return <StudentProfiles />;
 }
