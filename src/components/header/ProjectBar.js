@@ -1,5 +1,5 @@
 const ProjectBar = ({ projectBar }) => {
-  const { name, projects, currentProject, setProjectIndex } = projectBar
+  const { heading, projects, currentProject, setProjectIndex } = projectBar
 
   const projectCircles = []
 
@@ -14,7 +14,7 @@ const ProjectBar = ({ projectBar }) => {
       <div id='header-project-bar' >
         <div id="pb-desc">
           <h3>PROJECT</h3>
-          <p>Introduction</p>
+          <p>{heading.length > 17 ? heading.slice(0, 14) + '...' : heading}</p>
         </div>
         <div id="pb-num-steps-container">
           <div id='pb-step-circles'>

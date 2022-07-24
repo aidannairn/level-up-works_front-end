@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 
+import { UserContext } from "../../contexts/UserContext"
 import ProjectBuilderContent from "./ProjectBuilderContent"
 import Sidebar from "./Sidebar"
 import LearningObjectives from './LearningObjectives'
@@ -8,8 +9,10 @@ import VideoTutorial from './VideoTutorial'
 
 import '../../styles/project-builder/project-builder.css'
 
-const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
-  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0])  
+const ProjectBuilder = ({ projectIndex, projectItems }) => {
+  const [currentMenuItem, setCurrentMenuItem] = useState(projectItems[0]) 
+  
+  const user = useContext(UserContext)
 
   const learningObjectives = {
     id: 'learningObjectives',
@@ -55,7 +58,7 @@ const ProjectBuilder = ({ currentUser, projectIndex, projectItems }) => {
   
   return (
     <div id='project-builder-container'>
-      <Sidebar userImg={currentUser.image} 
+      <Sidebar userImg={user.profilePic} 
         projectItems={projectItems} 
         currentMenuItem={currentMenuItem.id} setCurrentMenuItem={setCurrentMenuItem} 
       />

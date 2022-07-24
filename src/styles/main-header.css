@@ -50,6 +50,7 @@
 #pb-desc {
   display: flex;
   flex-direction: column;
+  width: 6rem;
 }
 
 #pb-desc h3 {
@@ -79,6 +80,7 @@
   border: 3px solid #43C0F6;
   border-radius: 1rem;
   box-shadow: 5px 5px 15px -5px #b5b5b5;
+  box-sizing: unset;
 }
 
 #pb-step-circles {
@@ -95,6 +97,7 @@
   border: 3px solid #43C0F6;
   border-radius: 1rem;
   box-shadow: 5px 5px 15px -5px #b5b5b5;
+  box-sizing: unset;
 }
 
 nav {
@@ -161,6 +164,10 @@ nav {
   display: flex;
   justify-content: flex-end;
   font-weight: bold;
+}
+
+#lang-container label {
+  margin-bottom: 0.1rem;
 }
 
 .nav-lang-img-wrap {

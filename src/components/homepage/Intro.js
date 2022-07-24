@@ -1,4 +1,4 @@
-const Intro = () => {
+const Intro = ({ setIsModalVisible }) => {
   return (
     <div id="hmpg-intro-container">
       <div id="hmpg-intro-content">
@@ -7,7 +7,7 @@ const Intro = () => {
         <div id="hmpg-btn-container">
           <button className="hmpg-standard-btn">LEARN MORE</button>
           <div id="hmpg-signup-btn-container">
-            <button className="signup-btn">SIGN UP</button>
+            <button className="signup-btn" onClick={() => setIsModalVisible(true)}>SIGN UP</button>
             <p>*Basic subscription includes the first 15 projects free of charge.</p>
           </div>
         </div>

@@ -1,0 +1,32 @@
+.alert-msg-container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 5rem;
+  left: 25vw;
+  height: fit-content;
+  width: 50vw;
+  border-radius: 1rem;
+  color: #707070;
+}
+
+.alert-msg-container p {
+  padding: 0.5rem;
+}
+
+.alert-msg-container p span {
+  text-transform: uppercase;
+}
+
+.alert-msg-container.success {
+  border: 1px solid rgb(135, 237, 131);
+  box-shadow: 2px 2px 6px rgb(124, 194, 122);
+  background-color: rgb(158, 249, 155);
+}
+
+.alert-msg-container.error {
+  border: 1px solid rgb(237, 142, 131);
+  box-shadow: 2px 2px 6px rgb(194, 127, 122);
+  background-color: rgb(249, 155, 155);
+  color: black;
+}

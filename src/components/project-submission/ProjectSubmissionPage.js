@@ -8,23 +8,59 @@ export default function ProjectSubmissionPage() {
     const [complete, setComplete] = useState([]);
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
+    const [downloadSubmission, setDownloadSubmission] = useState([]);
+    const [triggerUse, setTriggerUse] = useState(false)
 
-    console.log("Parent Render");
-    useEffect(() => {
-        axios.get(`http://localhost:4000/project-submission/`).then((res) => {
-            setStudent(res.data);
-        });
-    }, [updatedStudent]);
+    useEffect(
+        () => {
+            axios
+                .get(`http://localhost:4000/project-submission/`)
+                .then((res) => {
+                    setStudent(res.data);
+                });
+        },
+        [updatedStudent],[triggerUse]
+    );
 
     const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
+        setComplete([])
+        setDownloadSubmission([]); // Empties download array after download btn is clicked
         axios.put(`http://localhost:4000/project-submission/${complete}`);
     };
 
     const tick = (e) => {
         setComplete([...complete, e.target.id]);
-        console.log(`tick feature id is ${e.target.id}`);
+        setDownloadSubmission([...downloadSubmission, e.target.value]);
+        setDownloadReady(true);
     };
+
+
+    // DL fn 
+    // One at a time
+
+    const [downloadReady, setDownloadReady] = useState(false);
+
+    const downloadFunction = () => {
+        setDownloadReady(false);
+        setTriggerUse(!triggerUse)
+        axios({
+            url: `${downloadSubmission}`, //your url
+            method: 'GET',
+            responseType: 'blob', // important
+        }).then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'file.png'); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+            window.URL.revokeObjectURL(url)
+        });
+    };
+    
+
+
 
     return (
         <>
@@ -35,10 +71,13 @@ export default function ProjectSubmissionPage() {
                             PROJECT SUBMISSIONS
                         </div>
                         <span className="project-submission-white-space"></span>
-                        <div className="project-download-btn">
+                        <div
+                            className="project-download-btn"
+                            onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
+                        >
                             <img
                                 src="images/projectSubmission/download-icon.svg"
-                                alt="download"
+                                alt="download icon"
                                 width={15}
                             />{" "}
                             &nbsp; DOWNLOAD FILES
@@ -49,7 +88,7 @@ export default function ProjectSubmissionPage() {
                         >
                             <img
                                 src="images/projectSubmission/tick-icon.svg"
-                                alt="download"
+                                alt="tick icon"
                                 width={25}
                             />{" "}
                             &nbsp; MARK AS COMPLETE

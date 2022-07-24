@@ -1,4 +1,4 @@
-const Signup = () => {
+const Signup = ({ setIsModalVisible }) => {
   return (
     <div id="hmpg-signup-container">
       <img src="images/homepage/teacher.png" />
@@ -11,7 +11,7 @@ const Signup = () => {
             <button className="hmpg-standard-btn">Enquire Now</button>
           </div>
           <div className="hmpg-btn-container">
-            <button className="signup-btn">Sign Up</button>
+            <button className="signup-btn" onClick={() => setIsModalVisible(true)}>Sign Up</button>
           </div>
         </div>
       </div>
