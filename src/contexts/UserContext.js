@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const UserContext = createContext()
 
 const UserProvider = ({ children }) => {
+  const [userType, setUserType] = useState('')
   const [contactNum, setContactNum] = useState('')
   const [course, setCourse] = useState('')
   const [dob, setDob] = useState('')
@@ -29,17 +30,19 @@ const UserProvider = ({ children }) => {
     try {
       const response = await axios.get(`${url}/token`)
       const decoded = jwtDecode(response.data.accessToken)
+      setUserType(decoded.type)
       setContactNum(decoded.contactNum)
       setCourse(decoded.course)
-      setDob(decoded.dob)
-      setFName(decoded.fName)
-      setLName(decoded.lName)
+      setDob(decoded.dateOfBirth)
+      setFName(decoded.firstName)
+      setLName(decoded.lastName)
       setProfilePic(decoded.profilePic)
       setSchool(decoded.school)
       setStudentID(decoded.studentID)
       setTeacherID(decoded.teacherID)
       setExp(decoded.exp)
-      if (studentID) return document.location.reload()
+      if (userType.length) return document.location.reload()
+      console.log(fName)
     } catch (error) {
       if (error.response) {
         navigate('/', { replace: true })
@@ -56,11 +59,12 @@ const UserProvider = ({ children }) => {
       const response = await axios.get(`${url}/token`)
       config.headers.Authorization = `Bearer ${response.data.accessToken}`
       const decoded = jwtDecode(response.data.accessToken)
+      setUserType(decoded.type)
       setContactNum(decoded.contactNum)
       setCourse(decoded.course)
       setDob(decoded.dob)
-      setFName(decoded.fName)
-      setLName(decoded.lName)
+      setFName(decoded.firstName)
+      setLName(decoded.lastName)
       setProfilePic(decoded.profilePic)
       setSchool(decoded.school)
       setStudentID(decoded.studentID)
@@ -83,7 +87,7 @@ const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ contactNum, course, dob, exp, fName, lName, profilePic, school, studentID, teacherID, handleUserLogout }} >
+    <UserContext.Provider value={{ userType, contactNum, course, dob, exp, fName, lName, profilePic, school, studentID, teacherID, handleUserLogout }} >
       {children}
     </UserContext.Provider>
   )

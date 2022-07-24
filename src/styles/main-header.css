@@ -50,6 +50,7 @@
 #pb-desc {
   display: flex;
   flex-direction: column;
+  width: 6rem;
 }
 
 #pb-desc h3 {
@@ -163,6 +164,10 @@ nav {
   display: flex;
   justify-content: flex-end;
   font-weight: bold;
+}
+
+#lang-container label {
+  margin-bottom: 0.1rem;
 }
 
 .nav-lang-img-wrap {

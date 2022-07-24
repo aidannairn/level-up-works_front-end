@@ -34,7 +34,13 @@ const UserOptions = ({ logout }) => {
 }
 
 const Header = props => {
-  const user = useContext(UserContext)
+  const {
+    userType,
+    profilePic,
+    fName,
+    lName,
+    handleUserLogout
+  } = useContext(UserContext)
 
   const [areUserOptionsVisible, setAreUserOptionsVisible] = useState(false)
 
@@ -68,10 +74,10 @@ const Header = props => {
         <div id='auth-lang-container'>
           <NavFlags lang/>
           <div id="auth-container">
-            {user.studentID ? <Fragment key={user.studentID}>
-              <img id='navbar-current-user-img' src={`https://cdn.filestackcontent.com/${user.profilePic}`} />
-              <h2 onClick={handleUserClick}>{user.fName} {user.lName}</h2>
-              {areUserOptionsVisible && <UserOptions logout={user.handleUserLogout} />}
+            {userType ? <Fragment >
+              <img id='navbar-current-user-img' src={`https://cdn.filestackcontent.com/${profilePic}`} />
+              <h2 onClick={handleUserClick}>{fName} {lName}</h2>
+              {areUserOptionsVisible && <UserOptions logout={handleUserLogout} />}
             </Fragment> : <>
               <i className="auth-icon fa fa-user-circle" aria-hidden="true"></i>
               <h2 onClick={handleAuthClick} >REGISTER | LOGIN</h2>
