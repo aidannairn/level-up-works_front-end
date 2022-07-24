@@ -9,8 +9,8 @@ function StudentCards({ studentData }) {
         <div className="studentCards">
             <div className="profiles">
               <figure>
-                <img src={`https://cdn.filestackcontent.com/${studentData.ProfilePic}`} alt='student img'/>
-                <figcaption>{studentData.FirstName}  {studentData.LastName}</figcaption>
+                <img src={`https://cdn.filestackcontent.com/${studentData.profilePic}`} alt='student img'/>
+                <figcaption>{studentData.firstName}  {studentData.lastName}</figcaption>
               </figure>
             </div>
         </div>
