@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+import '../../styles/project-builder/submit-project.css'
+=======
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { PickerOverlay } from 'filestack-react-18'
@@ -11,6 +14,7 @@ const {
   REACT_APP_FILESTACK_API_KEY: filestackKey,
   REACT_APP_URL: url
 } = process.env
+>>>>>>> main
 
 const StudentActionsContainer = ({ content }) => {
   const [isPickerOverlayVisible, setIsPickerOverlayVisible] = useState(false)

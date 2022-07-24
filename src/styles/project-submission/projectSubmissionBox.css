@@ -48,7 +48,8 @@ input[type="checkbox"] {
     font-size: 14px;
     text-align: center;
     cursor: pointer;
-    
+    width: max-content;
+    align-self: center;
 }
 
 .project-submission-time-stamp{
@@ -63,5 +64,8 @@ input[type="checkbox"] {
     width: 30%;
 }
 
-
-
+.ps-zoom-div{
+    float: left;
+    display: flex;
+    margin-left: 25%;
+}
