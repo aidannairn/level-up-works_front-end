@@ -24,10 +24,10 @@ const Homepage = () => {
       {isModalVisible && <AuthModal setIsModalVisible={setIsModalVisible} />}
       <MainHeader layout='1' navLinks={navLinks} setIsModalVisible={setIsModalVisible} />
       <div id='homepage-container'>
-        <Intro />
+        <Intro setIsModalVisible={setIsModalVisible}/>
         <Offers />
         <ProgrammeBenefits />
-        <Signup />
+        <Signup setIsModalVisible={setIsModalVisible}/>
       </div>
       <MainFooter />
     </>

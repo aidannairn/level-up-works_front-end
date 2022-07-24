@@ -6,8 +6,8 @@ import ProgressCards from "./Progress-cards"
 import '../../styles/student-profile-viewer/progress-tracker.css'
 
 
-const ProgressTracker = () => {
-
+const ProgressTracker = (props) => {
+console.log(props)
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
@@ -21,9 +21,7 @@ const ProgressTracker = () => {
 
   const progressBars = []; 
   
-  students.map((student, index) => {
-      progressBars.push(<ProgressCards studentData={student} key={index}/>);
-  })
+  students.map((student, index) => progressBars.push(<ProgressCards studentData={student} key={index}/>))
 
   return (
     <div className="scrollable">

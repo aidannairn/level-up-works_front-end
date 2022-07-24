@@ -1,10 +1,12 @@
-import ProgressButtons from './ProgressButtons'
 import Card from './Card'
 
 
 
-function ProgressCards({ studentData, progressData }) {
 
+function ProgressCards({ studentData }) {
+  const projectsCompletedArray = studentData.projects.filter((project) => 
+    project.dateCompleted !== '1899-11-29T12:30:00.000Z'
+  )
 
 
     return (
@@ -12,17 +14,23 @@ function ProgressCards({ studentData, progressData }) {
   <Card>
     <div className='barContainer'>
       <div className='studentData'>
-        <h4>{studentData.FirstName} {studentData.LastName}</h4>
-        <br/><p>{studentData.ProjectsCompleted}/15 Projects completed</p>
-      </div>
-      <div className='progress'>
-        <h2 style={{ 
-        backgroundColor: studentData.DateCompleted > '0' 
-        ? '#99EDCC' 
-        : '#fff'}}>
-        {studentData.ProjectID}
-        </h2>
-      </div>
+        <h3>{studentData.firstName} {studentData.lastName}</h3>
+        <br/><p>{projectsCompletedArray.length}/15 Projects completed</p>
+          </div>
+            {studentData.projects.map((project, index) => {
+            console.log(studentData.firstName, project.dateCompleted)
+            return(
+              <div className='progress'>
+                <div className='progressCircles' style={{ 
+                 backgroundColor: project.dateCompleted > '1899-11-29T12:30:00.000Z' 
+                 ? '#99EDCC' 
+                 : '#fff'}}>
+                <h2>{project.projectID}</h2>
+                </div>
+              </div>
+           )
+          
+       })}
     </div>
   </Card>
 </div>

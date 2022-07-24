@@ -4,6 +4,8 @@
 .studentCardContainter {
     display: flex;
     flex-wrap: wrap;
+    margin: 50px 100px 50px 100px;
+    
 }
 
 .StudentCards {
@@ -13,11 +15,18 @@
     border-color: white;
     background-color: white;
 
+    
+}
+.profiles {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.studentCards h4 {
+.profiles figcaption {
+    text-align: center;
     font-family: nunito;
+    margin: 20px 0px 0px 0px;
     color: #6C6C6C;
+    font-size: 13px;
 }
 
 .studentCards img {
@@ -35,7 +44,7 @@
     border-color: white;
     border-style: solid;
     border-radius: 10px;
-    width: 220px;
+    width: 200px;
     height: 200px;
-    margin: 20px 20px 30px 50px;
+    margin: 20px 45px 30px 30px;
 }

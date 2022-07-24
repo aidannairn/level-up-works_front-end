@@ -217,6 +217,7 @@
 }
 
 #pb-arw-wrap-vid-wrapper > iframe {
+  max-height: 100%;
   aspect-ratio: 16 / 9;
   width: 100%;
 }
