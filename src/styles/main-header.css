@@ -229,6 +229,11 @@ nav {
   padding: 0.5rem 1rem;
 }
 
+#user-options h4 a {
+  color: #707070;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 768px) {
   #header {
     flex-direction: column;

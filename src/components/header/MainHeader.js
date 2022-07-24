@@ -1,4 +1,5 @@
 import { useState, useContext, Fragment } from "react";
+import { Link } from 'react-router-dom'
 
 import { UserContext } from '../../contexts/UserContext'
 import NavLinks from './NavLinks'
@@ -25,7 +26,7 @@ const UserOptions = ({ logout }) => {
     <div id="user-options-container">
       <div id="user-options-arrow"></div>
       <div id="user-options">
-        <h4 className="user-option">My Profile</h4>
+        <h4 className="user-option"><Link to='/teacher-profile'>My Profile</Link></h4>
         <h4 className="user-option">Settings</h4>
         <h4 className="user-option" onClick={logout} >Log out</h4>
       </div>

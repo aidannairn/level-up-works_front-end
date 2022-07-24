@@ -14,7 +14,7 @@ const Homepage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const navLinks = [
-    { name: 'Home', route: '#' },
+    { name: 'Home', route: '/' },
     { name: 'Features', route: '#' },
     { name: 'Teachers', route: '#' },
   ]
