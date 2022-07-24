@@ -1,5 +1,5 @@
 .alert-msg-container {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   top: 5rem;
@@ -21,11 +21,12 @@
 .alert-msg-container.success {
   border: 1px solid rgb(135, 237, 131);
   box-shadow: 2px 2px 6px rgb(124, 194, 122);
-  background-color: rgba(158, 249, 155, 0.6);
+  background-color: rgb(158, 249, 155);
 }
 
 .alert-msg-container.error {
   border: 1px solid rgb(237, 142, 131);
   box-shadow: 2px 2px 6px rgb(194, 127, 122);
-  background-color: rgba(249, 155, 155, 0.6);
+  background-color: rgb(249, 155, 155);
+  color: black;
 }

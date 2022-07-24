@@ -8,15 +8,15 @@ const AlertMessage = ({ res }) => {
   useEffect(() => {
     setTimeout(() => {
       setIsAlertVisible(false)
-    }, 7000)
+    }, 6000)
   }, [])
   
   return (
     <>
       { isAlertVisible && 
-          <div className={`alert-msg-container ${res.type}`}>
-            <p><span>{res.type}!</span> {res.msg}</p>
-          </div>
+        <div className={`alert-msg-container ${res.type}`}>
+          <p><span>{res.type}!</span> {res.msg}</p>
+        </div>
       }
     </>
   )
