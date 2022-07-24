@@ -1,66 +1,37 @@
-import React from "react";
 import ProjectSubmissionBox from "./projectSubmissionBox";
 import "../../styles/project-submission/projectSubmissionPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function ProjectSubmissionPage() {
-    const [complete, setComplete] = useState([]);
+    const [projectKey, setProjectKey] = useState([]);
     const [student, setStudent] = useState([]);
     const [updatedStudent, setUpdatedStudent] = useState(false);
-    const [downloadSubmission, setDownloadSubmission] = useState([]);
-    const [triggerUse, setTriggerUse] = useState(false)
+    const [studentKey, setStudentKey] = useState([]);
 
-    useEffect(
-        () => {
-            axios
-                .get(`http://localhost:4000/project-submission/`)
-                .then((res) => {
-                    setStudent(res.data);
-                });
-        },
-        [updatedStudent],[triggerUse]
-    );
+    useEffect(() => {
+        console.log(`first time`);
+        axios.get(`http://localhost:4000/project-submission/`).then((res) => {
+            setStudent(res.data);
+        });
+    }, [updatedStudent]);
 
     const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
-        setComplete([])
-        setDownloadSubmission([]); // Empties download array after download btn is clicked
-        axios.put(`http://localhost:4000/project-submission/${complete}`);
+        setProjectKey([]);
+        setStudentKey([]);
+        axios
+            .put(`http://localhost:4000/project-submission/complete`, {
+                projectKey,
+                studentKey,
+            })
+            .then((res) => {});
     };
 
     const tick = (e) => {
-        setComplete([...complete, e.target.id]);
-        setDownloadSubmission([...downloadSubmission, e.target.value]);
-        setDownloadReady(true);
+        setProjectKey([...projectKey, e.target.id]);
+        setStudentKey([...studentKey, e.target.value]);
     };
-
-
-    // DL fn 
-    // One at a time
-
-    const [downloadReady, setDownloadReady] = useState(false);
-
-    const downloadFunction = () => {
-        setDownloadReady(false);
-        setTriggerUse(!triggerUse)
-        axios({
-            url: `${downloadSubmission}`, //your url
-            method: 'GET',
-            responseType: 'blob', // important
-        }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'file.png'); //or any other extension
-            document.body.appendChild(link);
-            link.click();
-            window.URL.revokeObjectURL(url)
-        });
-    };
-    
-
-
 
     return (
         <>
@@ -73,35 +44,43 @@ export default function ProjectSubmissionPage() {
                         <span className="project-submission-white-space"></span>
                         <div
                             className="project-download-btn"
-                            onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
+                            // onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
                         >
                             <img
+                                className="ps-img-btn"
                                 src="images/projectSubmission/download-icon.svg"
                                 alt="download icon"
                                 width={15}
+                                height={15}
                             />{" "}
-                            &nbsp; DOWNLOAD FILES
+                            &nbsp; DOWNLOAD FILES &nbsp; &nbsp; &nbsp;
                         </div>
                         <div
                             className="project-complete-btn"
                             onClick={markedAsComplete}
                         >
                             <img
+                                className="ps-img-btn"
                                 src="images/projectSubmission/tick-icon.svg"
                                 alt="tick icon"
-                                width={25}
+                                width={15}
+                                height={15}
                             />{" "}
                             &nbsp; MARK AS COMPLETE
                         </div>
                     </div>
                     <div className="project-submission-content-display">
-                        {student.map((item, index) => (
-                            <ProjectSubmissionBox
-                                key={index}
-                                item={item}
-                                tick={tick}
-                            />
-                        ))}
+                        {student.map((item, index) => {
+                            console.log(`item1`, item);
+                            return (
+                                <ProjectSubmissionBox
+                                    key={index}
+                                    item={item}
+                                    tick={tick}
+                                    uniqueID={`studentID ${item.studentID} / projectID ${item.projectid}`}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>
