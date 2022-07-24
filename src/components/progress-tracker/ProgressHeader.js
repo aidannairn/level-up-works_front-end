@@ -1,4 +1,4 @@
-import '../../Styles/student-profile-viewer/progress-tracker.css'
+import '../../styles/student-profile-viewer/progress-tracker.css'
 
 const ProgressHeader = ({ text }) => {
 

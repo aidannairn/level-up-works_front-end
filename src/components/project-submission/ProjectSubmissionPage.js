@@ -75,7 +75,7 @@ export default function ProjectSubmissionPage() {
                             className="project-download-btn"
                             onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
                         >
-                            <img
+                            <img className="ps-img-btn"
                                 src="images/projectSubmission/download-icon.svg"
                                 alt="download icon"
                                 width={15}
@@ -86,7 +86,7 @@ export default function ProjectSubmissionPage() {
                             className="project-complete-btn"
                             onClick={markedAsComplete}
                         >
-                            <img
+                            <img className="ps-img-btn"
                                 src="images/projectSubmission/tick-icon.svg"
                                 alt="tick icon"
                                 width={25}

@@ -79,10 +79,6 @@
   color: rgb(0, 0, 0);
 }
 
-[type='checkbox'] {
-  opacity: 0;
-}
-
 .progress h2{
   width: 35px;
   height: 35px;

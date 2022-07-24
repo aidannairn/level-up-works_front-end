@@ -67,3 +67,8 @@
 .project-complete-btn, .project-download-btn{
     cursor: pointer;
 }
+
+.ps-img-btn{
+    float: left;
+    margin-top: 5px;
+}
