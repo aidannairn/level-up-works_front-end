@@ -1,6 +1,6 @@
 #auth-modal-bg {
   display: flex;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;

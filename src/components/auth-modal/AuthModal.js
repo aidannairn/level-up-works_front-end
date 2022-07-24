@@ -56,7 +56,7 @@ const AuthModal = ({ setIsModalVisible }) => {
   }
 
   const teachersForm = {
-    image: 'XQDlhdD7TsCEhb8uMm7Z',
+    image: 'PkNmErS5CB8oj3yBA8zw',
     heading: 'Teachers',
     type: 'Teacher'
   }

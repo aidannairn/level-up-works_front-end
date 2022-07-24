@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Project = ({ title, image }) => {
   return (
@@ -17,6 +17,7 @@ const Skill = ({ bgImage }) => {
 
 const ProjectsAndSkills = () => {
   const [galleryImg, setGalleryImg] = useState('images/homepage/laptop-gallery/laptop-1.png')
+  const [activeGalleryBtn, setActiveGalleryBtn] = useState('1')
 
   const handleGalleryInputChange = (e) => {
     setGalleryImg(`images/homepage/laptop-gallery/${e.target.value}.png`)
@@ -36,6 +37,12 @@ const ProjectsAndSkills = () => {
     { image: 'technology' }
   ]
 
+  const handleGalleryBtnClick = (activeBtn) => {
+    setActiveGalleryBtn(activeBtn)
+    setGalleryImg(`images/homepage/laptop-gallery/laptop-${activeBtn}.png`)
+  }
+
+  
   return (
     <div id="hmpg-pas-container">
       <div id="hmpg-projects-and-gallery">
@@ -55,12 +62,24 @@ const ProjectsAndSkills = () => {
         </div>
         <div id="hmpg-pas-gallery-container">
           <img src={galleryImg} alt="" />
-          <form action="">
-            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-1" onChange={handleGalleryInputChange} defaultChecked/>
-            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-2" onChange={handleGalleryInputChange} />
-            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-3" onChange={handleGalleryInputChange} />
-            <input type="radio" className='hmpg-gallery-select-input' name="laptop-img" value="laptop-4" onChange={handleGalleryInputChange} />
-          </form>
+          <div id="hmpg-gallery-btns">
+            <div 
+              className={`hmpg-gallery-btn ${activeGalleryBtn === '1' ? 'active' : ''}`} 
+              onClick={() => handleGalleryBtnClick('1')}>
+            </div>
+            <div 
+              className={`hmpg-gallery-btn ${activeGalleryBtn === '2' ? 'active' : ''}`} 
+              onClick={() => handleGalleryBtnClick('2')}>
+            </div>
+            <div 
+              className={`hmpg-gallery-btn ${activeGalleryBtn === '3' ? 'active' : ''}`} 
+              onClick={() => handleGalleryBtnClick('3')}>
+            </div>
+            <div 
+              className={`hmpg-gallery-btn ${activeGalleryBtn === '4' ? 'active' : ''}`} 
+              onClick={() => handleGalleryBtnClick('4')}>
+            </div>
+          </div>
         </div>
       </div>
       <div id="hmpg-skills-container">
