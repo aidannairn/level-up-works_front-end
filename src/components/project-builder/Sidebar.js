@@ -49,9 +49,6 @@ const Sidebar = props => {
         {projectItems.map((projectItem, index) => {
           const { content, contents } = projectItem
           const includesContents = contents && contents.length
-<<<<<<< HEAD
-          if (true) {
-=======
           
           let contentType
           const projectItemKeys = Object.keys(projectItem)
@@ -59,7 +56,6 @@ const Sidebar = props => {
           if (projectItemKeys.includes('contents')) contentType = 'contents'
 
           if (((!content && content !== null) && (!contents && contents !== null)) || (content || includesContents)) {
->>>>>>> main
             return <SidebarView key={index}
               projectItem={projectItem}
               currentMenuItem={currentMenuItem}

@@ -6,10 +6,6 @@ import MakeProject from '../components/project-builder/MakeProject'
 import SubmitProject from '../components/project-builder/SubmitProject'
 import ProjectBuilder from '../components/project-builder/ProjectBuilder'
 
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 const StudentBuilder = () => {
   const [projectIndex, setProjectIndex] = useState(0)
   const [project, setProject] = useState({})
@@ -19,30 +15,6 @@ const StudentBuilder = () => {
 
   const { REACT_APP_URL: url } = process.env
 
-<<<<<<< HEAD
-    useEffect(() => {
-      axios.get(`${url}/student/project/`)
-      .then(res => { setProjectBarCount(res.data.totalProjects) })
-    }, [])
-  
-    useEffect(() => {
-      setProject({})
-      axios.get(`${url}/student/project/${projectIndex + 1}`)
-      .then(res => { 
-        setProject(res.data)
-      })
-    }, [projectIndex])
-
-    useEffect(() => {
-        setProject({});
-        axios
-            .get(`${url}/student/project/${projectIndex + 1}`)
-            .then((res) => {
-                console.log(res.data);
-                setProject(res.data);
-            });
-    }, [projectIndex]);
-=======
   useEffect(() => {
     axios.get(`${url}/student/project/`)
     .then(res => { setProjectBarCount(res.data.totalProjects) })
@@ -53,7 +25,6 @@ const StudentBuilder = () => {
     axios.get(`${url}/student/project/${projectIndex + 1}`)
     .then(res => {  setProject(res.data) })
   }, [projectIndex])
->>>>>>> main
 
   useEffect(() => {
     setProject({})
@@ -81,8 +52,6 @@ const StudentBuilder = () => {
     { name: "More Projects", action: "" },
   ]
 
-<<<<<<< HEAD
-=======
   const projectBar = {
     heading: projectBarHeading,
     projects: projectBarCount,
@@ -91,7 +60,6 @@ const StudentBuilder = () => {
   }
   // END Header Props
 
->>>>>>> main
   // START Student Project Builder Views
   const makeProject = { 
     id: 'makeProject',
