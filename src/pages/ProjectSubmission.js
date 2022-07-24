@@ -1,7 +1,7 @@
 import MainHeader from "../components/header/MainHeader";
 import "../styles/projectSubmission.css";
 import ProjectBuilder from "../components/project-builder/ProjectBuilder";
-import HelpRequests from "../components/project-submission/HelpRequests";
+import HelpRequests from "../components/help-request/HelpRequests";
 import ProgressTracker from "../components/project-submission/ProgressTracker";
 import ProjectLibrary from "../components/project-submission/ProjectLibrary";
 import StudentProfiles from "../components/project-submission/StudentProfiles";

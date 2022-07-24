@@ -5,12 +5,13 @@ import ProjectLibraryFilterButtons from "../components/project-library-v/project
 import ProjectLibraryContent from "../components/project-library-v/projectLibraryContent";
 import ProjectLibraryPageButtons from "../components/project-library-v/projectLibraryPageButtons";
 import Footer from "../components/MainFooter";
-import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/project-library-v/projectLibrary.css";
 import LoadingScreen from "../components/LoadingScreen";
+import MainHeader from "../components/header/MainHeader";
+import AuthModal from "../components/auth-modal/AuthModal";
 
 export default function ProjectLibraryTeacher() {
     const [projectData, setProjectData] = useState([]);
@@ -20,6 +21,7 @@ export default function ProjectLibraryTeacher() {
     const [showAmount, setShowAmount] = useState(1000);
     const [teacherName, setTeacherName] = useState([]);
     const [teacherPic, setTeacherPic] = useState([]);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     useEffect(() => {
         axios.get(`http://localhost:4000/project-library`).then((res) => {
@@ -30,6 +32,12 @@ export default function ProjectLibraryTeacher() {
             setIsLoading(false);
         });
     }, []);
+
+    const navLinks = [
+        { name: `Home`, route: "#" },
+        { name: `Features`, route: "#" },
+        { name: `Teachers`, route: "#" },
+    ];
 
     const levelFilter = (e) => {
         switch (e.target.value) {
@@ -80,7 +88,12 @@ export default function ProjectLibraryTeacher() {
     }
     return (
         <>
-            <ProjectLibraryHeader teacherName={teacherName} teacherPic={teacherPic} />
+            {/* <ProjectLibraryHeader teacherName={teacherName} teacherPic={teacherPic} /> */}
+            <MainHeader
+                layout="1"
+                navLinks={navLinks}
+                setIsModalVisible={setIsModalVisible}
+            />
             <div className="pl-container">
                 <ProjectLibrarySidebar sub={sub} />
                 <div className="pl-body">

@@ -1,19 +1,23 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
-const ProjectSubmissionBox = ({
-    tick,
-    item: { studentID, dateSubmitted, firstname, profilePic, submission, time },
-}) => {
-    useEffect(() => {
-        setCheckbox(false);
-        setClicked(true);
-    }, [studentID],[submission]);
+const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
+    // const { tick, item } = props;
+    const {
+        studentID,
+        dateSubmitted,
+        firstname,
+        projectid,
+        profilePic,
+        submission,
+        time,
+    } = item;
 
     const [checkbox, setCheckbox] = useState(false);
-    const tickCheckbox = () => setCheckbox(!checkbox);
+    const tickCheckbox = () => {
+        setCheckbox(!checkbox);
+    };
 
     const [clicked, setClicked] = useState(true);
     const handleClick = () => setClicked(!clicked);
@@ -23,6 +27,12 @@ const ProjectSubmissionBox = ({
 
     let date = new Date(dateSubmitted);
 
+    useEffect(() => {
+        console.log(`unique`, uniqueID);
+        setCheckbox(false);
+        setClicked(true);
+    }, [uniqueID]);
+
     return (
         <>
             <div className="white-box-container">
@@ -31,23 +41,24 @@ const ProjectSubmissionBox = ({
                         className="ticky"
                         onClick={tickCheckbox}
                         type="checkbox"
-                        id={studentID}
-                        value={submission}
+                        id={projectid}
+                        value={studentID}
                         checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
                 </label>
                 {/* Double click fixed issue of single & modal not working */}
-                <div className="white-box-inner-container" onDoubleClick={handleClick}>
-                    <div
-                        className="project-submission-profile-pic"
-                        // onClick={handleClick}
-                    >
+                <div
+                    className="white-box-inner-container"
+                    onDoubleClick={handleClick}
+                >
+                    <div className="project-submission-profile-pic">
                         <img
                             src={`https://cdn.filestackcontent.com/${profilePic}`}
                             alt="Student Pic"
                             width={50}
+                            height={50}
                         />
                     </div>
 
@@ -68,15 +79,19 @@ const ProjectSubmissionBox = ({
                                         onClick={triggerModal}
                                         src={submission}
                                         alt="Submitted Project"
-                                        width={200}
+                                        width={150}
+                                        height={150}
                                     />{" "}
                                     <br></br>
-                                    <img
-                                        onClick={triggerModal}
-                                        src="images/projectSubmission/zoom-icon.svg"
-                                        alt="zoom icon"
-                                    />{" "}
-                                    &nbsp; ENLARGE PHOTO
+                                    <div className="ps-zoom-div">
+                                        <img
+                                            onClick={triggerModal}
+                                            className="ps-zoom-icon"
+                                            src="images/projectSubmission/zoom-icon.svg"
+                                            alt="zoom icon"
+                                        />
+                                        ENLARGE PHOTO
+                                    </div>
                                 </div>
                                 {showModal && (
                                     <Modal

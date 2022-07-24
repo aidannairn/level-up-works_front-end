@@ -1,18 +1,18 @@
 .project-submission-content-parent{
     display: flex;
-    height: 85vh;
+    height: 95%;
     width: 100%;
 }
 
 
 .project-submission-content-container{
     background-color: #d7f3ff;
-    border-radius: 25px;
     align-items: center;
     display: flex;
     margin: auto;
-    height: 85%;
-    width: 94%;
+    margin-top: 1%;
+    height: 100%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     overflow-y: scroll;
@@ -40,19 +40,18 @@
 .project-submission-content-titles{
     display: flex;
     flex-direction: row;
-    width: 75vw;
-    justify-content: space-between;
+    width: 90%;
     font-weight: 600;
     color: #707070;
     font-family: 'Open Sans';
-    font-size: 24px;
     white-space: nowrap;
+    align-items: flex-end;
+    margin-left: -3%;
 }
 
 
 .project-submission-white-space{
-    width: auto;
-    width: 28vw;
+    width: 55%
 }
 
 .project-submission-content-display{
@@ -64,8 +63,13 @@
     width: 4em;
 }
 
+.project-submission-header{
+    font-size: 24px;
+}
+
 .project-complete-btn, .project-download-btn{
     cursor: pointer;
+    font-size: 18px;
 }
 
 .ps-img-btn{
