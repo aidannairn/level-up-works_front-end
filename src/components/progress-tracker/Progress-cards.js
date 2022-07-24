@@ -21,12 +21,12 @@ function ProgressCards({ studentData }) {
             console.log(studentData.firstName, project.dateCompleted)
             return(
               <div className='progress'>
-                <h2 style={{ 
+                <div className='progressCircles' style={{ 
                  backgroundColor: project.dateCompleted > '1899-11-29T12:30:00.000Z' 
                  ? '#99EDCC' 
                  : '#fff'}}>
-                {project.projectID}
-                </h2>
+                <h2>{project.projectID}</h2>
+                </div>
               </div>
            )
           

@@ -60,7 +60,10 @@
     list-style-type: none;
   }
 
-.progress h2{
+.progressCircles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 35px;
   height: 35px;
   padding: 0px 0px 0px 0px;
@@ -72,6 +75,10 @@
   border-radius: 50%;
   border-width: 1px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.progressCircles h2 {
+  font-size: medium;
 }
 
 
