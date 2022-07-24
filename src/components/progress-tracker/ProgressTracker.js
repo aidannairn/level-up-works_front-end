@@ -21,9 +21,7 @@ console.log(props)
 
   const progressBars = []; 
   
-  students.map((student, index) => {
-      progressBars.push(<ProgressCards studentData={student} key={index}/>);
-  })
+  students.map((student, index) => progressBars.push(<ProgressCards studentData={student} key={index}/>))
 
   return (
     <div className="scrollable">
