@@ -49,7 +49,7 @@ const Sidebar = props => {
         {projectItems.map((projectItem, index) => {
           const { content, contents } = projectItem
           const includesContents = contents && contents.length
-          
+
           let contentType
           const projectItemKeys = Object.keys(projectItem)
           if (projectItemKeys.includes('content')) contentType = 'content'
