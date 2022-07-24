@@ -5,7 +5,7 @@ import Card from './Card'
 
 function ProgressCards({ studentData }) {
   const projectsCompletedArray = studentData.projects.filter((project) => 
-    project.dateCompleted !== '1899-11-29T12:30:00.000Z'
+    project.dateCompleted !== ('1899-11-29T12:30:00.000Z' || null)
   )
 
 
