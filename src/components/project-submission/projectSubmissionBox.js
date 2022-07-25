@@ -8,6 +8,7 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
         dateSubmitted,
         firstname,
         projectid,
+        completedid,
         profilePic,
         submission,
         time,
@@ -30,7 +31,7 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
         console.log(`unique`, uniqueID);
         setCheckbox(false);
         setClicked(true);
-    }, [uniqueID, submission]);
+    }, [uniqueID]);
 
     return (
         <>
@@ -41,7 +42,7 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={projectid}
-                        value={studentID}
+                        value={completedid}
                         checked={checkbox}
                         onChange={tick}
                     ></input>

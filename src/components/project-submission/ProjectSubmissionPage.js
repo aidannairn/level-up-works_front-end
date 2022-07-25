@@ -9,12 +9,17 @@ export default function ProjectSubmissionPage() {
     const [updatedStudent, setUpdatedStudent] = useState(false);
     const [studentKey, setStudentKey] = useState([]);
 
+    // Grab all data from students who have submitted a project
+    // When updatedStudent changes state it should run useEffect again to renew data which was pulled
+
     useEffect(() => {
         console.log(`first time`);
         axios.get(`http://localhost:4000/project-submission/`).then((res) => {
             setStudent(res.data);
         });
     }, [updatedStudent]);
+
+    // Update submission as completed matching both StudentID & ProjectID
 
     const markedAsComplete = () => {
         setUpdatedStudent(!updatedStudent);
