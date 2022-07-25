@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ProfileDetails({
     item: { FirstName, LastName, ContactNumber, DateOfBirth, Email, School },
 }) {

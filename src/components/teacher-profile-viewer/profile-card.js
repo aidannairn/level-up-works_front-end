@@ -1,4 +1,3 @@
-import React from "react";
 import "../../styles/teacher-profile-viewer/teacher-profile-viewer.css";
 
 export default function ProfileCard({ ProfilePic }) {

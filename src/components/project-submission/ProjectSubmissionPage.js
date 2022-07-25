@@ -20,12 +20,10 @@ export default function ProjectSubmissionPage() {
         setUpdatedStudent(!updatedStudent);
         setProjectKey([]);
         setStudentKey([]);
-        axios
-            .put(`http://localhost:4000/project-submission/complete`, {
-                projectKey,
-                studentKey,
-            })
-            .then((res) => {});
+        axios.put(`http://localhost:4000/project-submission/complete`, {
+            projectKey,
+            studentKey,
+        });
     };
 
     const tick = (e) => {
@@ -42,10 +40,7 @@ export default function ProjectSubmissionPage() {
                             PROJECT SUBMISSIONS
                         </div>
                         <span className="project-submission-white-space"></span>
-                        <div
-                            className="project-download-btn"
-                            // onClick={downloadReady ? downloadFunction : null} // onClick was logging errors so used ternary expression to disable it until conditions were met.
-                        >
+                        <div className="project-download-btn">
                             <img
                                 className="ps-img-btn"
                                 src="images/projectSubmission/download-icon.svg"

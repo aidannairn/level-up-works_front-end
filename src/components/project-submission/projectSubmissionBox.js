@@ -3,7 +3,6 @@ import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
 const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
-    // const { tick, item } = props;
     const {
         studentID,
         dateSubmitted,
@@ -31,7 +30,7 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
         console.log(`unique`, uniqueID);
         setCheckbox(false);
         setClicked(true);
-    }, [uniqueID]);
+    }, [uniqueID, submission]);
 
     return (
         <>
@@ -48,7 +47,6 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
                     ></input>
                     <span className="checkmark"></span>
                 </label>
-                {/* Double click fixed issue of single & modal not working */}
                 <div
                     className="white-box-inner-container"
                     onDoubleClick={handleClick}
