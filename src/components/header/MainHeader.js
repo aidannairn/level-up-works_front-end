@@ -26,6 +26,7 @@ const UserOptions = ({ logout }) => {
     <div id="user-options-container">
       <div id="user-options-arrow"></div>
       <div id="user-options">
+        {/* The following line routes to the teacher profile. Realistically it should route to either the student OR teacher profile. But nobody was assigned that page. */}
         <h4 className="user-option"><Link to='/teacher-profile'>My Profile</Link></h4>
         <h4 className="user-option">Settings</h4>
         <h4 className="user-option" onClick={logout} >Log out</h4>

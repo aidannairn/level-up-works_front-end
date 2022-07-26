@@ -6,6 +6,7 @@ const AlertMessage = ({ res }) => {
   const [isAlertVisible, setIsAlertVisible] = useState(true)
 
   useEffect(() => {
+    // When the AlertMessage is rendered. Display the AlertMessage for X amount of time. Then hide the alert.
     setTimeout(() => {
       setIsAlertVisible(false)
     }, 6000)
