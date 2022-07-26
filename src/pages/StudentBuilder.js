@@ -61,6 +61,7 @@ const StudentBuilder = () => {
   // END Header Props
 
   // START Student Project Builder Views
+  /* Project builder views are the "pages" of content that are to be rendered when an item in the Sidebar is clicked. Each project item should include a uniqueID, component to be rendered, a heading and icon to be displayed in the sidebar. There is also an optional "content" or "contents" field that can be used to pass content to the component later. */
   const makeProject = { 
     id: 'makeProject',
     component: MakeProject,
@@ -112,6 +113,7 @@ const StudentBuilder = () => {
   // END Student Project Builder Views
 
   const projectItems = [
+    /* The next three lines are creating a reference to three components that are being used within another page. Each row is given the content to be rendered. The project item for each row will be created in the ProjectBuilder component. */
     { learningObjectives: project.learningObjectives },
     { instructions: project.instructions },
     { video: project.video },
@@ -121,6 +123,7 @@ const StudentBuilder = () => {
     takeTheQuiz,
   ]
 
+  /* If the project is loading - render a loading screen. Otherwise render the content. */
   return isLoading ? (
     <LoadingScreen />
   ) : (

@@ -28,6 +28,7 @@ const UserProvider = ({ children }) => {
   
   const refreshToken = async () => {
     try {
+      // Get a user token and decode the token so that the data can be used within the application.
       const response = await axios.get(`${url}/token`)
       const decoded = jwtDecode(response.data.accessToken)
       setUserType(decoded.type)
@@ -42,7 +43,6 @@ const UserProvider = ({ children }) => {
       setTeacherID(decoded.teacherID)
       setExp(decoded.exp)
       if (userType.length) return document.location.reload()
-      console.log(fName)
     } catch (error) {
       if (error.response) {
         navigate('/', { replace: true })
@@ -87,6 +87,7 @@ const UserProvider = ({ children }) => {
   }
 
   return (
+    /* Create a UserContext Provider that will be wrapped around the Application. The values provided tothe UserContext Provider can then be used within the application without "prop drilling" */
     <UserContext.Provider value={{ userType, contactNum, course, dob, exp, fName, lName, profilePic, school, studentID, teacherID, handleUserLogout }} >
       {children}
     </UserContext.Provider>
