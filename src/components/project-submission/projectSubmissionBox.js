@@ -27,8 +27,9 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
 
     let date = new Date(dateSubmitted);
 
+    // whenever a uniqueID is removed because of markedAsComplete() from ProjectSubmissionPage, it should run useEffect and reset all check boxes and opened divs to original state
+
     useEffect(() => {
-        console.log(`unique`, uniqueID);
         setCheckbox(false);
         setClicked(true);
     }, [uniqueID]);

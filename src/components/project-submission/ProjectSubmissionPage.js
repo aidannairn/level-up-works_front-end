@@ -9,11 +9,10 @@ export default function ProjectSubmissionPage() {
     const [updatedStudent, setUpdatedStudent] = useState(false);
     const [studentKey, setStudentKey] = useState([]);
 
-    // Grab all data from students who have submitted a project
-    // When updatedStudent changes state it should run useEffect again to renew data which was pulled
+    // Grab all data from students who have submitted a project through back-end query
+    // When updatedStudent changes state it should run useEffect again to renew data which was originally pulled
 
     useEffect(() => {
-        console.log(`first time`);
         axios.get(`http://localhost:4000/project-submission/`).then((res) => {
             setStudent(res.data);
         });
@@ -71,7 +70,6 @@ export default function ProjectSubmissionPage() {
                     </div>
                     <div className="project-submission-content-display">
                         {student.map((item, index) => {
-                            console.log(`item1`, item);
                             return (
                                 <ProjectSubmissionBox
                                     key={index}

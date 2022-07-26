@@ -20,9 +20,10 @@ export default function ProjectLibraryTeacher() {
     const [showAmount, setShowAmount] = useState(1000);
     const [isModalVisible, setIsModalVisible] = useState(false);
 
+    // Grabbing all data needed for project page
+
     useEffect(() => {
         axios.get(`http://localhost:4000/project-library`).then((res) => {
-            console.log(`res`, res.data[0].profilepic);
             setProjectData(res.data);
             setIsLoading(false);
         });
@@ -33,6 +34,8 @@ export default function ProjectLibraryTeacher() {
         { name: `Features`, route: "#" },
         { name: `Teachers`, route: "#" },
     ];
+
+    // Switch case
 
     const levelFilter = (e) => {
         switch (e.target.value) {
