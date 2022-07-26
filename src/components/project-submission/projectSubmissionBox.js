@@ -3,12 +3,12 @@ import "../../styles/project-submission/projectSubmissionBox.css";
 import Modal from "../project-submission/Modal";
 
 const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
-    // const { tick, item } = props;
     const {
         studentID,
         dateSubmitted,
         firstname,
         projectid,
+        completedid,
         profilePic,
         submission,
         time,
@@ -27,8 +27,9 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
 
     let date = new Date(dateSubmitted);
 
+    // whenever a uniqueID is removed because of markedAsComplete() from ProjectSubmissionPage, it should run useEffect and reset all check boxes and opened divs to original state
+
     useEffect(() => {
-        console.log(`unique`, uniqueID);
         setCheckbox(false);
         setClicked(true);
     }, [uniqueID]);
@@ -42,13 +43,12 @@ const ProjectSubmissionBox = ({ tick, item, uniqueID }) => {
                         onClick={tickCheckbox}
                         type="checkbox"
                         id={projectid}
-                        value={studentID}
+                        value={completedid}
                         checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
                 </label>
-                {/* Double click fixed issue of single & modal not working */}
                 <div
                     className="white-box-inner-container"
                     onDoubleClick={handleClick}

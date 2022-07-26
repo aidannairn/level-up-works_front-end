@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 
 const HelpRequestBox = ({
@@ -21,22 +20,15 @@ const HelpRequestBox = ({
                         className="ticky"
                         onClick={tickCheckbox}
                         type="checkbox"
-                        id={studentID}
-                        value={submission}
-                        checked={checkbox}
                         onChange={tick}
                     ></input>
                     <span className="checkmark"></span>
                 </label>
-                {/* Double click fixed issue of single & modal not working */}
                 <div
                     className="white-box-inner-container"
                     onDoubleClick={handleClick}
                 >
-                    <div
-                        className="project-submission-profile-pic"
-                        // onClick={handleClick}
-                    >
+                    <div className="project-submission-profile-pic">
                         <img
                             src={`https://cdn.filestackcontent.com/${profilePic}`}
                             alt="Student Pic"

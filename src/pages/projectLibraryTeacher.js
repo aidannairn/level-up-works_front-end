@@ -1,4 +1,3 @@
-import ProjectLibraryHeader from "../components/project-library-v/projectLibraryHeader";
 import ProjectLibrarySidebar from "../components/project-library-v/projectLibrarySidebar";
 import ProjectLibraryMain from "../components/project-library-v/projectLibraryMain";
 import ProjectLibraryFilterButtons from "../components/project-library-v/projectLibraryFilterButtons";
@@ -19,25 +18,24 @@ export default function ProjectLibraryTeacher() {
     const [courseLevel, setCourseLevel] = useState("Beginner");
     const [subscribe, setSubscribe] = useState("Free");
     const [showAmount, setShowAmount] = useState(1000);
-    const [teacherName, setTeacherName] = useState([]);
-    const [teacherPic, setTeacherPic] = useState([]);
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    // Grabbing all data needed for project page
 
     useEffect(() => {
         axios.get(`http://localhost:4000/project-library`).then((res) => {
-            console.log(`res`, res.data[0].profilepic);
             setProjectData(res.data);
-            setTeacherName(`${res.data[0].firstname} ${res.data[0].lastname}`);
-            setTeacherPic(res.data[0].profilepic);
             setIsLoading(false);
         });
     }, []);
 
     const navLinks = [
-        { name: `Home`, route: "#" },
+        { name: `Home`, route: "/" },
         { name: `Features`, route: "#" },
         { name: `Teachers`, route: "#" },
     ];
+
+    // Switch case
 
     const levelFilter = (e) => {
         switch (e.target.value) {
@@ -88,7 +86,6 @@ export default function ProjectLibraryTeacher() {
     }
     return (
         <>
-            {/* <ProjectLibraryHeader teacherName={teacherName} teacherPic={teacherPic} /> */}
             <MainHeader
                 layout="1"
                 navLinks={navLinks}

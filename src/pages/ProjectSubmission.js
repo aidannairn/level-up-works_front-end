@@ -6,7 +6,6 @@ import ProgressTracker from "../components/project-submission/ProgressTracker";
 import ProjectLibrary from "../components/project-submission/ProjectLibrary";
 import StudentProfiles from "../components/project-submission/StudentProfiles";
 import ProjectSubmissionPage from "../components/project-submission/ProjectSubmissionPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const currentUser = {
     name: "Jasmina Salvador",
