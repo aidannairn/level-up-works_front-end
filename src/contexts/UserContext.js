@@ -43,7 +43,6 @@ const UserProvider = ({ children }) => {
       setTeacherID(decoded.teacherID)
       setExp(decoded.exp)
       if (userType.length) return document.location.reload()
-      console.log(fName)
     } catch (error) {
       if (error.response) {
         navigate('/', { replace: true })
