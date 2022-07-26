@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
 import MainHeader from "../components/header/MainHeader";
 import ProjectBuilder from "../components/project-builder/ProjectBuilder";
 import StudentProfiles from "../components/studentProfiles/StudentProfiles";
 import ProgressTracker from "../components/progress-tracker/ProgressTracker";
 import { projectLibrary, projectSubmission } from "./ProjectSubmission";
 
+//exporting 2 components below for vinni to import into his sidebar
 export const profiles = {
     id: "studentProfiles",
-    component: StudentProfiles, // Remember to import this component at the top
+    component: StudentProfiles,
     menuItem: "Student Profiles",
     icon: "student-profiles.png",
 };
@@ -43,6 +41,7 @@ const StudentProfileViewer = () => {
         icon: "help-requests.png",
     };
 
+    //Adding components to sidebar
     const projectItems = [
         tracker,
         profiles,

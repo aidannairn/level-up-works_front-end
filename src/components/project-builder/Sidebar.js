@@ -54,8 +54,8 @@ const Sidebar = props => {
           const projectItemKeys = Object.keys(projectItem)
           if (projectItemKeys.includes('content')) contentType = 'content'
           if (projectItemKeys.includes('contents')) contentType = 'contents'
-
           if (((!content && content !== null) && (!contents && contents !== null)) || (content || includesContents)) {
+
             return <SidebarView key={index}
               projectItem={projectItem}
               currentMenuItem={currentMenuItem}
