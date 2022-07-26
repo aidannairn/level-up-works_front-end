@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
-const Project = ({ title, image }) => {
+const Project = ({ title, image, handleGalleryBtnClick }) => {
   return (
-    <div className="hmpg-project-container">
+    <div className="hmpg-project-container" onClick={handleGalleryBtnClick}>
       <img src={`images/homepage/projects/${image}.png`} />
       <h4>{title}</h4>
     </div>
@@ -27,7 +27,7 @@ const ProjectsAndSkills = () => {
     { heading: 'Animation', img: 'frame' },
     { heading: 'Games', img: 'joystick' },
     { heading: 'Chatbots', img: 'robotic' },
-    { heading: 'Augmented Reality', img: 'augmented-reality' },
+    { heading: 'Augmented Reality', img: 'augmented-reality' }
   ]
 
   const skills = [
@@ -55,7 +55,7 @@ const ProjectsAndSkills = () => {
             <h3>What will students create?</h3>
             <div id="hmpg-projects">
               {projects.map((project, index) => {
-              return <Project key={index} title={project.heading} image={project.img} />
+              return <Project key={index} title={project.heading} handleGalleryBtnClick={() => handleGalleryBtnClick(index + 1)} image={project.img} />
               })}
             </div>
           </div>
@@ -64,19 +64,19 @@ const ProjectsAndSkills = () => {
           <img src={galleryImg} alt="" />
           <div id="hmpg-gallery-btns">
             <div 
-              className={`hmpg-gallery-btn ${activeGalleryBtn === '1' ? 'active' : ''}`} 
+              className={`hmpg-gallery-btn ${activeGalleryBtn == '1' ? 'active' : ''}`} 
               onClick={() => handleGalleryBtnClick('1')}>
             </div>
             <div 
-              className={`hmpg-gallery-btn ${activeGalleryBtn === '2' ? 'active' : ''}`} 
+              className={`hmpg-gallery-btn ${activeGalleryBtn == '2' ? 'active' : ''}`} 
               onClick={() => handleGalleryBtnClick('2')}>
             </div>
             <div 
-              className={`hmpg-gallery-btn ${activeGalleryBtn === '3' ? 'active' : ''}`} 
+              className={`hmpg-gallery-btn ${activeGalleryBtn == '3' ? 'active' : ''}`} 
               onClick={() => handleGalleryBtnClick('3')}>
             </div>
             <div 
-              className={`hmpg-gallery-btn ${activeGalleryBtn === '4' ? 'active' : ''}`} 
+              className={`hmpg-gallery-btn ${activeGalleryBtn == '4' ? 'active' : ''}`} 
               onClick={() => handleGalleryBtnClick('4')}>
             </div>
           </div>

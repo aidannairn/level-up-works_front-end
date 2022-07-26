@@ -1,3 +1,5 @@
-export default function ProgressTracker() {
-    return <div>ProgressTracker</div>;
+import ProgressTracker from "../progress-tracker/ProgressTracker";
+
+export default function ProgressTrackerPage() {
+    return <ProgressTracker />;
 }
