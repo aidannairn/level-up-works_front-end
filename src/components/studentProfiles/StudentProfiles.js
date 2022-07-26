@@ -20,6 +20,7 @@ const StudentProfiles = () => {
 
   const studentCards = [];
 
+  //mapping through data from back end to pass to Student-cards component.
   students.map((student, index) => (
     studentCards.push(<StudentCards studentData={student} key={index} />)
   ))

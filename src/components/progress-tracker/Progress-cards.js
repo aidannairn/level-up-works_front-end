@@ -4,10 +4,10 @@ import Card from './Card'
 
 
 function ProgressCards({ studentData }) {
+  //checking if project it completed or not to be coloured in.
   const projectsCompletedArray = studentData.projects.filter((project) => 
     project.dateCompleted !== ('1899-11-29T12:30:00.000Z' || null)
   )
-
 
     return (
 <div className='studentBars'>
@@ -22,6 +22,7 @@ function ProgressCards({ studentData }) {
             return(
               <div className='progress'>
                 <div className='progressCircles' style={{ 
+                  //checking to see if project is complete, to colour in
                  backgroundColor: project.dateCompleted > '1899-11-29T12:30:00.000Z' 
                  ? '#99EDCC' 
                  : '#fff'}}>
