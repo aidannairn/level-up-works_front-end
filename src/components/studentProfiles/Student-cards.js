@@ -1,5 +1,3 @@
-import Card from "../progress-tracker/Card";
-
 
 
 function StudentCards({ studentData }) {

@@ -20,7 +20,7 @@ console.log(props)
   }, [])
 
   const progressBars = []; 
-  
+  //mapping through data from back end to pass to progress-cards component.
   students.map((student, index) => progressBars.push(<ProgressCards studentData={student} key={index}/>))
 
   return (
